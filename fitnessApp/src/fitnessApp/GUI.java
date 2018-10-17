@@ -18,7 +18,7 @@ public class GUI extends Application {
 	private Button logActivity;
 	private Button newWeight;
 	private Button viewData;
-
+	private Button calcBMI;
 
 
 	public static void main(String[] args) {
@@ -36,13 +36,16 @@ public class GUI extends Application {
 		logActivity = new Button("Log Activity");
 		newWeight = new Button("New Weight");
 		viewData = new Button("View Data");
-		controlsLayout.getChildren().addAll(logActivity, newWeight, viewData);
+		calcBMI = new Button("Calculate BMI");
+		controlsLayout.getChildren().addAll(logActivity, newWeight, viewData, calcBMI);
 		controlsLayout.setStyle("-fx-background-color: #dfe6e9; -fx-padding: 5px");
 		logActivity.setStyle("-fx-min-width: 115px; -fx-padding:4px 8px; -fx-background-color: white; " +
 				"-fx-border-color: gray; -fx-border-radius: 5px; -fx-font-size: 13px");
 		newWeight.setStyle("-fx-min-width: 115px; -fx-padding:4px 8px; -fx-background-color: white; " +
 				"-fx-border-color: gray; -fx-border-radius: 5px; -fx-font-size: 13px");
 		viewData.setStyle("-fx-min-width: 115px; -fx-padding:4px 8px; -fx-background-color: white; " +
+				"-fx-border-color: gray; -fx-border-radius: 5px; -fx-font-size: 13px");
+		calcBMI.setStyle("-fx-min-width: 115px; -fx-padding:4px 8px; -fx-background-color: white; " +
 				"-fx-border-color: gray; -fx-border-radius: 5px; -fx-font-size: 13px");
 		// center: main content
 		VBox centerView = new VBox(10);
