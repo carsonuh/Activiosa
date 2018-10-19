@@ -121,7 +121,7 @@ public class GUI extends Application {
 
 		public void associateStyles() {
 			//link stylesheet
-			scene.getStylesheets().add("main.css");
+			scene.getStylesheets().add("fitnessApp/main.css");
 
 			//layouts
 			bmiLayout.getStyleClass().add("centralView");

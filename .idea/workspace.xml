@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dccd0521-61f4-4d06-bc98-0914fd5d5b37" name="Default Changelist" comment="" />
+    <list default="true" id="dccd0521-61f4-4d06-bc98-0914fd5d5b37" name="Default Changelist" comment="Added more to UI and finished BMI section">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.mylyn/tasks.xml.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.mylyn/tasks.xml.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitnessApp/src/fitnessApp/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/fitnessApp/src/fitnessApp/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitnessApp/src/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitnessApp/src/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/fitnessApp/src/fitnessApp/main.css" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,11 +19,12 @@
     <session id="938960492">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.8" value="3" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.8" value="4" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -60,27 +67,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fitnessApp/src/fitnessApp/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
+            <state relative-caret-position="159">
               <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fitnessApp/src/main.css">
+        <entry file="file://$PROJECT_DIR$/fitnessApp/src/fitnessApp/main.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="646">
               <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.idea/fitnessApp.iml">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -111,8 +113,8 @@
         <option value="$PROJECT_DIR$/fitnessApp/src/fitnessApp/main.java" />
         <option value="$PROJECT_DIR$/fitnessApp/src/fitnessApp/Activities.java" />
         <option value="$PROJECT_DIR$/fitnessApp/src/fitnessApp/fitnessApp.plantuml" />
-        <option value="$PROJECT_DIR$/fitnessApp/src/fitnessApp/GUI.java" />
         <option value="$PROJECT_DIR$/fitnessApp/src/main.css" />
+        <option value="$PROJECT_DIR$/fitnessApp/src/fitnessApp/GUI.java" />
       </list>
     </option>
   </component>
@@ -128,7 +130,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="15" />
     <option name="y" value="30" />
     <option name="width" value="1890" />
@@ -169,7 +171,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539847120224" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539847139527" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -223,7 +225,9 @@
       <workItem from="1539808674643" duration="83000" />
       <workItem from="1539808783461" duration="10499000" />
       <workItem from="1539827484909" duration="141000" />
-      <workItem from="1539839370368" duration="7675000" />
+      <workItem from="1539839370368" duration="7929000" />
+      <workItem from="1539881441074" duration="612000" />
+      <workItem from="1539968489707" duration="615000" />
     </task>
     <task id="LOCAL-00001" summary="Added Activities">
       <created>1539801666985</created>
@@ -250,7 +254,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21337000" />
+    <option name="totallyTimeSpent" value="22818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -264,7 +268,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27044535" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28016195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -278,7 +282,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32924694" />
-      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32924694" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32924694" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -325,27 +329,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fitnessApp/src/fitnessApp/Activities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fitnessApp/src/fitnessApp/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fitnessApp/src/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fitnessApp/fitnessApp.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -355,6 +338,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/fitnessApp.iml">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitnessApp/src/fitnessApp/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitnessApp/src/fitnessApp/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitnessApp/src/fitnessApp/Activities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
