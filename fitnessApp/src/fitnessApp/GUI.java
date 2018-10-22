@@ -1,5 +1,8 @@
 package fitnessApp;
 
+import java.io.File;
+import java.net.MalformedURLException;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -119,9 +122,11 @@ public class GUI extends Application {
 		actions();
 	}
 
-		public void associateStyles() {
+		public void associateStyles() throws MalformedURLException {
 			//link stylesheet
-			scene.getStylesheets().add("fitnessApp/main.css");
+			scene.getStylesheets().add(new File("src/fitnessApp/main.css").toURI().toURL().toString());
+			
+			
 
 			//layouts
 			bmiLayout.getStyleClass().add("centralView");
@@ -149,5 +154,8 @@ public class GUI extends Application {
 			activityButton.setOnAction(e -> mainLayout.setCenter(activityLayout));
 
 		}
+		
+		
+		
 	}
 
