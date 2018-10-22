@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dccd0521-61f4-4d06-bc98-0914fd5d5b37" name="Default Changelist" comment="Added more to UI and finished BMI section">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.metadata/.mylyn/tasks.xml.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.mylyn/tasks.xml.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitnessApp/src/fitnessApp/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/fitnessApp/src/fitnessApp/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitnessApp/src/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitnessApp/src/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/fitnessApp/src/fitnessApp/main.css" afterDir="false" />
+    <list default="true" id="dccd0521-61f4-4d06-bc98-0914fd5d5b37" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/fitnessApp/.markers" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/fitnessApp/.markers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.root/3.tree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/1462432172.index" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/1462432172.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +21,7 @@
     <session id="938960492">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.7" value="2" />
@@ -52,14 +54,14 @@
           <entry key="css" value="667" />
           <entry key="java" value="4459" />
           <entry key="plantuml" value="7" />
-          <entry key="txt" value="76" />
+          <entry key="txt" value="93" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="669" />
           <entry key="JAVA" value="4457" />
-          <entry key="PLAIN_TEXT" value="76" />
+          <entry key="PLAIN_TEXT" value="93" />
           <entry key="PlantUML file" value="7" />
         </counts>
       </usages-collector>
@@ -178,6 +180,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\carso\Documents\GitHub\fitnessApp\fitnessApp\src\fitnessApp" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -227,7 +234,7 @@
       <workItem from="1539827484909" duration="141000" />
       <workItem from="1539839370368" duration="7929000" />
       <workItem from="1539881441074" duration="612000" />
-      <workItem from="1539968489707" duration="615000" />
+      <workItem from="1539968489707" duration="1269000" />
     </task>
     <task id="LOCAL-00001" summary="Added Activities">
       <created>1539801666985</created>
@@ -250,11 +257,18 @@
       <option name="project" value="LOCAL" />
       <updated>1539846885043</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Moved stylesheet">
+      <created>1539970807146</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1539970807146</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22818000" />
+    <option name="totallyTimeSpent" value="23472000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -309,7 +323,8 @@
     <MESSAGE value="Added Activities" />
     <MESSAGE value="Updated the UI" />
     <MESSAGE value="Added more to UI and finished BMI section" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more to UI and finished BMI section" />
+    <MESSAGE value="Moved stylesheet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved stylesheet" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/fitnessApp.plantuml" />

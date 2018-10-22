@@ -1,0 +1,2 @@
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>Fixed an issue where Eclipse wouldn&apos;t load the stylesheet. CSS file&\#x0A;should now be functional in Eclipse.</message>\r\n</messages>
+eclipse.preferences.version=1
