@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -15,7 +16,11 @@ public class GUI extends Application {
 	private Scene scene;
 
 	//Layouts
-	private VBox controlsLayout, homeLayout, bmiLayout, dataLayout, mealsLayout, weightLayout, activityLayout;
+	private VBox controlsLayout, homeLayout, bmiLayout;
+	protected VBox dataLayout;
+	private VBox mealsLayout;
+	private VBox weightLayout;
+	private VBox activityLayout;
 	private BorderPane mainLayout;
 
 	//Buttons
@@ -31,10 +36,9 @@ public class GUI extends Application {
 	private Label weightTitle;
 	private Label activityTitle;
 	private Label mealsTitle;
-	private Label dataTitle;
+	protected Label dataTitle;
 	private Label homeTitle;
-
-
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		launch(args);
@@ -47,20 +51,30 @@ public class GUI extends Application {
 
 		// left: controls and buttons
 		controlsLayout = new VBox(20);
-		activityButton = new Button("Activity");
-		weightButton = new Button("Weight");
-		mealsButton = new Button("Meals");
-		dataButton = new Button("View Data");
+		activityButton = new Button();
+		activityButton.setId("activity");
+		activityButton.setTooltip(new Tooltip("Activities"));
+		weightButton = new Button();
+		weightButton.setId("weight");
+		weightButton.setTooltip(new Tooltip("Weight"));
+		mealsButton = new Button();
+		mealsButton.setId("meals");
+		mealsButton.setTooltip(new Tooltip("Meals"));
+		dataButton = new Button();
+		dataButton.setId("activitylog");
+		dataButton.setTooltip(new Tooltip("Activity Log"));
 		bmiButton = new Button("BMI");
-		controlsLayout.getChildren().addAll(activityButton, weightButton, mealsButton, bmiButton, dataButton);
+		controlsLayout.getChildren().addAll(activityButton, weightButton, mealsButton, dataButton);
 
 
+		
 		//Data Layout
 		 dataLayout = new VBox(10);
 		 dataTitle = new Label("View Data");
 		 dataLayout.getChildren().addAll(dataTitle);
+		 
 
-		//Data Layout
+		//Activity Layout
 		activityLayout = new VBox(10);
 		activityTitle = new Label("Activities");
 		activityLayout.getChildren().addAll(activityTitle);
