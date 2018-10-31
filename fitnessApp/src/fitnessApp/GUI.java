@@ -1,5 +1,8 @@
 package fitnessApp;
 
+import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -39,13 +42,23 @@ public class GUI extends Application {
 	protected Label dataTitle;
 	private Label homeTitle;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NoSuchAlgorithmException  {
 		// TODO Auto-generated method stub
-		launch(args);
+		
+	launch(args);
+	db DB = new db();
+	DB.connect();
+	
+	//DB.insertUsers("user1", "begin");
+	DB.updateUsers(1, "Carson Uecker-Herman", "Cookie28");
+	
+	DB.shutdown();
+	
 	}
 
 	public void start(Stage primaryStage) throws Exception {
 		window  = primaryStage;
+		
 
 		mainLayout = new BorderPane();
 
