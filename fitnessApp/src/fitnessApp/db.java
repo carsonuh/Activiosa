@@ -64,7 +64,7 @@ public class db {
 	
 	//INSERT WEIGHT
 	public void insertWeight(int id, Date date, double weight) {
-		int height = getAccountInfoAll(id).currentWeight;
+		double bmi = 0.00;
 		String sql = "INSERT INTO WEIGHT(date, weight, bmi)" +
 		"VALUES('"+date+"', '"+weight+"', '"+bmi+"')" +
 		"WHERE user_id="+id;
