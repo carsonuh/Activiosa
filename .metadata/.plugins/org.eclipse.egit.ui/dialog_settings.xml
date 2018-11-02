@@ -10,14 +10,20 @@
 	</list>
 	<section name="GitImportWizard">
 	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item value="662" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-21|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="445" key="DIALOG_HEIGHT"/>
+		<item value="542" key="DIALOG_X_ORIGIN"/>
+		<item value="356" key="DIALOG_Y_ORIGIN"/>
+		<list key="sashWeights">
+			<item value="600"/>
+			<item value="400"/>
+		</list>
+	</section>
 	<section name="GitCommitMessageComponent">
 		<list key="C:\Users\carso\Documents\GitHub\fitnessApp\.git">
-			<item value="false"/>
-			<item value="carsonuh &lt;carsonueckerherman@gmail.com&gt;"/>
-			<item value="Added UML"/>
-			<item value="carsonuh &lt;carsonueckerherman@gmail.com&gt;"/>
-			<item value="cf2b095776e0c676cb29a3de9d1b6c803c7cb259"/>
-			<item value="0"/>
+			<item value="empty"/>
 		</list>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
