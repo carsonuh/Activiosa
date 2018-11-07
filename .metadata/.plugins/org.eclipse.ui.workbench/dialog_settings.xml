@@ -29,4 +29,8 @@
 		<item value="87" key="DIALOG_X_ORIGIN"/>
 		<item value="-73" key="DIALOG_Y_ORIGIN"/>
 	</section>
+	<section name="ImportExportAction">
+	</section>
+	<section name="FileSystemImportWizard">
+	</section>
 </section>

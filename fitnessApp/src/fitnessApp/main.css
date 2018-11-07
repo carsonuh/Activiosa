@@ -12,20 +12,20 @@
 }
 
 #activity {
-    -fx-background-image: url("images/activity.png");
+    -fx-background-image: url("../images/activity.png");
 }
 
 #meals {
-	 -fx-background-image: url("images/meals.png");
+	 -fx-background-image: url("../images/meals.png");
 }
 
 #activitylog {
-	 -fx-background-image: url("images/log.png");
+	 -fx-background-image: url("../images/log.png");
 }
 
 #weight {
 	 -fx-background-size: 22px 22px;
-	 -fx-background-image: url("images/weight.png");
+	 -fx-background-image: url("../images/weight.png");
 }
 
 .button:focused {

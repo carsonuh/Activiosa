@@ -45,7 +45,3 @@ snacks int,
 foreign key(user_id) references USERS(id) ON DELETE CASCADE
 );
 
-drop TABLE USERS; drop table ACCOUNTINFO; drop table WEIGHT; drop table EXERCISE; DROP table MEALS;
-
-insert into USERS(username, password) values('Carson', 'pass')
-SELECT * from USERS
