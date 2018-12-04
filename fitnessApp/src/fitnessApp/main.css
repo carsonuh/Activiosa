@@ -1,65 +1,340 @@
-.button {
-    -fx-min-width: 45px;
-    -fx-min-height: 45px;
-    -fx-background-color: #64808e;
+@font-face {
+    src: url('../Neue.otf');
+}
+
+.root{
+-fx-font-family: 'HelveticaNeue-MediumCond';
+ -fx-faint-focus-color: none;
+ -fx-background-color: transparent;
+ -fx-control-inner-background: white;
+ -fx-text-box-border: none;
+ -fx-box-border: transparent;
+}
+
+.label {
+		-fx-text-fill: #474D53;
+}
+
+.nav-menu-button {
+    -fx-min-width: 67px;
+    -fx-min-height: 67px;
     -fx-background-color: #455a64;
     -fx-font-size: 13px;
-    -fx-background-radius: 10px;
-    -fx-background-size: 28px 28px;
-    -fx-border-radius: 10px;
+    -fx-background-radius: 50px;
+    -fx-background-size: 35px 35px;
+    -fx-border-radius: 50px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
 
 #activity {
-    -fx-background-image: url("../images/activity.png");
+    -fx-background-image: url("../images/activities.png");
+    -fx-background-color: #20bf6b;
 }
 
 #meals {
 	 -fx-background-image: url("../images/meals.png");
-}
-
-#activitylog {
-	 -fx-background-image: url("../images/log.png");
+	 -fx-background-color: #f7b731;
 }
 
 #weight {
-	 -fx-background-size: 22px 22px;
 	 -fx-background-image: url("../images/weight.png");
+	 -fx-background-color: #fa8231;
 }
 
-.button:focused {
-	 -fx-background-color:rgba(0,0,0,.13)
+
+#profile {
+	-fx-background-image: url("../images/user.png");
+	-fx-background-color: #eb3b5a;
+}
+
+#home {
+	-fx-background-image: url("../images/home.png");
+	-fx-background-color: #0fb9b1;
+}
+
+.button:focused, .sub-menu-active {
+	-fx-effect: dropshadow( three-pass-box , #ffffff , 2, 1 , 0 , 0 );
+	-fx-background-insets: 0,0,0,0,0;
+}
+
+.sub-menu-passive {
+	-fx-effect: dropshadow( three-pass-box , #ffffff , 0, 0 , 0 , 0 );
+	-fx-background-insets: 0,0,0,0,0;
+}
+
+#dateLbl, #caloriesLbl, #weightLbl {
+	-fx-text-fill: #474D53;
+	-fx-font-size: 2.3em;
+	-fx-text-alignment: CENTER;
+	-fx-border-width: 0 0 3 0;
+	-fx-border-color: white;
+	-fx-min-width: 500px;
+	-fx-padding: 0 0 10px 0;
 }
 
 .centralView {
-    -fx-border-color: #f5f5f5;
-    -fx-border-width: 1px;
-    -fx-background-color: #fcfcfc;
-    -fx-padding:12px;
-    -fx-background-padding: 12px;
+    -fx-background-color: #D1D8E0;
+    -fx-padding: 15px;
 }
 
-.controlsNav {
-    -fx-background-color: #455a64;
-    -fx-padding: 12px;
+#controlNav {
+    -fx-background-color: #474D53;
+    -fx-padding: 12px 35px;
+    -fx-alignment: center;
 }
 
-.label {
-    -fx-font-size: 15px;
+.largeCircle {
+	-fx-min-width: 157px;
+    -fx-min-height:	157px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-border: none;
 }
+
+
+.smallCircle {
+	-fx-min-width: 140px;
+	-fx-max-width: 140px;
+    -fx-min-height:	140px;
+    -fx-background-size: 104px 104px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-border: none;
+    -fx-display: block;
+}
+
+
+#stepsLblImg {
+	-fx-graphic: url("../images/steps.png");
+	-fx-alignment:center;
+}
+
+#stepsLayout, #caloriesLayout{
+	-fx-padding: 45px 0 0 0;
+}
+
+#stepsimg {
+	-fx-image: url("../images/steps.png");
+}
+
+#calBurnedImg {
+	-fx-background-image: url("../images/cals.png");	
+	
+}
+
+#stepsDistImg {
+	-fx-background-image: url("../images/miles.png");
+}
+
+#stepsFloorsImg {
+	-fx-background-image: url("../images/floors.png");
+}
+
+#stepsMinImg {
+	-fx-background-image: url("../images/activemins.png");
+}
+
+#stepFacts, #mealFacts {
+	-fx-padding: 50px 0 75px 0;
+}
+
+.step-facts-text, .facts-text {
+	-fx-min-width: 140px;
+	-fx-max-width: 140px;
+	-fx-font-size: 1.8em;
+	-fx-font-weight: 500;
+	-fx-text-alignment: CENTER;
+	-fx-text-fill: #474D53;
+}
+
+.step-facts-num, .facts-num {
+	-fx-min-width: 140px;
+	-fx-max-width: 140px;
+	-fx-font-size: 2em;
+	-fx-font-weight: 900;
+	-fx-padding: -10px 0 0 0;
+	-fx-text-fill: #474D53;
+}
+
+.numTop {
+	-fx-padding: 7px 0 0 0;
+}
+
 
 .title {
     -fx-font-size: 25px;
     -fx-font-family: "Arial";
+    -fx-background-color: rgba(75, 101, 132,.8);
+    -fx-text-fill: white;
+    -fx-min-width: 1125px;
+    -fx-padding: 3px 10px;
 }
 
-#submit {
-    -fx-min-width: 75px;
-    -fx-background-color: rgba(55, 128, 66, 0.49);
-    -fx-text-fill: white;
-}
 .text-field {
     -fx-min-width: 150px;
     -fx-max-width: 150px;
 }
+
+.activity-menu-buttons {
+	-fx-border-radius:50px;
+	-fx-background-radius: 50px;
+	-fx-padding: 10px 20px;
+	-fx-font-size: 18px;
+	-fx-text-fill: white;
+	-fx-min-width: 25px;
+}
+
+
+.add-button {
+	-fx-background-image: url("../images/add.png");
+	-fx-min-width: 45px;
+	-fx-min-height: 45px;
+	-fx-background-size:45px 45px;
+	-fx-background-color: transparent;
+	-fx-border-radius:45px;
+	-fx-background-radius: 45px;
+}
+
+#stepsButton {
+	-fx-background-color: #079992;
+}
+
+#runningButton {
+	-fx-background-color: #38ada9;
+}
+
+#bikingButton {
+	-fx-background-color: #67c27b;
+}
+
+#swimmingButton {
+	-fx-background-color: #a2cd82;
+}
+
+#activity-popup {
+	-fx-padding: 15px;
+}
+
+#caloriesLblImg {
+	-fx-background-image: url("../images/total_calories.png");
+}
+
+#breakfastImg {
+	-fx-background-image: url("../images/breakfast.png");
+}
+
+#lunchImg {
+	-fx-background-image: url("../images/lunch.png");
+}
+
+#dinnerImg {
+	-fx-background-image: url("../images/dinner.png");
+}
+
+#snacksImg {
+	-fx-background-image: url("../images/snacks.png");
+}
+
+
+
+.combo-box, .date-picker{
+	-fx-background-color: transparent;
+	-fx-background-insets: 0 0 0 0;
+    -fx-background-radius:  0 0 0 0;
+}
+
+
+.modal-combo {
+	-fx-font-size:18px;
+	-fx-border-radius: 25px;
+	-fx-background-radius: 25px;
+	-fx-max-width: 200px;
+	-fx-min-width: 200px;
+	-fx-border-color: #20bf6b;
+	-fx-padding: 4px 2px;
+	-fx-border-width: 1px;
+}
+
+.modal-textfield {
+	-fx-font-size:18px;
+	-fx-border-radius: 25px;
+	-fx-background-radius: 25px;
+	-fx-max-width: 200px;
+	-fx-min-width: 200px;
+	-fx-padding: 11px 10px;
+	-fx-border-color: #20bf6b;
+	-fx-border-width: 1px;
+}
+.date-picker:editable > .arrow-button > *, .date-picker > .arrow-button > * {
+    -fx-opacity: 0;
+    -fx-min-height: 23px;
+    -fx-max-height: 23px;
+    -fx-min-width: 23px;
+    -fx-max-height: 23px;
+}
+
+.date-picker > .arrow-button {
+	-fx-background-color: #20bf6b;
+    -fx-background-image: url("../images/calendar.png"); /* Url of the icon */
+    -fx-background-size: 18px 18px; /* Can be `cover` or `100% 100%` ect. */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center; /* Put the icon in the center */
+	-fx-border-radius: 0 25px 25px 0;
+  	-fx-background-radius: 0 25px 25px 0;
+}
+
+.modal-datepicker {
+	-fx-font-size:18px;
+	-fx-border-radius: 25px;
+	-fx-background-radius: 25px;
+	-fx-max-width: 200px;
+	-fx-min-width: 200px;
+	-fx-border-color: #20bf6b;
+	-fx-border-width: 1px;
+}
+
+.modal-label {
+	-fx-font-size: 20px;
+}
+
+.save-button {
+	-fx-padding: 5px 12px;
+	-fx-font-size: 18px;
+	-fx-text-fill: white;
+	-fx-min-height: 25px;
+	-fx-border-radius: 25px;
+	-fx-background-radius: 25px;
+	-fx-min-width: 45px;
+	-fx-background-size:100%;
+	-fx-background-color: #20bf6b;
+}
+
+.activity-chart.chart-series-line {
+	-fx-stroke: #474D53;
+}
+
+#currentWeightLbl {
+	-fx-font-size: 36px;
+	-fx-text-alignment: CENTER;
+}
+
+
+.weight-facts-text {
+	-fx-font-size: 1.8em;
+	-fx-font-weight: 500;
+	-fx-text-alignment: CENTER;
+	-fx-text-fill: #474D53;
+}
+
+
+.weight-facts-num {
+	-fx-font-size: 2em;
+	-fx-font-weight: 900;
+	-fx-text-fill: #474D53;
+}
+
+#bmiNum {
+	-fx-padding: 0 200px 0 0;
+}
+

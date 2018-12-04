@@ -24,23 +24,39 @@ public class dbConnection {
 	   static final String PASS = ""; 
 	   
 	   
-	   protected Connection conn; 
-	   protected Statement stmt;
+	   protected static Connection conn; 
+	   protected static Statement stmt;
 			   
 			   
 	   
 	public dbConnection() {
 	}
 	
+	
+	public Connection getConn() {
+		return conn;
+	}
+	public void setConn(Connection conn) {
+		this.conn = conn;
+	}
+	
+	public Statement getStmt() {
+		return stmt;
+	}
+	
+	public void setStmt(Statement stmt) {
+		this.stmt = stmt;
+	}
 	  // Connect to database
 	   public void connect() { 
 	         try {
 				Class.forName(JDBC_DRIVER);
 				conn = DriverManager.getConnection(DB_URL,USER,PASS);
+				setConn(conn);
 			} catch (ClassNotFoundException | SQLException e) {
 				System.out.println("Could not connect to database");
 			}
-	         System.out.println("Connecting to database...");
+	         System.out.println("Connected to database...");
 	   } 
 	   
 	   // Close and shutdown database connection
@@ -67,6 +83,11 @@ public class dbConnection {
 	         }
 	     	System.out.println("Connection closed");
 	   	}
+	   
+	   
+	   
+	
+		
 	   
 	   
 }
