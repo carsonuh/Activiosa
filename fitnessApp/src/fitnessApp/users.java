@@ -22,7 +22,7 @@ public class users extends dbConnection {
 	
 	/** User ID */
 	protected static int userID = 1;
-	
+
 	/** Username */
 	protected static String username;
 	

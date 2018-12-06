@@ -752,7 +752,7 @@ public class GUI extends Application {
 
         
 	}
-
+		
 		public void associateStyles() throws MalformedURLException {
 			//link stylesheet
 			mainScene.getStylesheets().add(new File("src/fitnessApp/main.css").toURI().toURL().toString());

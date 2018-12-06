@@ -11,7 +11,6 @@ INDEX VERSION 1.131+C:\Users\carso\Documents\GitHub\fitnessApp\.metadata\.plugin
 1988513050.index
 1622776731.index
 1084624933.index
-1462432172.index
 2511617568.index
 728296283.index
 14682029.index

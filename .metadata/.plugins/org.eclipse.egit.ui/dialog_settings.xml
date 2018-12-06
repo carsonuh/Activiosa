@@ -2,6 +2,11 @@
 <section name="Workbench">
 	<item value="0" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
 	<item value="C:\Users\carso\Documents\GitHub\fitnessApp\.git" key="GitSelectRepositoryPage.lastRepository"/>
+	<list key="EGit.KnownHosts">
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+		<item value="bitbucket.org"/>
+	</list>
 	<list key="CommitDialog.authorValues">
 		<item value="carsonuh &lt;carsonueckerherman@gmail.com&gt;"/>
 	</list>

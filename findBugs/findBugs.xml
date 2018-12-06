@@ -1,0 +1,1756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1544075457592" analysisTimestamp="1544075456246" release="">
+  <Project projectName="fitnessApp">
+    <Jar>C:\Users\carso\Documents\GitHub\fitnessApp\fitnessApp\bin</Jar>
+    <AuxClasspathEntry>C:\Users\carso\Documents\GitHub\fitnessApp\fitnessApp\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\carso\Documents\GitHub\fitnessApp\fitnessApp\src\h2-1.4.197.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre1.8.0_181\lib\rt.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\carso\Documents\GitHub\fitnessApp\fitnessApp\src</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="fitnessApp.DateMaker">
+      <SourceLine classname="fitnessApp.DateMaker" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    </Class>
+    <Method classname="fitnessApp.DateMaker" name="weekRange" signature="()Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="fitnessApp.DateMaker" start="103" end="108" startBytecode="0" endBytecode="24" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    </Method>
+    <LocalVariable name="end" register="1" pc="20" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="fitnessApp.DateMaker" start="106" end="106" startBytecode="19" endBytecode="19" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    <SourceLine classname="fitnessApp.DateMaker" start="106" end="106" startBytecode="19" endBytecode="19" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="end"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.TWO_STORES_MULTIPLE_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="fitnessApp.DateMaker">
+      <SourceLine classname="fitnessApp.DateMaker" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    </Class>
+    <Method classname="fitnessApp.DateMaker" name="weekRange" signature="()Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="fitnessApp.DateMaker" start="103" end="108" startBytecode="0" endBytecode="24" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    </Method>
+    <LocalVariable name="start" register="0" pc="14" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="fitnessApp.DateMaker" start="105" end="105" startBytecode="13" endBytecode="13" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    <SourceLine classname="fitnessApp.DateMaker" start="105" end="105" startBytecode="13" endBytecode="13" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="start"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.TWO_STORES_MULTIPLE_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.DateMaker">
+      <SourceLine classname="fitnessApp.DateMaker" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    </Class>
+    <Method classname="fitnessApp.DateMaker" name="LabelToday" signature="()Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="fitnessApp.DateMaker" start="59" end="64" startBytecode="0" endBytecode="209" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.DateMaker">
+      <SourceLine classname="fitnessApp.DateMaker" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    </Class>
+    <Method classname="fitnessApp.DateMaker" name="ToSQLDate" signature="(Ljava/time/LocalDate;)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="fitnessApp.DateMaker" start="51" end="51" startBytecode="0" endBytecode="83" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.DateMaker">
+      <SourceLine classname="fitnessApp.DateMaker" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    </Class>
+    <Method classname="fitnessApp.DateMaker" name="ToSQLDate" signature="(Ljava/time/LocalDateTime;)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="fitnessApp.DateMaker" start="42" end="42" startBytecode="0" endBytecode="83" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.DateMaker">
+      <SourceLine classname="fitnessApp.DateMaker" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    </Class>
+    <Method classname="fitnessApp.DateMaker" name="Today" signature="()Ljava/time/LocalDateTime;" isStatic="true">
+      <SourceLine classname="fitnessApp.DateMaker" start="33" end="33" startBytecode="0" endBytecode="35" sourcefile="DateMaker.java" sourcepath="fitnessApp/DateMaker.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="accountLayout" signature="Ljavafx/scene/layout/BorderPane;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="83" end="83" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="activeMinsNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="89" end="89" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="activityBikingLayout" signature="Ljavafx/scene/layout/VBox;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="71" end="71" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="activityLayout" signature="Ljavafx/scene/layout/BorderPane;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="83" end="83" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="activityMenuLayout" signature="Ljavafx/scene/layout/HBox;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="80" end="80" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="activityRunningLayout" signature="Ljavafx/scene/layout/VBox;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="71" end="71" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="activityStepsLayout" signature="Ljavafx/scene/layout/VBox;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="71" end="71" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="activitySwimmingLayout" signature="Ljavafx/scene/layout/VBox;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="71" end="71" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="bikingChart" signature="Ljavafx/scene/chart/LineChart;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="77" end="77" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="breakfastCalNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="89" end="89" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="calBurnedNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="89" end="89" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="caloriesNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="89" end="89" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="controlsLayout" signature="Ljavafx/scene/layout/VBox;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="71" end="71" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="dinnerCalNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="89" end="89" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="homeLayout" signature="Ljavafx/scene/layout/BorderPane;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="83" end="83" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="lunchCalNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="89" end="89" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="mainLayout" signature="Ljavafx/scene/layout/BorderPane;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="83" end="83" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="mealsLayout" signature="Ljavafx/scene/layout/BorderPane;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="83" end="83" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="runningChart" signature="Ljavafx/scene/chart/LineChart;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="77" end="77" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="seriesBiking" signature="Ljavafx/scene/chart/XYChart$Series;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="74" end="74" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="seriesRunning" signature="Ljavafx/scene/chart/XYChart$Series;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="74" end="74" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="seriesSteps" signature="Ljavafx/scene/chart/XYChart$Series;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="74" end="74" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="seriesSwimming" signature="Ljavafx/scene/chart/XYChart$Series;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="74" end="74" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="seriesWeight" signature="Ljavafx/scene/chart/XYChart$Series;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="74" end="74" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="snacksCalNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="89" end="89" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="stepsChart" signature="Ljavafx/scene/chart/LineChart;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="77" end="77" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="stepsDistNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="89" end="89" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="stepsFloorsNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="89" end="89" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="stepsNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="89" end="89" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="swimmingChart" signature="Ljavafx/scene/chart/LineChart;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="77" end="77" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="weightLayout" signature="Ljavafx/scene/layout/BorderPane;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="83" end="83" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" rank="16" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.GUI" name="weightChart" signature="Ljavafx/scene/chart/LineChart;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" start="77" end="77" startBytecode="0" endBytecode="0" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="activityModal" signature="Ljavafx/stage/Stage;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="104" end="104" startBytecode="40" endBytecode="40" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="104" end="104" startBytecode="40" endBytecode="40" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="controlsLayout" signature="Ljavafx/scene/layout/VBox;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="194" end="194" startBytecode="523" endBytecode="523" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="194" end="194" startBytecode="523" endBytecode="523" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="mainLayout" signature="Ljavafx/scene/layout/BorderPane;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="191" end="191" startBytecode="510" endBytecode="510" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="191" end="191" startBytecode="510" endBytecode="510" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="mealsModal" signature="Ljavafx/stage/Stage;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="106" end="106" startBytecode="62" endBytecode="62" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="106" end="106" startBytecode="62" endBytecode="62" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="weightModal" signature="Ljavafx/stage/Stage;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="105" end="105" startBytecode="51" endBytecode="51" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="105" end="105" startBytecode="51" endBytecode="51" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="accountLayout" signature="Ljavafx/scene/layout/BorderPane;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="700" end="700" startBytecode="5627" endBytecode="5627" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="700" end="700" startBytecode="5627" endBytecode="5627" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="activeMinsNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="493" end="493" startBytecode="3631" endBytecode="3631" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="493" end="493" startBytecode="3631" endBytecode="3631" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="activityBikingLayout" signature="Ljavafx/scene/layout/VBox;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="344" end="344" startBytecode="2046" endBytecode="2046" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="344" end="344" startBytecode="2046" endBytecode="2046" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="activityLayout" signature="Ljavafx/scene/layout/BorderPane;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="215" end="215" startBytecode="767" endBytecode="767" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="215" end="215" startBytecode="767" endBytecode="767" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="activityMenuLayout" signature="Ljavafx/scene/layout/HBox;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="218" end="218" startBytecode="780" endBytecode="780" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="218" end="218" startBytecode="780" endBytecode="780" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="activityRunningLayout" signature="Ljavafx/scene/layout/VBox;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="303" end="303" startBytecode="1642" endBytecode="1642" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="303" end="303" startBytecode="1642" endBytecode="1642" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="activityStepsLayout" signature="Ljavafx/scene/layout/VBox;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="253" end="253" startBytecode="1151" endBytecode="1151" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="253" end="253" startBytecode="1151" endBytecode="1151" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="activitySwimmingLayout" signature="Ljavafx/scene/layout/VBox;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="380" end="380" startBytecode="2441" endBytecode="2441" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="380" end="380" startBytecode="2441" endBytecode="2441" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="bikingChart" signature="Ljavafx/scene/chart/LineChart;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="353" end="353" startBytecode="2101" endBytecode="2101" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="353" end="353" startBytecode="2101" endBytecode="2101" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="breakfastCalNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="553" end="553" startBytecode="4179" endBytecode="4179" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="553" end="553" startBytecode="4179" endBytecode="4179" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="calBurnedNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="452" end="452" startBytecode="3145" endBytecode="3145" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="452" end="452" startBytecode="3145" endBytecode="3145" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="caloriesNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="536" end="536" startBytecode="3990" endBytecode="3990" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="536" end="536" startBytecode="3990" endBytecode="3990" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="dinnerCalNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="579" end="579" startBytecode="4491" endBytecode="4491" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="579" end="579" startBytecode="4491" endBytecode="4491" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="homeLayout" signature="Ljavafx/scene/layout/BorderPane;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="421" end="421" startBytecode="2850" endBytecode="2850" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="421" end="421" startBytecode="2850" endBytecode="2850" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="lunchCalNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="566" end="566" startBytecode="4335" endBytecode="4335" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="566" end="566" startBytecode="4335" endBytecode="4335" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="mealsLayout" signature="Ljavafx/scene/layout/BorderPane;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="514" end="514" startBytecode="3822" endBytecode="3822" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="514" end="514" startBytecode="3822" endBytecode="3822" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="runningChart" signature="Ljavafx/scene/chart/LineChart;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="313" end="313" startBytecode="1706" endBytecode="1706" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="313" end="313" startBytecode="1706" endBytecode="1706" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="seriesBiking" signature="Ljavafx/scene/chart/XYChart$Series;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="356" end="356" startBytecode="2118" endBytecode="2118" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="356" end="356" startBytecode="2118" endBytecode="2118" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="seriesRunning" signature="Ljavafx/scene/chart/XYChart$Series;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="316" end="316" startBytecode="1723" endBytecode="1723" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="316" end="316" startBytecode="1723" endBytecode="1723" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="seriesSteps" signature="Ljavafx/scene/chart/XYChart$Series;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="267" end="267" startBytecode="1224" endBytecode="1224" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="267" end="267" startBytecode="1224" endBytecode="1224" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="seriesSwimming" signature="Ljavafx/scene/chart/XYChart$Series;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="392" end="392" startBytecode="2513" endBytecode="2513" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="392" end="392" startBytecode="2513" endBytecode="2513" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="seriesWeight" signature="Ljavafx/scene/chart/XYChart$Series;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="653" end="653" startBytecode="5097" endBytecode="5097" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="653" end="653" startBytecode="5097" endBytecode="5097" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="snacksCalNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="592" end="592" startBytecode="4647" endBytecode="4647" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="592" end="592" startBytecode="4647" endBytecode="4647" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="stepsChart" signature="Ljavafx/scene/chart/LineChart;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="263" end="263" startBytecode="1214" endBytecode="1214" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="263" end="263" startBytecode="1214" endBytecode="1214" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="stepsDistNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="465" end="465" startBytecode="3301" endBytecode="3301" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="465" end="465" startBytecode="3301" endBytecode="3301" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="stepsFloorsNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="479" end="479" startBytecode="3466" endBytecode="3466" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="479" end="479" startBytecode="3466" endBytecode="3466" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="stepsNum" signature="Ljavafx/scene/control/Label;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="435" end="435" startBytecode="2956" endBytecode="2956" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="435" end="435" startBytecode="2956" endBytecode="2956" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="swimmingChart" signature="Ljavafx/scene/chart/LineChart;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="389" end="389" startBytecode="2496" endBytecode="2496" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="389" end="389" startBytecode="2496" endBytecode="2496" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.GUI">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Method classname="fitnessApp.GUI" name="start" signature="(Ljavafx/stage/Stage;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.GUI" start="102" end="754" startBytecode="0" endBytecode="8695" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Method>
+    <Field classname="fitnessApp.GUI" name="weightLayout" signature="Ljavafx/scene/layout/BorderPane;" isStatic="true">
+      <SourceLine classname="fitnessApp.GUI" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.GUI" start="613" end="613" startBytecode="4839" endBytecode="4839" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    <SourceLine classname="fitnessApp.GUI" start="613" end="613" startBytecode="4839" endBytecode="4839" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.accountInfo">
+      <SourceLine classname="fitnessApp.accountInfo" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Class>
+    <Field classname="fitnessApp.accountInfo" name="currentWeight" signature="D" isStatic="true">
+      <SourceLine classname="fitnessApp.accountInfo" start="30" end="30" startBytecode="0" endBytecode="0" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.accountInfo">
+      <SourceLine classname="fitnessApp.accountInfo" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Class>
+    <Field classname="fitnessApp.accountInfo" name="feet" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.accountInfo" start="24" end="24" startBytecode="0" endBytecode="0" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.accountInfo">
+      <SourceLine classname="fitnessApp.accountInfo" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Class>
+    <Field classname="fitnessApp.accountInfo" name="inches" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.accountInfo" start="27" end="27" startBytecode="0" endBytecode="0" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.accountInfo">
+      <SourceLine classname="fitnessApp.accountInfo" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Class>
+    <Field classname="fitnessApp.accountInfo" name="name" signature="Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="fitnessApp.accountInfo" start="21" end="21" startBytecode="0" endBytecode="0" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.accountInfo">
+      <SourceLine classname="fitnessApp.accountInfo" start="15" end="103" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.accountInfo">
+      <SourceLine classname="fitnessApp.accountInfo" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Class>
+    <Method classname="fitnessApp.accountInfo" name="get" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.accountInfo" start="82" end="103" startBytecode="0" endBytecode="317" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.accountInfo" start="89" end="89" startBytecode="61" endBytecode="61" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.accountInfo" start="91" end="91" startBytecode="67" endBytecode="67" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.accountInfo" start="98" end="98" startBytecode="132" endBytecode="132" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.accountInfo" start="100" end="100" startBytecode="133" endBytecode="133" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.accountInfo" start="102" end="102" startBytecode="137" endBytecode="137" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.accountInfo" start="103" end="103" startBytecode="143" endBytecode="143" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.accountInfo">
+      <SourceLine classname="fitnessApp.accountInfo" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Class>
+    <Method classname="fitnessApp.accountInfo" name="insert" signature="(Ljava/lang/String;IID)V" isStatic="true">
+      <SourceLine classname="fitnessApp.accountInfo" start="42" end="56" startBytecode="0" endBytecode="55" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.accountInfo" start="49" end="49" startBytecode="104" endBytecode="104" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+    <SourceLine classname="fitnessApp.accountInfo" start="49" end="49" startBytecode="104" endBytecode="104" sourcefile="accountInfo.java" sourcepath="fitnessApp/accountInfo.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.active">
+      <SourceLine classname="fitnessApp.active" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Class>
+    <Field classname="fitnessApp.active" name="calsBurned" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.active" start="24" end="24" startBytecode="0" endBytecode="0" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.active">
+      <SourceLine classname="fitnessApp.active" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Class>
+    <Field classname="fitnessApp.active" name="floors" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.active" start="27" end="27" startBytecode="0" endBytecode="0" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.active">
+      <SourceLine classname="fitnessApp.active" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Class>
+    <Field classname="fitnessApp.active" name="minutes" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.active" start="21" end="21" startBytecode="0" endBytecode="0" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.active">
+      <SourceLine classname="fitnessApp.active" start="15" end="101" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.active">
+      <SourceLine classname="fitnessApp.active" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Class>
+    <Method classname="fitnessApp.active" name="get" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.active" start="82" end="101" startBytecode="0" endBytecode="318" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.active" start="89" end="89" startBytecode="77" endBytecode="77" sourcefile="active.java" sourcepath="fitnessApp/active.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.active" start="91" end="91" startBytecode="83" endBytecode="83" sourcefile="active.java" sourcepath="fitnessApp/active.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.active" start="97" end="97" startBytecode="137" endBytecode="137" sourcefile="active.java" sourcepath="fitnessApp/active.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.active" start="98" end="98" startBytecode="138" endBytecode="138" sourcefile="active.java" sourcepath="fitnessApp/active.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.active" start="100" end="100" startBytecode="142" endBytecode="142" sourcefile="active.java" sourcepath="fitnessApp/active.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.active" start="101" end="101" startBytecode="148" endBytecode="148" sourcefile="active.java" sourcepath="fitnessApp/active.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.active">
+      <SourceLine classname="fitnessApp.active" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Class>
+    <Method classname="fitnessApp.active" name="insert" signature="(Ljava/lang/String;II)V" isStatic="true">
+      <SourceLine classname="fitnessApp.active" start="41" end="53" startBytecode="0" endBytecode="46" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.active" start="48" end="48" startBytecode="98" endBytecode="98" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    <SourceLine classname="fitnessApp.active" start="48" end="48" startBytecode="98" endBytecode="98" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="2" rank="12" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.active">
+      <SourceLine classname="fitnessApp.active" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Class>
+    <Method classname="fitnessApp.active" name="get" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.active" start="82" end="101" startBytecode="0" endBytecode="54" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.active" start="89" end="89" startBytecode="77" endBytecode="77" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    <SourceLine classname="fitnessApp.active" start="89" end="89" startBytecode="77" endBytecode="77" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="2" rank="12" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.active">
+      <SourceLine classname="fitnessApp.active" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Class>
+    <Method classname="fitnessApp.active" name="update" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.active" start="61" end="73" startBytecode="0" endBytecode="48" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.active" start="68" end="68" startBytecode="110" endBytecode="110" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    <SourceLine classname="fitnessApp.active" start="68" end="68" startBytecode="110" endBytecode="110" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+  </BugInstance>
+  <BugInstance type="STCAL_STATIC_SIMPLE_DATE_FORMAT_INSTANCE" priority="2" rank="14" abbrev="STCAL" category="MT_CORRECTNESS" first="1">
+    <Class classname="fitnessApp.active">
+      <SourceLine classname="fitnessApp.active" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Class>
+    <Field classname="fitnessApp.active" name="date" signature="Ljava/text/SimpleDateFormat;" isStatic="true">
+      <SourceLine classname="fitnessApp.active" start="30" end="30" startBytecode="0" endBytecode="0" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="1">
+    <Class classname="fitnessApp.active">
+      <SourceLine classname="fitnessApp.active" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Class>
+    <Field classname="fitnessApp.active" name="date" signature="Ljava/text/SimpleDateFormat;" isStatic="true">
+      <SourceLine classname="fitnessApp.active" start="30" end="30" startBytecode="0" endBytecode="0" sourcefile="active.java" sourcepath="fitnessApp/active.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" rank="16" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.activity">
+      <SourceLine classname="fitnessApp.activity" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Class>
+    <Field classname="fitnessApp.activity" name="weeklyData" signature="Ljava/util/Map;" isStatic="true">
+      <SourceLine classname="fitnessApp.activity" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.activity" start="40" end="40" startBytecode="17" endBytecode="17" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.activity">
+      <SourceLine classname="fitnessApp.activity" start="22" end="105" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.activity">
+      <SourceLine classname="fitnessApp.activity" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Class>
+    <Method classname="fitnessApp.activity" name="getWeek" signature="(Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="fitnessApp.activity" start="86" end="105" startBytecode="0" endBytecode="357" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.activity" start="95" end="95" startBytecode="102" endBytecode="102" sourcefile="activity.java" sourcepath="fitnessApp/activity.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.activity" start="96" end="96" startBytecode="108" endBytecode="108" sourcefile="activity.java" sourcepath="fitnessApp/activity.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.activity" start="97" end="97" startBytecode="111" endBytecode="111" sourcefile="activity.java" sourcepath="fitnessApp/activity.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.activity" start="101" end="101" startBytecode="163" endBytecode="163" sourcefile="activity.java" sourcepath="fitnessApp/activity.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.activity" start="102" end="102" startBytecode="164" endBytecode="164" sourcefile="activity.java" sourcepath="fitnessApp/activity.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.activity" start="104" end="104" startBytecode="168" endBytecode="168" sourcefile="activity.java" sourcepath="fitnessApp/activity.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.activity" start="105" end="105" startBytecode="174" endBytecode="174" sourcefile="activity.java" sourcepath="fitnessApp/activity.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.activity">
+      <SourceLine classname="fitnessApp.activity" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Class>
+    <Method classname="fitnessApp.activity" name="getWeek" signature="(Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="fitnessApp.activity" start="86" end="105" startBytecode="0" endBytecode="64" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.activity" start="95" end="95" startBytecode="102" endBytecode="102" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    <SourceLine classname="fitnessApp.activity" start="95" end="95" startBytecode="102" endBytecode="102" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.activity">
+      <SourceLine classname="fitnessApp.activity" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Class>
+    <Method classname="fitnessApp.activity" name="insert" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;DD)V" isStatic="true">
+      <SourceLine classname="fitnessApp.activity" start="66" end="78" startBytecode="0" endBytecode="54" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.activity" start="73" end="73" startBytecode="119" endBytecode="119" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    <SourceLine classname="fitnessApp.activity" start="73" end="73" startBytecode="119" endBytecode="119" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="1">
+    <Class classname="fitnessApp.activity">
+      <SourceLine classname="fitnessApp.activity" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Class>
+    <Field classname="fitnessApp.activity" name="calsBurned" signature="D" isStatic="true">
+      <SourceLine classname="fitnessApp.activity" start="37" end="37" startBytecode="0" endBytecode="0" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="1">
+    <Class classname="fitnessApp.activity">
+      <SourceLine classname="fitnessApp.activity" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Class>
+    <Field classname="fitnessApp.activity" name="date" signature="Ljava/sql/Date;" isStatic="true">
+      <SourceLine classname="fitnessApp.activity" start="25" end="25" startBytecode="0" endBytecode="0" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="1">
+    <Class classname="fitnessApp.activity">
+      <SourceLine classname="fitnessApp.activity" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Class>
+    <Field classname="fitnessApp.activity" name="distance" signature="D" isStatic="true">
+      <SourceLine classname="fitnessApp.activity" start="34" end="34" startBytecode="0" endBytecode="0" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="1">
+    <Class classname="fitnessApp.activity">
+      <SourceLine classname="fitnessApp.activity" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Class>
+    <Field classname="fitnessApp.activity" name="duration" signature="Ljava/sql/Time;" isStatic="true">
+      <SourceLine classname="fitnessApp.activity" start="31" end="31" startBytecode="0" endBytecode="0" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="1">
+    <Class classname="fitnessApp.activity">
+      <SourceLine classname="fitnessApp.activity" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Class>
+    <Field classname="fitnessApp.activity" name="type" signature="Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="fitnessApp.activity" start="28" end="28" startBytecode="0" endBytecode="0" sourcefile="activity.java" sourcepath="fitnessApp/activity.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="fitnessApp.activityDialog">
+      <SourceLine classname="fitnessApp.activityDialog" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Class>
+    <Field classname="fitnessApp.activityDialog" name="act" signature="LfitnessApp/activity;" isStatic="false">
+      <SourceLine classname="fitnessApp.activityDialog" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.activityDialog" start="845" end="845" startBytecode="12" endBytecode="12" sourcefile="GUI.java" sourcepath="fitnessApp/GUI.java"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.data">
+      <SourceLine classname="fitnessApp.data" start="8" end="30" sourcefile="data.java" sourcepath="fitnessApp/data.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="DMI_EMPTY_DB_PASSWORD" priority="2" rank="7" abbrev="Dm" category="SECURITY" first="1">
+    <Class classname="fitnessApp.dbConnection">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Class>
+    <Method classname="fitnessApp.dbConnection" name="connect" signature="()V" isStatic="false">
+      <SourceLine classname="fitnessApp.dbConnection" start="91" end="97" startBytecode="0" endBytecode="16" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.dbConnection" start="92" end="92" startBytecode="12" endBytecode="12" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    <SourceLine classname="fitnessApp.dbConnection" start="92" end="92" startBytecode="12" endBytecode="12" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.dbConnection">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Class>
+    <Field classname="fitnessApp.dbConnection" name="conn" signature="Ljava/sql/Connection;" isStatic="true">
+      <SourceLine classname="fitnessApp.dbConnection" start="37" end="37" startBytecode="0" endBytecode="0" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.dbConnection">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Class>
+    <Field classname="fitnessApp.dbConnection" name="stmt" signature="Ljava/sql/Statement;" isStatic="true">
+      <SourceLine classname="fitnessApp.dbConnection" start="40" end="40" startBytecode="0" endBytecode="0" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.dbConnection">
+      <SourceLine classname="fitnessApp.dbConnection" start="45" end="125" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.dbConnection">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Class>
+    <Method classname="fitnessApp.dbConnection" name="setConn" signature="(Ljava/sql/Connection;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.dbConnection" start="63" end="64" startBytecode="0" endBytecode="60" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Method>
+    <Field classname="fitnessApp.dbConnection" name="conn" signature="Ljava/sql/Connection;" isStatic="true">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.dbConnection" start="63" end="63" startBytecode="1" endBytecode="1" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    <SourceLine classname="fitnessApp.dbConnection" start="63" end="63" startBytecode="1" endBytecode="1" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.dbConnection">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Class>
+    <Method classname="fitnessApp.dbConnection" name="setStmt" signature="(Ljava/sql/Statement;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.dbConnection" start="81" end="82" startBytecode="0" endBytecode="60" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Method>
+    <Field classname="fitnessApp.dbConnection" name="stmt" signature="Ljava/sql/Statement;" isStatic="true">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.dbConnection" start="81" end="81" startBytecode="1" endBytecode="1" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    <SourceLine classname="fitnessApp.dbConnection" start="81" end="81" startBytecode="1" endBytecode="1" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.dbConnection">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Class>
+    <Method classname="fitnessApp.dbConnection" name="connect" signature="()V" isStatic="false">
+      <SourceLine classname="fitnessApp.dbConnection" start="91" end="97" startBytecode="0" endBytecode="138" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Method>
+    <Field classname="fitnessApp.dbConnection" name="conn" signature="Ljava/sql/Connection;" isStatic="true">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.dbConnection" start="92" end="92" startBytecode="15" endBytecode="15" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    <SourceLine classname="fitnessApp.dbConnection" start="92" end="92" startBytecode="15" endBytecode="15" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Field classname="fitnessApp.meals" name="breakfastCals" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="24" end="24" startBytecode="0" endBytecode="0" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Field classname="fitnessApp.meals" name="dinnerCals" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="30" end="30" startBytecode="0" endBytecode="0" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Field classname="fitnessApp.meals" name="exists" signature="Z" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="39" end="39" startBytecode="0" endBytecode="0" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Field classname="fitnessApp.meals" name="lunchCals" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="27" end="27" startBytecode="0" endBytecode="0" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Field classname="fitnessApp.meals" name="snackCals" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="33" end="33" startBytecode="0" endBytecode="0" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Field classname="fitnessApp.meals" name="totalCals" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="36" end="36" startBytecode="0" endBytecode="0" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" start="15" end="135" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Method classname="fitnessApp.meals" name="checkIfExists" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="88" end="106" startBytecode="0" endBytecode="276" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.meals" start="95" end="95" startBytecode="79" endBytecode="79" sourcefile="meals.java" sourcepath="fitnessApp/meals.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.meals" start="96" end="96" startBytecode="85" endBytecode="85" sourcefile="meals.java" sourcepath="fitnessApp/meals.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.meals" start="100" end="100" startBytecode="101" endBytecode="101" sourcefile="meals.java" sourcepath="fitnessApp/meals.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.meals" start="102" end="102" startBytecode="105" endBytecode="105" sourcefile="meals.java" sourcepath="fitnessApp/meals.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.meals" start="105" end="105" startBytecode="113" endBytecode="113" sourcefile="meals.java" sourcepath="fitnessApp/meals.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.meals" start="106" end="106" startBytecode="119" endBytecode="119" sourcefile="meals.java" sourcepath="fitnessApp/meals.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Method classname="fitnessApp.meals" name="get" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="113" end="135" startBytecode="0" endBytecode="358" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.meals" start="120" end="120" startBytecode="80" endBytecode="80" sourcefile="meals.java" sourcepath="fitnessApp/meals.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.meals" start="122" end="122" startBytecode="86" endBytecode="86" sourcefile="meals.java" sourcepath="fitnessApp/meals.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.meals" start="130" end="130" startBytecode="169" endBytecode="169" sourcefile="meals.java" sourcepath="fitnessApp/meals.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.meals" start="132" end="132" startBytecode="170" endBytecode="170" sourcefile="meals.java" sourcepath="fitnessApp/meals.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.meals" start="134" end="134" startBytecode="174" endBytecode="174" sourcefile="meals.java" sourcepath="fitnessApp/meals.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.meals" start="135" end="135" startBytecode="180" endBytecode="180" sourcefile="meals.java" sourcepath="fitnessApp/meals.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Method classname="fitnessApp.meals" name="checkIfExists" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="88" end="106" startBytecode="0" endBytecode="45" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.meals" start="94" end="94" startBytecode="69" endBytecode="69" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    <SourceLine classname="fitnessApp.meals" start="94" end="94" startBytecode="69" endBytecode="69" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Method classname="fitnessApp.meals" name="get" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="113" end="135" startBytecode="0" endBytecode="67" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.meals" start="120" end="120" startBytecode="80" endBytecode="80" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    <SourceLine classname="fitnessApp.meals" start="120" end="120" startBytecode="80" endBytecode="80" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Method classname="fitnessApp.meals" name="update" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="69" end="81" startBytecode="0" endBytecode="53" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.meals" start="76" end="76" startBytecode="124" endBytecode="124" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    <SourceLine classname="fitnessApp.meals" start="76" end="76" startBytecode="124" endBytecode="124" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="2" rank="12" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Method classname="fitnessApp.meals" name="insert" signature="(IIII)V" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="50" end="62" startBytecode="0" endBytecode="54" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.meals" start="57" end="57" startBytecode="120" endBytecode="120" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    <SourceLine classname="fitnessApp.meals" start="57" end="57" startBytecode="120" endBytecode="120" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="1">
+    <Class classname="fitnessApp.meals">
+      <SourceLine classname="fitnessApp.meals" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Class>
+    <Field classname="fitnessApp.meals" name="date" signature="Ljava/sql/Date;" isStatic="true">
+      <SourceLine classname="fitnessApp.meals" start="21" end="21" startBytecode="0" endBytecode="0" sourcefile="meals.java" sourcepath="fitnessApp/meals.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.stepsTable">
+      <SourceLine classname="fitnessApp.stepsTable" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Class>
+    <Field classname="fitnessApp.stepsTable" name="floors" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.stepsTable" start="29" end="29" startBytecode="0" endBytecode="0" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.stepsTable">
+      <SourceLine classname="fitnessApp.stepsTable" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Class>
+    <Field classname="fitnessApp.stepsTable" name="milesWalked" signature="D" isStatic="true">
+      <SourceLine classname="fitnessApp.stepsTable" start="32" end="32" startBytecode="0" endBytecode="0" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.stepsTable">
+      <SourceLine classname="fitnessApp.stepsTable" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Class>
+    <Field classname="fitnessApp.stepsTable" name="steps" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.stepsTable" start="26" end="26" startBytecode="0" endBytecode="0" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" rank="16" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.stepsTable">
+      <SourceLine classname="fitnessApp.stepsTable" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Class>
+    <Field classname="fitnessApp.stepsTable" name="weeklySteps" signature="Ljava/util/Map;" isStatic="true">
+      <SourceLine classname="fitnessApp.stepsTable" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.stepsTable" start="38" end="38" startBytecode="17" endBytecode="17" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.stepsTable">
+      <SourceLine classname="fitnessApp.stepsTable" start="20" end="147" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.stepsTable">
+      <SourceLine classname="fitnessApp.stepsTable" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Class>
+    <Method classname="fitnessApp.stepsTable" name="get" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.stepsTable" start="101" end="119" startBytecode="0" endBytecode="313" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="107" end="107" startBytecode="80" endBytecode="80" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="109" end="109" startBytecode="86" endBytecode="86" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="115" end="115" startBytecode="140" endBytecode="140" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="116" end="116" startBytecode="141" endBytecode="141" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="118" end="118" startBytecode="145" endBytecode="145" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="119" end="119" startBytecode="151" endBytecode="151" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.stepsTable">
+      <SourceLine classname="fitnessApp.stepsTable" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Class>
+    <Method classname="fitnessApp.stepsTable" name="getWeek" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.stepsTable" start="126" end="147" startBytecode="0" endBytecode="326" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="134" end="134" startBytecode="88" endBytecode="88" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="135" end="135" startBytecode="94" endBytecode="94" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="136" end="136" startBytecode="97" endBytecode="97" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="143" end="143" startBytecode="149" endBytecode="149" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="144" end="144" startBytecode="150" endBytecode="150" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="146" end="146" startBytecode="154" endBytecode="154" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="147" end="147" startBytecode="160" endBytecode="160" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.stepsTable">
+      <SourceLine classname="fitnessApp.stepsTable" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Class>
+    <Method classname="fitnessApp.stepsTable" name="get" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.stepsTable" start="101" end="119" startBytecode="0" endBytecode="55" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.stepsTable" start="107" end="107" startBytecode="80" endBytecode="80" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="107" end="107" startBytecode="80" endBytecode="80" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.stepsTable">
+      <SourceLine classname="fitnessApp.stepsTable" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Class>
+    <Method classname="fitnessApp.stepsTable" name="getWeek" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.stepsTable" start="126" end="147" startBytecode="0" endBytecode="58" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.stepsTable" start="134" end="134" startBytecode="88" endBytecode="88" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="134" end="134" startBytecode="88" endBytecode="88" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.stepsTable">
+      <SourceLine classname="fitnessApp.stepsTable" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Class>
+    <Method classname="fitnessApp.stepsTable" name="insert" signature="(Ljava/lang/String;IID)V" isStatic="true">
+      <SourceLine classname="fitnessApp.stepsTable" start="63" end="75" startBytecode="0" endBytecode="50" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.stepsTable" start="70" end="70" startBytecode="109" endBytecode="109" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="70" end="70" startBytecode="109" endBytecode="109" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.stepsTable">
+      <SourceLine classname="fitnessApp.stepsTable" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Class>
+    <Method classname="fitnessApp.stepsTable" name="update" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.stepsTable" start="82" end="94" startBytecode="0" endBytecode="49" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.stepsTable" start="89" end="89" startBytecode="113" endBytecode="113" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    <SourceLine classname="fitnessApp.stepsTable" start="89" end="89" startBytecode="113" endBytecode="113" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" priority="2" rank="17" abbrev="UuF" category="STYLE" first="1">
+    <Class classname="fitnessApp.stepsTable">
+      <SourceLine classname="fitnessApp.stepsTable" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Class>
+    <Field classname="fitnessApp.stepsTable" name="date" signature="Ljava/sql/Date;" isStatic="true">
+      <SourceLine classname="fitnessApp.stepsTable" start="35" end="35" startBytecode="0" endBytecode="0" sourcefile="stepsTable.java" sourcepath="fitnessApp/stepsTable.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="passwordEncrypt" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="fitnessApp.users" start="227" end="234" startBytecode="0" endBytecode="204" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String"/>
+    </Method>
+    <SourceLine classname="fitnessApp.users" start="228" end="228" startBytecode="8" endBytecode="8" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    <SourceLine classname="fitnessApp.users" start="228" end="228" startBytecode="8" endBytecode="8" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Field classname="fitnessApp.users" name="exists" signature="Z" isStatic="true">
+      <SourceLine classname="fitnessApp.users" start="30" end="30" startBytecode="0" endBytecode="0" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Field classname="fitnessApp.users" name="password" signature="Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="fitnessApp.users" start="33" end="33" startBytecode="0" endBytecode="0" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Field classname="fitnessApp.users" name="userID" signature="I" isStatic="true">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.users" start="24" end="24" startBytecode="11" endBytecode="11" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Field classname="fitnessApp.users" name="username" signature="Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="fitnessApp.users" start="27" end="27" startBytecode="0" endBytecode="0" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" start="21" end="234" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="checkIfExists" signature="(Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="fitnessApp.users" start="198" end="217" startBytecode="0" endBytecode="296" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.users" start="204" end="204" startBytecode="64" endBytecode="64" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.users" start="205" end="205" startBytecode="70" endBytecode="70" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.users" start="209" end="209" startBytecode="86" endBytecode="86" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.users" start="211" end="211" startBytecode="90" endBytecode="90" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.users" start="216" end="216" startBytecode="120" endBytecode="120" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.users" start="217" end="217" startBytecode="126" endBytecode="126" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="get" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.users" start="69" end="86" startBytecode="0" endBytecode="231" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.users" start="75" end="75" startBytecode="61" endBytecode="61" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.users" start="77" end="77" startBytecode="67" endBytecode="67" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.users" start="86" end="86" startBytecode="99" endBytecode="99" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="getByUsername" signature="(Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="fitnessApp.users" start="94" end="112" startBytecode="0" endBytecode="257" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.users" start="100" end="100" startBytecode="59" endBytecode="59" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.users" start="102" end="102" startBytecode="65" endBytecode="65" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.users" start="112" end="112" startBytecode="108" endBytecode="108" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="getPassword" signature="(Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="fitnessApp.users" start="172" end="189" startBytecode="0" endBytecode="279" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.users" start="178" end="178" startBytecode="64" endBytecode="64" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.users" start="179" end="179" startBytecode="70" endBytecode="70" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.users" start="188" end="188" startBytecode="120" endBytecode="120" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.users" start="189" end="189" startBytecode="126" endBytecode="126" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="loginSuccessGet" signature="(Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="fitnessApp.users" start="121" end="139" startBytecode="0" endBytecode="257" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.users" start="127" end="127" startBytecode="59" endBytecode="59" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.users" start="129" end="129" startBytecode="65" endBytecode="65" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.users" start="139" end="139" startBytecode="108" endBytecode="108" sourcefile="users.java" sourcepath="fitnessApp/users.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="checkIfExists" signature="(Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="fitnessApp.users" start="198" end="217" startBytecode="0" endBytecode="49" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.users" start="204" end="204" startBytecode="64" endBytecode="64" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    <SourceLine classname="fitnessApp.users" start="204" end="204" startBytecode="64" endBytecode="64" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="getPassword" signature="(Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="fitnessApp.users" start="172" end="189" startBytecode="0" endBytecode="48" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.users" start="178" end="178" startBytecode="64" endBytecode="64" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    <SourceLine classname="fitnessApp.users" start="178" end="178" startBytecode="64" endBytecode="64" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="insert" signature="(Ljava/lang/String;Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.users" start="49" end="62" startBytecode="0" endBytecode="48" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.users" start="56" end="56" startBytecode="83" endBytecode="83" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    <SourceLine classname="fitnessApp.users" start="56" end="56" startBytecode="83" endBytecode="83" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="update" signature="(Ljava/lang/String;Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.users" start="149" end="164" startBytecode="0" endBytecode="40" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.users" start="157" end="157" startBytecode="84" endBytecode="84" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    <SourceLine classname="fitnessApp.users" start="157" end="157" startBytecode="84" endBytecode="84" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="insert" signature="(Ljava/lang/String;Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.users" start="49" end="62" startBytecode="0" endBytecode="283" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <Field classname="fitnessApp.dbConnection" name="conn" signature="Ljava/sql/Connection;" isStatic="true">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.users" start="53" end="53" startBytecode="53" endBytecode="53" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    <SourceLine classname="fitnessApp.users" start="53" end="53" startBytecode="53" endBytecode="53" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="insert" signature="(Ljava/lang/String;Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.users" start="49" end="62" startBytecode="0" endBytecode="283" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <Field classname="fitnessApp.dbConnection" name="stmt" signature="Ljava/sql/Statement;" isStatic="true">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.users" start="55" end="55" startBytecode="76" endBytecode="76" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    <SourceLine classname="fitnessApp.users" start="55" end="55" startBytecode="76" endBytecode="76" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="update" signature="(Ljava/lang/String;Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.users" start="149" end="164" startBytecode="0" endBytecode="268" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <Field classname="fitnessApp.dbConnection" name="conn" signature="Ljava/sql/Connection;" isStatic="true">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.users" start="154" end="154" startBytecode="54" endBytecode="54" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    <SourceLine classname="fitnessApp.users" start="154" end="154" startBytecode="54" endBytecode="54" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="fitnessApp.users">
+      <SourceLine classname="fitnessApp.users" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Class>
+    <Method classname="fitnessApp.users" name="update" signature="(Ljava/lang/String;Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="fitnessApp.users" start="149" end="164" startBytecode="0" endBytecode="268" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    </Method>
+    <Field classname="fitnessApp.dbConnection" name="stmt" signature="Ljava/sql/Statement;" isStatic="true">
+      <SourceLine classname="fitnessApp.dbConnection" sourcefile="dbConnection.java" sourcepath="fitnessApp/dbConnection.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.users" start="156" end="156" startBytecode="77" endBytecode="77" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+    <SourceLine classname="fitnessApp.users" start="156" end="156" startBytecode="77" endBytecode="77" sourcefile="users.java" sourcepath="fitnessApp/users.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.weight">
+      <SourceLine classname="fitnessApp.weight" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Class>
+    <Field classname="fitnessApp.weight" name="bmi" signature="D" isStatic="true">
+      <SourceLine classname="fitnessApp.weight" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.weight" start="33" end="33" startBytecode="11" endBytecode="11" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.weight">
+      <SourceLine classname="fitnessApp.weight" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Class>
+    <Field classname="fitnessApp.weight" name="weight" signature="D" isStatic="true">
+      <SourceLine classname="fitnessApp.weight" start="27" end="27" startBytecode="0" endBytecode="0" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" rank="16" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.weight">
+      <SourceLine classname="fitnessApp.weight" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Class>
+    <Field classname="fitnessApp.weight" name="weeklyData" signature="Ljava/util/Map;" isStatic="true">
+      <SourceLine classname="fitnessApp.weight" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Field>
+    <SourceLine classname="fitnessApp.weight" start="39" end="39" startBytecode="21" endBytecode="21" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="fitnessApp.weight">
+      <SourceLine classname="fitnessApp.weight" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Class>
+    <Field classname="fitnessApp.weight" name="bwp" signature="D" isStatic="true">
+      <SourceLine classname="fitnessApp.weight" start="36" end="36" startBytecode="0" endBytecode="0" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="fitnessApp.weight">
+      <SourceLine classname="fitnessApp.weight" start="21" end="129" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.weight">
+      <SourceLine classname="fitnessApp.weight" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Class>
+    <Method classname="fitnessApp.weight" name="get" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.weight" start="85" end="104" startBytecode="0" endBytecode="321" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.weight" start="92" end="92" startBytecode="80" endBytecode="80" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.weight" start="94" end="94" startBytecode="86" endBytecode="86" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.weight" start="100" end="100" startBytecode="140" endBytecode="140" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.weight" start="101" end="101" startBytecode="141" endBytecode="141" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.weight" start="103" end="103" startBytecode="145" endBytecode="145" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.weight" start="104" end="104" startBytecode="151" endBytecode="151" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="fitnessApp.weight">
+      <SourceLine classname="fitnessApp.weight" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Class>
+    <Method classname="fitnessApp.weight" name="getWeek" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.weight" start="112" end="129" startBytecode="0" endBytecode="326" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="fitnessApp.weight" start="119" end="119" startBytecode="88" endBytecode="88" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="fitnessApp.weight" start="120" end="120" startBytecode="94" endBytecode="94" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.weight" start="121" end="121" startBytecode="97" endBytecode="97" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.weight" start="125" end="125" startBytecode="149" endBytecode="149" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.weight" start="126" end="126" startBytecode="150" endBytecode="150" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.weight" start="128" end="128" startBytecode="154" endBytecode="154" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="fitnessApp.weight" start="129" end="129" startBytecode="160" endBytecode="160" sourcefile="weight.java" sourcepath="fitnessApp/weight.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.weight">
+      <SourceLine classname="fitnessApp.weight" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Class>
+    <Method classname="fitnessApp.weight" name="get" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.weight" start="85" end="104" startBytecode="0" endBytecode="55" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.weight" start="92" end="92" startBytecode="80" endBytecode="80" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    <SourceLine classname="fitnessApp.weight" start="92" end="92" startBytecode="80" endBytecode="80" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.weight">
+      <SourceLine classname="fitnessApp.weight" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Class>
+    <Method classname="fitnessApp.weight" name="getWeek" signature="()V" isStatic="true">
+      <SourceLine classname="fitnessApp.weight" start="112" end="129" startBytecode="0" endBytecode="58" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.weight" start="119" end="119" startBytecode="88" endBytecode="88" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    <SourceLine classname="fitnessApp.weight" start="119" end="119" startBytecode="88" endBytecode="88" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+  </BugInstance>
+  <BugInstance type="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" priority="1" rank="10" abbrev="SQL" category="SECURITY" first="1">
+    <Class classname="fitnessApp.weight">
+      <SourceLine classname="fitnessApp.weight" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Class>
+    <Method classname="fitnessApp.weight" name="insertWeight" signature="(Ljava/lang/String;D)V" isStatic="true">
+      <SourceLine classname="fitnessApp.weight" start="61" end="77" startBytecode="0" endBytecode="51" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    </Method>
+    <SourceLine classname="fitnessApp.weight" start="70" end="70" startBytecode="102" endBytecode="102" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+    <SourceLine classname="fitnessApp.weight" start="70" end="70" startBytecode="102" endBytecode="102" sourcefile="weight.java" sourcepath="fitnessApp/weight.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 6 Dec 2018 00:31:58 -0500" total_classes="15" referenced_classes="63" total_bugs="163" total_size="1458" num_packages="1" java_version="1.8.0_181" vm_version="25.181-b13" cpu_seconds="15.31" clock_seconds="102.82" peak_mbytes="516.05" alloc_mbytes="1024.00" gc_seconds="0.07" priority_2="133" priority_1="30">
+    <PackageStats package="fitnessApp" total_bugs="163" total_types="15" total_size="1458" priority_2="133" priority_1="30">
+      <ClassStats class="fitnessApp.DateMaker" sourceFile="DateMaker.java" interface="false" size="46" bugs="6" priority_2="6"/>
+      <ClassStats class="fitnessApp.GUI" sourceFile="GUI.java" interface="false" size="582" bugs="66" priority_2="60" priority_1="6"/>
+      <ClassStats class="fitnessApp.Main" sourceFile="Main.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="fitnessApp.accountInfo" sourceFile="accountInfo.java" interface="false" size="53" bugs="7" priority_2="6" priority_1="1"/>
+      <ClassStats class="fitnessApp.active" sourceFile="active.java" interface="false" size="52" bugs="10" priority_2="9" priority_1="1"/>
+      <ClassStats class="fitnessApp.activity" sourceFile="activity.java" interface="false" size="51" bugs="10" priority_2="7" priority_1="3"/>
+      <ClassStats class="fitnessApp.activityDialog" sourceFile="GUI.java" interface="false" size="146" bugs="1" priority_2="1"/>
+      <ClassStats class="fitnessApp.data" sourceFile="data.java" interface="false" size="16" bugs="1" priority_2="1"/>
+      <ClassStats class="fitnessApp.dbConnection" sourceFile="dbConnection.java" interface="false" size="41" bugs="7" priority_2="5" priority_1="2"/>
+      <ClassStats class="fitnessApp.meals" sourceFile="meals.java" interface="false" size="73" bugs="14" priority_2="11" priority_1="3"/>
+      <ClassStats class="fitnessApp.mealsDialog" sourceFile="GUI.java" interface="false" size="80" bugs="0"/>
+      <ClassStats class="fitnessApp.stepsTable" sourceFile="stepsTable.java" interface="false" size="77" bugs="12" priority_2="7" priority_1="5"/>
+      <ClassStats class="fitnessApp.users" sourceFile="users.java" interface="false" size="112" bugs="19" priority_2="14" priority_1="5"/>
+      <ClassStats class="fitnessApp.weight" sourceFile="weight.java" interface="false" size="70" bugs="10" priority_2="6" priority_1="4"/>
+      <ClassStats class="fitnessApp.weightDialog" sourceFile="GUI.java" interface="false" size="52" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="175" invocations="626" avgMicrosecondsPerInvocation="280" maxMicrosecondsPerInvocation="14092" standardDeviationMircosecondsPerInvocation="728"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="144" invocations="2" avgMicrosecondsPerInvocation="72373" maxMicrosecondsPerInvocation="114307" standardDeviationMircosecondsPerInvocation="41934"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="69" invocations="124" avgMicrosecondsPerInvocation="559" maxMicrosecondsPerInvocation="23716" standardDeviationMircosecondsPerInvocation="2126"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="63" invocations="628" avgMicrosecondsPerInvocation="100" maxMicrosecondsPerInvocation="472" standardDeviationMircosecondsPerInvocation="54"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="53" invocations="63" avgMicrosecondsPerInvocation="846" maxMicrosecondsPerInvocation="3548" standardDeviationMircosecondsPerInvocation="955"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="50" invocations="89" avgMicrosecondsPerInvocation="566" maxMicrosecondsPerInvocation="25951" standardDeviationMircosecondsPerInvocation="2730"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="47" invocations="63" avgMicrosecondsPerInvocation="754" maxMicrosecondsPerInvocation="3415" standardDeviationMircosecondsPerInvocation="883"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="47" invocations="93" avgMicrosecondsPerInvocation="509" maxMicrosecondsPerInvocation="9282" standardDeviationMircosecondsPerInvocation="1044"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="43" invocations="125" avgMicrosecondsPerInvocation="349" maxMicrosecondsPerInvocation="2188" standardDeviationMircosecondsPerInvocation="378"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="39" invocations="93" avgMicrosecondsPerInvocation="427" maxMicrosecondsPerInvocation="3277" standardDeviationMircosecondsPerInvocation="523"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="34" invocations="93" avgMicrosecondsPerInvocation="374" maxMicrosecondsPerInvocation="4163" standardDeviationMircosecondsPerInvocation="542"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="33" invocations="243" avgMicrosecondsPerInvocation="137" maxMicrosecondsPerInvocation="1577" standardDeviationMircosecondsPerInvocation="177"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="30" invocations="63" avgMicrosecondsPerInvocation="478" maxMicrosecondsPerInvocation="11855" standardDeviationMircosecondsPerInvocation="1693"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="29" invocations="94" avgMicrosecondsPerInvocation="311" maxMicrosecondsPerInvocation="2001" standardDeviationMircosecondsPerInvocation="326"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SwitchFallthrough" totalMilliseconds="22" invocations="15" avgMicrosecondsPerInvocation="1512" maxMicrosecondsPerInvocation="17612" standardDeviationMircosecondsPerInvocation="4343"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="18" invocations="556" avgMicrosecondsPerInvocation="32" maxMicrosecondsPerInvocation="555" standardDeviationMircosecondsPerInvocation="55"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="16" invocations="15" avgMicrosecondsPerInvocation="1075" maxMicrosecondsPerInvocation="8767" standardDeviationMircosecondsPerInvocation="2076"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="13" invocations="63" avgMicrosecondsPerInvocation="212" maxMicrosecondsPerInvocation="1281" standardDeviationMircosecondsPerInvocation="288"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="13" invocations="63" avgMicrosecondsPerInvocation="207" maxMicrosecondsPerInvocation="862" standardDeviationMircosecondsPerInvocation="208"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="12" invocations="125" avgMicrosecondsPerInvocation="100" maxMicrosecondsPerInvocation="573" standardDeviationMircosecondsPerInvocation="125"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="12" invocations="15" avgMicrosecondsPerInvocation="824" maxMicrosecondsPerInvocation="4490" standardDeviationMircosecondsPerInvocation="1136"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1544075457589" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>
