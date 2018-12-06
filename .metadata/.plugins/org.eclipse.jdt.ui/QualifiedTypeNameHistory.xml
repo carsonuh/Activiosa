@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="fitnessApp.dbConnection"/>
 <fullyQualifiedTypeName name="javafx.application.Application"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.HBox"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
 <fullyQualifiedTypeName name="java.time.Month"/>
 <fullyQualifiedTypeName name="javafx.scene.text.Text"/>
@@ -52,4 +51,9 @@
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="fitnessApp.meals"/>
+<fullyQualifiedTypeName name="fitnessApp.active"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="javafx.scene.control.PasswordField"/>
+<fullyQualifiedTypeName name="java.awt.Dialog"/>
 </qualifiedTypeNameHistroy>

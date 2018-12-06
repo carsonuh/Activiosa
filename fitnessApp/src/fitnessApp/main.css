@@ -53,17 +53,17 @@
 	-fx-background-color: #0fb9b1;
 }
 
-.button:focused, .sub-menu-active {
+.button:focused, .category-active {
 	-fx-effect: dropshadow( three-pass-box , #ffffff , 2, 1 , 0 , 0 );
 	-fx-background-insets: 0,0,0,0,0;
 }
 
-.sub-menu-passive {
+.category-passive {
 	-fx-effect: dropshadow( three-pass-box , #ffffff , 0, 0 , 0 , 0 );
 	-fx-background-insets: 0,0,0,0,0;
 }
 
-#dateLbl, #caloriesLbl, #weightLbl {
+#dateLbl, #caloriesLbl, #weightLbl, #activitiesLbl, #accountLbl {
 	-fx-text-fill: #474D53;
 	-fx-font-size: 2.3em;
 	-fx-text-alignment: CENTER;
@@ -112,6 +112,14 @@
 
 #stepsLayout, #caloriesLayout{
 	-fx-padding: 45px 0 0 0;
+}
+
+#activitiesMenu {
+	-fx-padding: 20px 0 0 0;	
+}
+
+#activityAdd {
+	-fx-padding: 15px 0 0 0;
 }
 
 #stepsimg {
@@ -183,6 +191,10 @@
 	-fx-font-size: 18px;
 	-fx-text-fill: white;
 	-fx-min-width: 25px;
+}
+
+#activityTopLayout {
+	-fx-padding: 0 15px 0 30px;
 }
 
 
@@ -317,6 +329,7 @@
 #currentWeightLbl {
 	-fx-font-size: 36px;
 	-fx-text-alignment: CENTER;
+	-fx-padding: 0 0 0 0;
 }
 
 
@@ -337,4 +350,54 @@
 #bmiNum {
 	-fx-padding: 0 200px 0 0;
 }
+
+#currentWeightLayout {
+	-fx-padding: 10px 15px 0 0;
+}
+
+#weightModal, #mealsModal {
+	-fx-padding: 10px;
+}
+
+#weightModal .modal-textfield{
+	-fx-font-size:18px;
+	-fx-border-radius: 25px;
+	-fx-background-radius: 25px;
+	-fx-max-width: 150px;
+	-fx-min-width: 150px;
+	-fx-padding: 10px 20px;
+	-fx-border-color: #fa8231;
+	-fx-border-width: 1px;
+}
+
+#weightModal .date-picker > .arrow-button {
+	-fx-background-color: #fa8231;
+}
+
+#weightModal .modal-datepicker {
+	-fx-border-color: #fa8231;
+}
+
+#mealsModal .modal-textfield{
+	-fx-font-size:18px;
+	-fx-border-radius: 25px;
+	-fx-background-radius: 25px;
+	-fx-max-width: 150px;
+	-fx-min-width: 150px;
+	-fx-padding: 10px 20px;
+	-fx-border-color: #f7b731;
+	-fx-border-width: 1px;
+}
+
+#userinfo .facts-text {
+	-fx-max-width: 800px;
+}
+
+#userinfo {
+	-fx-padding: 20px 100px;
+}
+
+
+
+
 

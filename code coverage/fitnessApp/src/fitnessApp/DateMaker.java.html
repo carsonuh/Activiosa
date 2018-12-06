@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>DateMaker.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Main (Dec 5, 2018 6:17:52 PM)</a> &gt; <a href="../../index.html" class="el_group">fitnessApp</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">fitnessApp</a> &gt; <span class="el_source">DateMaker.java</span></div><h1>DateMaker.java</h1><pre class="source lang-java linenums">package fitnessApp;
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
+import java.util.Date;
+
+import static java.time.temporal.TemporalAdjusters.nextOrSame;
+import static java.time.temporal.TemporalAdjusters.previousOrSame;
+
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+<span class="nc" id="L20">public class DateMaker {</span>
+
+	public static LocalDateTime Today() {
+<span class="fc" id="L23">		return LocalDateTime.now();</span>
+	}
+	
+	public static String ToSQLDate(LocalDateTime t) {
+<span class="fc" id="L27">		return t.getYear()+&quot;-&quot;+t.getMonthValue()+&quot;-&quot;+t.getDayOfMonth();</span>
+	}
+	
+	public static String ToSQLDate(LocalDate l) {
+<span class="nc" id="L31">		return l.getYear()+&quot;-&quot;+l.getMonthValue()+&quot;-&quot;+l.getDayOfMonth();</span>
+	}
+	
+	public static String LabelToday() {
+<span class="fc" id="L35">		String month = Today().getMonth().toString().toLowerCase();</span>
+<span class="fc" id="L36">		String day = Today().getDayOfWeek().toString().toLowerCase();</span>
+<span class="fc" id="L37">		int dayNum = Today().getDayOfMonth();</span>
+<span class="fc" id="L38">		day = day.substring(0,1).toUpperCase() + day.substring(1);</span>
+<span class="fc" id="L39">		month = month.substring(0,1).toUpperCase() + month.substring(1);</span>
+<span class="fc" id="L40">		return day + &quot;, &quot;+month+&quot; &quot;+dayNum;</span>
+	}
+	
+	public static String weekStart() {
+<span class="fc" id="L44">		 LocalDate today = LocalDate.now();</span>
+<span class="fc" id="L45">		 LocalDate monday = today.with(previousOrSame(DayOfWeek.SUNDAY));</span>
+<span class="fc" id="L46">		 return monday.toString();</span>
+	}
+	
+	public static String weekEnd() {
+<span class="fc" id="L50">		 LocalDate today = LocalDate.now();</span>
+<span class="fc" id="L51">		 LocalDate sunday = today.with(nextOrSame(DayOfWeek.SATURDAY));</span>
+<span class="fc" id="L52">		 return sunday.toString();</span>
+	}
+	
+	public static String dayOfWeek(String s) {
+<span class="nc" id="L56">		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd&quot;); </span>
+<span class="nc" id="L57">		LocalDate day = LocalDate.parse(s, formatter);</span>
+<span class="nc" id="L58">		return day.getDayOfWeek().toString().toUpperCase();</span>
+	}
+	
+	public static String weekRange() {
+<span class="fc" id="L62">		String start = weekStart();</span>
+<span class="fc" id="L63">		String end = weekEnd();</span>
+<span class="fc" id="L64">		start = start.substring(5);</span>
+<span class="fc" id="L65">		end = end.substring(5);</span>
+		
+<span class="fc" id="L67">		return monthName(weekStart()) + &quot; - &quot; + monthName(weekEnd());</span>
+	}
+	
+	public static String monthName(String s) {
+<span class="fc" id="L71">		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd&quot;); </span>
+<span class="fc" id="L72">		LocalDate date = LocalDate.parse(s, formatter);</span>
+		
+<span class="fc" id="L74">		return date.getMonth().toString().toLowerCase().substring(0,1).toUpperCase() + </span>
+<span class="fc" id="L75">				date.getMonth().toString().toLowerCase().substring(1,3) + &quot; &quot; + date.getDayOfMonth();</span>
+				
+		
+	}
+	
+	public static String graphLabelShort(LocalDate l) {
+<span class="nc" id="L81">		String day = l.getDayOfWeek().toString();</span>
+<span class="nc" id="L82">		return day.substring(0, 2).toUpperCase();</span>
+	}
+	
+	public static int numOfMinutes(String mins) throws ParseException {
+<span class="nc" id="L86">		DateFormat sdf = new SimpleDateFormat(&quot;hh:mm:ss&quot;);</span>
+<span class="nc" id="L87">	    Date date = sdf.parse(mins);</span>
+<span class="nc" id="L88">	    return date.getMinutes() + (date.getHours()*60);</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>Main (Dec 5, 2018 6:17:52 PM)</div></body></html>

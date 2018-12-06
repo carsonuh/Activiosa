@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>users.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Main (Dec 5, 2018 6:17:52 PM)</a> &gt; <a href="../../index.html" class="el_group">fitnessApp</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">fitnessApp</a> &gt; <span class="el_source">users.java</span></div><h1>users.java</h1><pre class="source lang-java linenums">package fitnessApp;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class users extends dbConnection {
+
+<span class="fc" id="L12">	static dbConnection db = new dbConnection();</span>
+	protected static int userID;
+	protected static String username;
+	protected static boolean exists;
+<span class="fc" id="L16">	protected static String password;	   </span>
+	
+<span class="nc" id="L18">	public users() {</span>
+	
+<span class="nc" id="L20">	}</span>
+	
+	
+	// INSERT USERS
+	public void insert(String username, String password) throws NoSuchAlgorithmException {
+		
+<span class="nc" id="L26">		password = passwordEncrypt(password);</span>
+<span class="nc" id="L27">		String sql = &quot;INSERT INTO USERS(username, password) VALUES('&quot;+username+&quot;',&quot;+&quot;'&quot;+password+&quot;')&quot;;</span>
+		try {
+<span class="nc" id="L29">			db.connect();</span>
+<span class="nc" id="L30">			conn = db.getConn();</span>
+<span class="nc" id="L31">			db.setStmt(conn.createStatement());</span>
+<span class="nc" id="L32">			stmt = db.getStmt();</span>
+<span class="nc" id="L33">			stmt.executeUpdate(sql);</span>
+<span class="nc" id="L34">		} catch (SQLException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L36">			System.out.println(&quot;Didn't insert....\n&quot; + sql);</span>
+		}
+<span class="nc" id="L38">		db.shutdown();</span>
+<span class="nc" id="L39">	}</span>
+	
+	public static void get() {
+<span class="fc" id="L42">		String sql = &quot;SELECT username FROM USERS WHERE id=&quot;+userID;</span>
+		try {
+<span class="fc" id="L44">			db.connect();</span>
+<span class="fc" id="L45">			conn = db.getConn();</span>
+<span class="fc" id="L46">			db.setStmt(conn.createStatement());</span>
+<span class="fc" id="L47">			stmt = db.getStmt();</span>
+<span class="fc" id="L48">			ResultSet rs = stmt.executeQuery(sql);</span>
+			
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">			if(rs.next()) {</span>
+<span class="nc" id="L51">				username = rs.getString(&quot;username&quot;);</span>
+			}
+			
+<span class="nc" id="L54">		} catch (SQLException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L56">			System.out.println(&quot;Didn't update....&quot;);</span>
+			//e.printStackTrace();
+		}
+<span class="fc" id="L59">	}</span>
+	
+	
+	public static void getByUsername(String name) {
+<span class="nc" id="L63">		String sql = &quot;SELECT username, password FROM USERS WHERE username=&quot;+name;</span>
+		try {
+<span class="nc" id="L65">			db.connect();</span>
+<span class="nc" id="L66">			conn = db.getConn();</span>
+<span class="nc" id="L67">			db.setStmt(conn.createStatement());</span>
+<span class="nc" id="L68">			stmt = db.getStmt();</span>
+<span class="nc" id="L69">			ResultSet rs = stmt.executeQuery(sql);</span>
+			
+<span class="nc bnc" id="L71" title="All 2 branches missed.">			if(rs.next()) {</span>
+<span class="nc" id="L72">				username = rs.getString(&quot;username&quot;);</span>
+<span class="nc" id="L73">				password = rs.getString(&quot;password&quot;);</span>
+			}
+			
+<span class="nc" id="L76">		} catch (SQLException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L78">			System.out.println(&quot;Didn't update....&quot;);</span>
+			//e.printStackTrace();
+		}
+<span class="nc" id="L81">	}</span>
+	
+	public static void loginSuccessGet(String name) {
+<span class="nc" id="L84">		String sql = &quot;SELECT username, id FROM USERS WHERE username=&quot;+name;</span>
+		try {
+<span class="nc" id="L86">			db.connect();</span>
+<span class="nc" id="L87">			conn = db.getConn();</span>
+<span class="nc" id="L88">			db.setStmt(conn.createStatement());</span>
+<span class="nc" id="L89">			stmt = db.getStmt();</span>
+<span class="nc" id="L90">			ResultSet rs = stmt.executeQuery(sql);</span>
+			
+<span class="nc bnc" id="L92" title="All 2 branches missed.">			if(rs.next()) {</span>
+<span class="nc" id="L93">				username = rs.getString(&quot;username&quot;);</span>
+<span class="nc" id="L94">				userID = rs.getInt(&quot;id&quot;);</span>
+			}
+			
+<span class="nc" id="L97">		} catch (SQLException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L99">			System.out.println(&quot;Didn't update....&quot;);</span>
+			//e.printStackTrace();
+		}
+<span class="nc" id="L102">	}</span>
+	
+	//UPDATE USERS
+	public void update(String username, String password) throws NoSuchAlgorithmException {
+<span class="nc" id="L106">		password = passwordEncrypt(password);</span>
+<span class="nc" id="L107">		String sql = &quot;UPDATE USERS SET username='&quot;+username+&quot;', password='&quot;+password+</span>
+<span class="nc" id="L108">		&quot;' WHERE id=&quot;+userID;</span>
+		try {
+<span class="nc" id="L110">			db.connect();</span>
+<span class="nc" id="L111">			conn = db.getConn();</span>
+<span class="nc" id="L112">			db.setStmt(conn.createStatement());</span>
+<span class="nc" id="L113">			stmt = db.getStmt();</span>
+<span class="nc" id="L114">			stmt.executeUpdate(sql);</span>
+			
+<span class="nc" id="L116">		} catch (SQLException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L118">			System.out.println(&quot;Didn't update....&quot;);</span>
+			//e.printStackTrace();
+		}
+<span class="nc" id="L121">	}</span>
+	
+	public static void getPassword(String uname) {
+<span class="nc" id="L124">		String sql = &quot;SELECT password FROM USERS WHERE username='&quot;+uname+&quot;'&quot;;</span>
+		try {
+<span class="nc" id="L126">			db.connect();</span>
+<span class="nc" id="L127">			conn = db.getConn();</span>
+<span class="nc" id="L128">			db.setStmt(conn.createStatement());</span>
+<span class="nc" id="L129">			stmt = db.getStmt();</span>
+<span class="nc" id="L130">			ResultSet rs = stmt.executeQuery(sql);</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">			if(rs.next()) {</span>
+<span class="nc" id="L132">				password = rs.getString(&quot;password&quot;);</span>
+			}
+			
+<span class="nc" id="L135">		} catch (SQLException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L137">			System.out.println(&quot;Didn't insert....\n&quot; + sql);</span>
+<span class="nc" id="L138">			e.printStackTrace();</span>
+		}
+<span class="nc" id="L140">		db.shutdown();</span>
+<span class="nc" id="L141">	}</span>
+	
+	
+	public static void checkIfExists(String uname) {
+<span class="nc" id="L145">		String sql = &quot;SELECT 1 FROM USERS WHERE username='&quot;+uname+&quot;'&quot;;</span>
+		try {
+<span class="nc" id="L147">			db.connect();</span>
+<span class="nc" id="L148">			conn = db.getConn();</span>
+<span class="nc" id="L149">			db.setStmt(conn.createStatement());</span>
+<span class="nc" id="L150">			stmt = db.getStmt();</span>
+<span class="nc" id="L151">			ResultSet rs = stmt.executeQuery(sql);</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">			if(rs.next()) {</span>
+<span class="nc" id="L153">				exists = true;</span>
+<span class="nc" id="L154">			}</span>
+			else {
+<span class="nc" id="L156">				exists = false;</span>
+			}
+<span class="nc" id="L158">		} catch (SQLException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L160">			System.out.println(&quot;Didn't insert....\n&quot; + sql);</span>
+<span class="nc" id="L161">			e.printStackTrace();</span>
+		}
+<span class="nc" id="L163">		db.shutdown();</span>
+<span class="nc" id="L164">	}</span>
+	
+	// Encrypt users password
+	   public static String passwordEncrypt(String password) throws NoSuchAlgorithmException {
+<span class="nc" id="L168">		   MessageDigest digest = MessageDigest.getInstance(&quot;SHA-1&quot;);</span>
+<span class="nc" id="L169">		   byte[] result = digest.digest(password.getBytes());</span>
+<span class="nc" id="L170">	        StringBuffer sb = new StringBuffer();</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">	        for (int i = 0; i &lt; result.length; i++) {</span>
+<span class="nc" id="L172">	            sb.append(Integer.toString((result[i] &amp; 0xff) + 0x100, 16).substring(1));</span>
+	        }
+	         
+<span class="nc" id="L175">	        return sb.toString();</span>
+	   }
+	
+	 
+	 //TODO: GET USERS
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>Main (Dec 5, 2018 6:17:52 PM)</div></body></html>

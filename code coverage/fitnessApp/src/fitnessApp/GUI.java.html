@@ -1,0 +1,1220 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>GUI.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Main (Dec 5, 2018 6:17:52 PM)</a> &gt; <a href="../../index.html" class="el_group">fitnessApp</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">fitnessApp</a> &gt; <span class="el_source">GUI.java</span></div><h1>GUI.java</h1><pre class="source lang-java linenums">package fitnessApp;
+
+import java.awt.Dialog;
+import java.io.File;
+import java.io.FileInputStream;
+import java.net.MalformedURLException;
+import java.security.NoSuchAlgorithmException;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+
+import java.lang.Object;
+
+
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Series;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+<span class="fc" id="L56">public class GUI extends Application {</span>
+
+<span class="fc" id="L58">	protected activity act = new activity();</span>
+	
+	Stage window;
+	private Scene mainScene, loginScene;
+	
+<span class="fc" id="L63">	Circle lgCircle = new Circle(100);</span>
+<span class="fc" id="L64">	Circle smCircle = new Circle(75);</span>
+	
+
+	//Layouts
+	protected static VBox activityTopBar, bmiLayout, dataLayout, controlsLayout, 
+	activityStepsLayout, activityRunningLayout, activityBikingLayout, activitySwimmingLayout;
+	protected static Series&lt;String, Number&gt; seriesSteps, seriesRunning, seriesSwimming, seriesBiking, seriesWeight;
+	protected static LineChart&lt;String,Number&gt; stepsChart, runningChart, bikingChart, swimmingChart, weightChart;
+	protected static HBox activityMenuLayout;
+	protected static BorderPane mainLayout,activityLayout, homeLayout, mealsLayout, weightLayout, accountLayout;
+	
+	//Buttons
+	private Button activityButton;
+	private Button weightButton;
+	private Button dataButton;
+	private Button mealsButton;
+	private Button bmiButton;
+	private Button bmiSubmit;
+	private Button profileButton;
+	private Button runningButton;
+	private Button stepsButton;
+	private Button swimmingButton;
+	private Button bikingButton;
+	private Button homeButton;
+	private Button activityAddButton, weightAddButton, mealsAddButton;
+	
+	protected static Label caloriesNum, breakfastCalNum, lunchCalNum, dinnerCalNum, snacksCalNum, stepsNum, calBurnedNum, activeMinsNum, stepsDistNum, stepsFloorsNum ;
+	static Stage activityModal, weightModal, mealsModal;
+	LocalDateTime currentTime;
+	private static String currentLayout;
+
+
+	public void start(Stage primaryStage) throws Exception {
+<span class="fc" id="L97">		window  = primaryStage;</span>
+<span class="fc" id="L98">		window.getIcons().add(new Image(GUI.class.getResourceAsStream(&quot;../images/icon.png&quot;)));</span>
+<span class="fc" id="L99">		activityModal = new activityDialog(primaryStage);	</span>
+<span class="fc" id="L100">		weightModal = new weightDialog(primaryStage);</span>
+<span class="fc" id="L101">		mealsModal = new mealsDialog(primaryStage);</span>
+		
+		
+		// login --------------------------------------
+<span class="fc" id="L105">		BorderPane loginLayout = new BorderPane();</span>
+		
+<span class="fc" id="L107">		VBox loginPage = new VBox(10);</span>
+<span class="fc" id="L108">		Label logo = new Label();</span>
+<span class="fc" id="L109">		logo.setId(&quot;logo&quot;);</span>
+<span class="fc" id="L110">		TextField username = new TextField();</span>
+<span class="fc" id="L111">		username.getStylesheets().add(&quot;login-textfield&quot;);</span>
+<span class="fc" id="L112">		username.setPromptText(&quot;Username&quot;);</span>
+<span class="fc" id="L113">		PasswordField password = new PasswordField();</span>
+<span class="fc" id="L114">		password.getStylesheets().add(&quot;login-textfield&quot;);</span>
+<span class="fc" id="L115">		password.setPromptText(&quot;Password&quot;);</span>
+<span class="fc" id="L116">		Button login = new Button(&quot;Login&quot;);</span>
+<span class="fc" id="L117">		login.setId(&quot;login&quot;);</span>
+<span class="fc" id="L118">		login.getStylesheets().add(&quot;login-button&quot;);</span>
+<span class="fc" id="L119">		Button signup = new Button(&quot;signup&quot;);</span>
+<span class="fc" id="L120">		signup.getStylesheets().add(&quot;login-button&quot;);</span>
+		
+<span class="fc" id="L122">		loginPage.getChildren().addAll(username, password, login, signup);</span>
+		
+		//sign up ---------------------------------------
+<span class="fc" id="L125">		GridPane signupLayout = new GridPane();</span>
+		
+<span class="fc" id="L127">		TextField fullName = new TextField();</span>
+<span class="fc" id="L128">		fullName.setPromptText(&quot;Full Name&quot;);</span>
+<span class="fc" id="L129">		fullName.getStylesheets().add(&quot;login-textfield&quot;);</span>
+		
+<span class="fc" id="L131">		TextField usernameNew = new TextField();</span>
+<span class="fc" id="L132">		usernameNew.setPromptText(&quot;Username&quot;);</span>
+<span class="fc" id="L133">		usernameNew.getStylesheets().add(&quot;login-textfield&quot;);</span>
+		
+<span class="fc" id="L135">		PasswordField passwordNew = new PasswordField();</span>
+<span class="fc" id="L136">		passwordNew.setPromptText(&quot;Password&quot;);</span>
+<span class="fc" id="L137">		passwordNew.getStylesheets().add(&quot;login-textfield&quot;);</span>
+<span class="fc" id="L138">		PasswordField passwordNewConfirm = new PasswordField();</span>
+<span class="fc" id="L139">		passwordNewConfirm.setPromptText(&quot;Confirm Password&quot;);</span>
+<span class="fc" id="L140">		passwordNewConfirm.getStylesheets().add(&quot;login-textfield&quot;);</span>
+		
+<span class="fc" id="L142">		TextField heightInches = new TextField();</span>
+<span class="fc" id="L143">		heightInches.setPromptText(&quot;Height IN&quot;);</span>
+<span class="fc" id="L144">		heightInches.getStylesheets().add(&quot;login-textfield&quot;);</span>
+		
+<span class="fc" id="L146">		TextField heightFeet = new TextField();</span>
+<span class="fc" id="L147">		heightFeet.setPromptText(&quot;Height FT&quot;);</span>
+<span class="fc" id="L148">		heightFeet.getStylesheets().add(&quot;login-textfield&quot;);</span>
+		
+<span class="fc" id="L150">		TextField startWeight = new TextField();</span>
+<span class="fc" id="L151">		startWeight.setPromptText(&quot;Weight&quot;);</span>
+<span class="fc" id="L152">		startWeight.getStylesheets().add(&quot;login-textfield&quot;);</span>
+		
+<span class="fc" id="L154">		Button signUpNew = new Button(&quot;Sign Up&quot;);</span>
+<span class="fc" id="L155">		signUpNew.getStylesheets().add(&quot;login-button&quot;);</span>
+		
+<span class="fc" id="L157">		loginLayout.setCenter(loginPage);</span>
+		
+<span class="fc" id="L159">		login.setOnAction(e -&gt; {</span>
+<span class="nc" id="L160">			users.checkIfExists(username.getText());</span>
+			
+			try {
+<span class="nc bnc" id="L163" title="All 2 branches missed.">				if(users.exists) {</span>
+<span class="nc" id="L164">					users.getPassword(username.getText());</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">					if(users.passwordEncrypt(password.getText()) == users.password) {</span>
+<span class="nc" id="L166">					users.loginSuccessGet(username.getText());</span>
+<span class="nc" id="L167">					data.get();</span>
+<span class="nc" id="L168">					data.update();</span>
+<span class="nc" id="L169">					window.setScene(mainScene);</span>
+					
+					}
+				
+				}
+				else {
+					
+				}
+<span class="nc" id="L177">			} catch (NoSuchAlgorithmException e1) {</span>
+				// TODO Auto-generated catch block
+<span class="nc" id="L179">				e1.printStackTrace();</span>
+			}
+			
+<span class="nc" id="L182">		});</span>
+		
+		
+		
+		
+		
+		
+		
+
+<span class="fc" id="L191">		mainLayout = new BorderPane();</span>
+
+		// left: controls and buttons
+<span class="fc" id="L194">		controlsLayout = new VBox(30);</span>
+<span class="fc" id="L195">		controlsLayout.setId(&quot;controlNav&quot;);</span>
+<span class="fc" id="L196">		activityButton = new Button();</span>
+<span class="fc" id="L197">		activityButton.setId(&quot;activity&quot;);</span>
+<span class="fc" id="L198">		activityButton.getStyleClass().add(&quot;nav-menu-button&quot;);</span>
+<span class="fc" id="L199">		weightButton = new Button();</span>
+<span class="fc" id="L200">		weightButton.setId(&quot;weight&quot;);</span>
+<span class="fc" id="L201">		weightButton.getStyleClass().add(&quot;nav-menu-button&quot;);</span>
+<span class="fc" id="L202">		mealsButton = new Button();</span>
+<span class="fc" id="L203">		mealsButton.setId(&quot;meals&quot;);</span>
+<span class="fc" id="L204">		mealsButton.getStyleClass().add(&quot;nav-menu-button&quot;);</span>
+<span class="fc" id="L205">		profileButton = new Button();</span>
+<span class="fc" id="L206">		profileButton.setId(&quot;profile&quot;);</span>
+<span class="fc" id="L207">		profileButton.getStyleClass().add(&quot;nav-menu-button&quot;);</span>
+<span class="fc" id="L208">		homeButton = new Button();</span>
+<span class="fc" id="L209">		homeButton.setId(&quot;home&quot;);</span>
+<span class="fc" id="L210">		homeButton.getStyleClass().add(&quot;nav-menu-button&quot;);</span>
+<span class="fc" id="L211">		controlsLayout.getChildren().addAll(homeButton, activityButton, weightButton, mealsButton, profileButton);</span>
+		
+		 
+		//Activity Layout ---------------------------------------------------
+<span class="fc" id="L215">		activityLayout = new BorderPane();</span>
+		
+		 //Activity Menu
+<span class="fc" id="L218">		 activityMenuLayout = new HBox(20);</span>
+<span class="fc" id="L219">		 activityMenuLayout.setId(&quot;activitiesMenu&quot;);</span>
+<span class="fc" id="L220">		 runningButton = new Button(&quot;running&quot;);</span>
+<span class="fc" id="L221">		 runningButton.setId(&quot;runningButton&quot;);</span>
+<span class="fc" id="L222">		 runningButton.getStyleClass().add(&quot;activity-menu-buttons&quot;);</span>
+<span class="fc" id="L223">		 stepsButton = new Button(&quot;steps&quot;);</span>
+<span class="fc" id="L224">		 stepsButton.setId(&quot;stepsButton&quot;);</span>
+<span class="fc" id="L225">		 stepsButton.getStyleClass().add(&quot;activity-menu-buttons&quot;);</span>
+<span class="fc" id="L226">		 bikingButton = new Button(&quot;biking&quot;);</span>
+<span class="fc" id="L227">		 bikingButton.setId(&quot;bikingButton&quot;);</span>
+<span class="fc" id="L228">		 bikingButton.getStyleClass().add(&quot;activity-menu-buttons&quot;);</span>
+<span class="fc" id="L229">		 swimmingButton = new Button(&quot;swimming&quot;);</span>
+<span class="fc" id="L230">		 swimmingButton.setId(&quot;swimmingButton&quot;);</span>
+<span class="fc" id="L231">		 swimmingButton.getStyleClass().add(&quot;activity-menu-buttons&quot;);</span>
+<span class="fc" id="L232">		 activityAddButton = new Button();</span>
+<span class="fc" id="L233">		 activityAddButton.getStyleClass().add(&quot;add-button&quot;);</span>
+<span class="fc" id="L234">		 activityAddButton.setAlignment(Pos.TOP_RIGHT);</span>
+<span class="fc" id="L235">		 activityMenuLayout.getChildren().addAll(stepsButton, runningButton, bikingButton, swimmingButton);</span>
+		 
+<span class="fc" id="L237">		 HBox activityAddLayout = new HBox(0);</span>
+<span class="fc" id="L238">		 activityAddLayout.setId(&quot;activityAdd&quot;);</span>
+<span class="fc" id="L239">		 activityAddLayout.getChildren().add(activityAddButton);</span>
+		 
+<span class="fc" id="L241">		 BorderPane activityTopLayout = new BorderPane();</span>
+<span class="fc" id="L242">		 Label activitiesLbl = new Label(&quot;Activities&quot;);</span>
+<span class="fc" id="L243">		 activitiesLbl.setId(&quot;activitiesLbl&quot;);</span>
+		 
+<span class="fc" id="L245">		 activityTopLayout.setTop(activitiesLbl);</span>
+<span class="fc" id="L246">		 activitiesLbl.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L247">		 activityTopLayout.setAlignment(activitiesLbl, Pos.CENTER);</span>
+<span class="fc" id="L248">		 activityTopLayout.setCenter(activityMenuLayout);</span>
+<span class="fc" id="L249">		 activityTopLayout.setRight(activityAddLayout);</span>
+<span class="fc" id="L250">		 activityTopLayout.setId(&quot;activityTopLayout&quot;);</span>
+		 
+		 // steps --------------------------------------------------------------
+<span class="fc" id="L253">		 activityStepsLayout = new VBox(5);</span>
+<span class="fc" id="L254">		 activityStepsLayout.setId(&quot;activityStepsLayout&quot;);</span>
+<span class="fc" id="L255">		 stepsButton.requestFocus();</span>
+<span class="fc" id="L256">		 CategoryAxis xAxis = new CategoryAxis();</span>
+	        
+	      //Defining the y axis   
+<span class="fc" id="L259">	      NumberAxis yAxis = new NumberAxis(0, 25, 5); </span>
+<span class="fc" id="L260">	      yAxis.setLabel(&quot;Steps (Thousands)&quot;); </span>
+	        
+	      //Creating the line chart 
+<span class="fc" id="L263">	      stepsChart = new LineChart&lt;String, Number&gt;(xAxis, yAxis);  </span>
+	      
+	      
+	      //Prepare XYChart.Series objects by setting data 
+<span class="fc" id="L267">	      seriesSteps = new XYChart.Series(); </span>
+<span class="fc" id="L268">	      seriesSteps.setName(DateMaker.weekRange());</span>
+	      
+<span class="fc" id="L270">	      stepsTable.getWeek();</span>
+<span class="fc" id="L271">	      seriesSteps.getData().add(new XYChart.Data(&quot;SUN&quot;, stepsPerThousand(stepsTable.weeklySteps.get(&quot;SUNDAY&quot;)))); </span>
+<span class="fc" id="L272">	      seriesSteps.getData().add(new XYChart.Data(&quot;MON&quot;, stepsPerThousand(stepsTable.weeklySteps.get(&quot;MONDAY&quot;)))); </span>
+<span class="fc" id="L273">	      seriesSteps.getData().add(new XYChart.Data(&quot;TUE&quot;, stepsPerThousand(stepsTable.weeklySteps.get(&quot;TUESDAY&quot;)))); </span>
+<span class="fc" id="L274">	      seriesSteps.getData().add(new XYChart.Data(&quot;WED&quot;, stepsPerThousand(stepsTable.weeklySteps.get(&quot;WEDNESDAY&quot;)))); </span>
+<span class="fc" id="L275">	      seriesSteps.getData().add(new XYChart.Data(&quot;THU&quot;, stepsPerThousand(stepsTable.weeklySteps.get(&quot;THURSDAY&quot;)))); </span>
+<span class="fc" id="L276">	      seriesSteps.getData().add(new XYChart.Data(&quot;FRI&quot;, stepsPerThousand(stepsTable.weeklySteps.get(&quot;FRIDAY&quot;)))); </span>
+<span class="fc" id="L277">	      seriesSteps.getData().add(new XYChart.Data(&quot;SAT&quot;, stepsPerThousand(stepsTable.weeklySteps.get(&quot;SATURDAY&quot;))));</span>
+	      
+	      //Setting the data to Line chart  
+	      
+<span class="fc" id="L281">	      stepsChart.getData().add(seriesSteps);        </span>
+<span class="fc" id="L282">	      stepsChart.setId(&quot;stepsChart&quot;);</span>
+<span class="fc" id="L283">	      stepsChart.getStyleClass().add(&quot;activity-chart&quot;);</span>
+<span class="fc" id="L284">	      stepsChart.setAnimated(false);</span>
+
+	      
+<span class="fc" id="L287">	      activityStepsLayout.getChildren().add(stepsChart);</span>
+	      
+<span class="pc bpc" id="L289" title="1 of 2 branches missed.">	      if(currentLayout == activityStepsLayout.getId()) {</span>
+<span class="nc" id="L290">	    	  stepsButton.getStyleClass().add(&quot;sub-menu-active&quot;);  </span>
+<span class="nc" id="L291">	      }</span>
+	      else {
+<span class="fc" id="L293">	    	  stepsButton.getStyleClass().add(&quot;sub-menu-passive&quot;);</span>
+	      }
+	      
+<span class="fc" id="L296">	      stepsButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L297">				 activityLayout.setCenter(activityStepsLayout);</span>
+<span class="nc" id="L298">				 currentLayout = activityStepsLayout.getId();</span>
+<span class="nc" id="L299">			 });</span>
+		 
+		 
+		 // running --------------------------------------------
+<span class="fc" id="L303">		 activityRunningLayout = new VBox(5);</span>
+<span class="fc" id="L304">		 activityRunningLayout.setId(&quot;activityRunningLayout&quot;);</span>
+<span class="fc" id="L305">		 CategoryAxis xAxisRunning = new CategoryAxis();</span>
+<span class="fc" id="L306">		 xAxisRunning.setLabel(DateMaker.weekRange()); </span>
+	        
+	      //Defining the y axis   
+<span class="fc" id="L309">	      NumberAxis yAxisRunning = new NumberAxis(0, 10, 2); </span>
+<span class="fc" id="L310">	      yAxisRunning.setLabel(&quot;Miles&quot;); </span>
+	        
+	      //Creating the line chart 
+<span class="fc" id="L313">	      runningChart = new LineChart&lt;String, Number&gt;(xAxisRunning, yAxisRunning);  </span>
+<span class="fc" id="L314">	      runningChart.setLegendVisible(false);</span>
+	      //Prepare XYChart.Series objects by setting data 
+<span class="fc" id="L316">	      seriesRunning = new XYChart.Series(); </span>
+<span class="fc" id="L317">	      activity.getWeek(&quot;Running&quot;);</span>
+<span class="fc" id="L318">	      seriesRunning.getData().add(new XYChart.Data(&quot;SUN&quot;, activity.weeklyData.get(&quot;SUNDAY&quot;))); </span>
+<span class="fc" id="L319">	      seriesRunning.getData().add(new XYChart.Data(&quot;MON&quot;, activity.weeklyData.get(&quot;MONDAY&quot;))); </span>
+<span class="fc" id="L320">	      seriesRunning.getData().add(new XYChart.Data(&quot;TUE&quot;, activity.weeklyData.get(&quot;TUESDAY&quot;))); </span>
+<span class="fc" id="L321">	      seriesRunning.getData().add(new XYChart.Data(&quot;WED&quot;, activity.weeklyData.get(&quot;WEDNESDAY&quot;))); </span>
+<span class="fc" id="L322">	      seriesRunning.getData().add(new XYChart.Data(&quot;THU&quot;, activity.weeklyData.get(&quot;THURSDAY&quot;))); </span>
+<span class="fc" id="L323">	      seriesRunning.getData().add(new XYChart.Data(&quot;FRI&quot;, activity.weeklyData.get(&quot;FRIDAY&quot;))); </span>
+<span class="fc" id="L324">	      seriesRunning.getData().add(new XYChart.Data(&quot;SAT&quot;, activity.weeklyData.get(&quot;SATURDAY&quot;)));</span>
+	      
+	     
+<span class="fc" id="L327">	      runningChart.getData().add(seriesRunning);        </span>
+<span class="fc" id="L328">	      runningChart.setId(&quot;runningChart&quot;);</span>
+<span class="fc" id="L329">	      runningChart.getStyleClass().add(&quot;activity-chart&quot;);</span>
+<span class="fc" id="L330">	      runningChart.setAnimated(false);</span>
+
+
+	      
+<span class="fc" id="L334">	      activityRunningLayout.getChildren().add(runningChart);</span>
+	      
+<span class="fc" id="L336">	      runningButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L337">				 activityLayout.setCenter(activityRunningLayout);</span>
+<span class="nc" id="L338">				 currentLayout = activityRunningLayout.getId();</span>
+<span class="nc" id="L339">			 });</span>
+		 
+		 
+		 
+		 // biking ------------------------------------------------------------
+<span class="fc" id="L344">		 activityBikingLayout = new VBox(5);</span>
+<span class="fc" id="L345">		 xAxis = new CategoryAxis();</span>
+<span class="fc" id="L346">	     xAxis.setLabel(DateMaker.weekRange()); </span>
+	        
+	      //Defining the y axis   
+<span class="fc" id="L349">	      yAxis = new NumberAxis   (0, 100, 10); </span>
+<span class="fc" id="L350">	      yAxis.setLabel(&quot;Miles&quot;); </span>
+	        
+	      //Creating the line chart 
+<span class="fc" id="L353">	      bikingChart = new LineChart&lt;String, Number&gt;(xAxis, yAxis);  </span>
+<span class="fc" id="L354">	      bikingChart.setLegendVisible(false);</span>
+	      //Prepare XYChart.Series objects by setting data 
+<span class="fc" id="L356">	      seriesBiking = new XYChart.Series(); </span>
+	      
+<span class="fc" id="L358">	      activity.getWeek(&quot;Biking&quot;);</span>
+<span class="fc" id="L359">	      seriesBiking.getData().add(new XYChart.Data(&quot;SUN&quot;, activity.weeklyData.get(&quot;SUNDAY&quot;))); </span>
+<span class="fc" id="L360">	      seriesBiking.getData().add(new XYChart.Data(&quot;MON&quot;, activity.weeklyData.get(&quot;MONDAY&quot;))); </span>
+<span class="fc" id="L361">	      seriesBiking.getData().add(new XYChart.Data(&quot;TUE&quot;, activity.weeklyData.get(&quot;TUESDAY&quot;))); </span>
+<span class="fc" id="L362">	      seriesBiking.getData().add(new XYChart.Data(&quot;WED&quot;, activity.weeklyData.get(&quot;WEDNESDAY&quot;))); </span>
+<span class="fc" id="L363">	      seriesBiking.getData().add(new XYChart.Data(&quot;THU&quot;, activity.weeklyData.get(&quot;THURSDAY&quot;))); </span>
+<span class="fc" id="L364">	      seriesBiking.getData().add(new XYChart.Data(&quot;FRI&quot;, activity.weeklyData.get(&quot;FRIDAY&quot;))); </span>
+<span class="fc" id="L365">	      seriesBiking.getData().add(new XYChart.Data(&quot;SAT&quot;, activity.weeklyData.get(&quot;SATURDAY&quot;)));</span>
+	      
+	      //Setting the data to Line chart    
+<span class="fc" id="L368">	      bikingChart.getData().add(seriesBiking);        </span>
+<span class="fc" id="L369">	      bikingChart.setId(&quot;stepsChart&quot;);</span>
+<span class="fc" id="L370">	      bikingChart.getStyleClass().add(&quot;activity-chart&quot;);</span>
+<span class="fc" id="L371">	      bikingChart.setAnimated(false);</span>
+	      
+	      
+<span class="fc" id="L374">	      activityBikingLayout.getChildren().add(bikingChart);</span>
+<span class="fc" id="L375">	      bikingButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L376">				 activityLayout.setCenter(activityBikingLayout);</span>
+<span class="nc" id="L377">			 });</span>
+		 
+		 // swimming
+<span class="fc" id="L380">		 activitySwimmingLayout = new VBox(5);</span>
+<span class="fc" id="L381">		 xAxis = new CategoryAxis();</span>
+<span class="fc" id="L382">	     xAxis.setLabel(DateMaker.weekRange()); </span>
+	        
+	      //Defining the y axis   
+<span class="fc" id="L385">	      yAxis = new NumberAxis   (0, 100, 10); </span>
+<span class="fc" id="L386">	      yAxis.setLabel(&quot;Miles&quot;); </span>
+	        
+	      //Creating the line chart 
+<span class="fc" id="L389">	      swimmingChart = new LineChart&lt;String, Number&gt;(xAxis, yAxis);  </span>
+<span class="fc" id="L390">	      swimmingChart.setLegendVisible(false);</span>
+	      //Prepare XYChart.Series objects by setting data 
+<span class="fc" id="L392">	      seriesSwimming = new XYChart.Series(); </span>
+	      
+<span class="fc" id="L394">	      activity.getWeek(&quot;Swimming&quot;);</span>
+<span class="fc" id="L395">	      seriesSwimming.getData().add(new XYChart.Data(&quot;SUN&quot;, activity.weeklyData.get(&quot;SUNDAY&quot;))); </span>
+<span class="fc" id="L396">	      seriesSwimming.getData().add(new XYChart.Data(&quot;MON&quot;, activity.weeklyData.get(&quot;MONDAY&quot;))); </span>
+<span class="fc" id="L397">	      seriesSwimming.getData().add(new XYChart.Data(&quot;TUE&quot;, activity.weeklyData.get(&quot;TUESDAY&quot;))); </span>
+<span class="fc" id="L398">	      seriesSwimming.getData().add(new XYChart.Data(&quot;WED&quot;, activity.weeklyData.get(&quot;WEDNESDAY&quot;))); </span>
+<span class="fc" id="L399">	      seriesSwimming.getData().add(new XYChart.Data(&quot;THU&quot;, activity.weeklyData.get(&quot;THURSDAY&quot;))); </span>
+<span class="fc" id="L400">	      seriesSwimming.getData().add(new XYChart.Data(&quot;FRI&quot;, activity.weeklyData.get(&quot;FRIDAY&quot;))); </span>
+<span class="fc" id="L401">	      seriesSwimming.getData().add(new XYChart.Data(&quot;SAT&quot;, activity.weeklyData.get(&quot;SATURDAY&quot;)));</span>
+	      
+	      //Setting the data to Line chart    
+<span class="fc" id="L404">	      swimmingChart.getData().add(seriesSwimming);        </span>
+<span class="fc" id="L405">	      swimmingChart.setId(&quot;stepsChart&quot;);</span>
+<span class="fc" id="L406">	      swimmingChart.getStyleClass().add(&quot;activity-chart&quot;);</span>
+<span class="fc" id="L407">	      swimmingChart.setAnimated(false);</span>
+
+	      
+<span class="fc" id="L410">	      activitySwimmingLayout.getChildren().add(swimmingChart);</span>
+<span class="fc" id="L411">	      swimmingButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L412">				 activityLayout.setCenter(activitySwimmingLayout);</span>
+<span class="nc" id="L413">			 });</span>
+		 
+		 
+<span class="fc" id="L416">		 activityLayout.setTop(activityTopLayout);</span>
+<span class="fc" id="L417">		 activityLayout.setCenter(activityStepsLayout);</span>
+		 
+		
+		// home Layout --------------------------------------------------------
+<span class="fc" id="L421">		homeLayout = new BorderPane();</span>
+<span class="fc" id="L422">		stepsTable.get();</span>
+		// top - date
+		
+<span class="fc" id="L425">		Label date = new Label(DateMaker.LabelToday());</span>
+<span class="fc" id="L426">		date.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L427">		date.setId(&quot;dateLbl&quot;);</span>
+		
+		// middle - steps
+<span class="fc" id="L430">		VBox stepsLayout = new VBox(1);</span>
+<span class="fc" id="L431">		stepsLayout.setId(&quot;stepsLayout&quot;);</span>
+<span class="fc" id="L432">		Label steps = new Label();</span>
+<span class="fc" id="L433">		steps.setId(&quot;stepsLblImg&quot;);</span>
+<span class="fc" id="L434">		steps.getStyleClass().add(&quot;largeCircle&quot;);</span>
+<span class="fc" id="L435">		stepsNum = new Label(stepsTable.steps+&quot;&quot;);</span>
+<span class="fc" id="L436">		stepsNum.getStyleClass().addAll(&quot;step-facts-num&quot;, &quot;numTop&quot;);</span>
+<span class="fc" id="L437">		stepsNum.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L438">		Label stepsText = new Label(&quot;steps&quot;);</span>
+<span class="fc" id="L439">		stepsText.getStyleClass().add(&quot;step-facts-text&quot;);</span>
+<span class="fc" id="L440">		stepsText.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L441">		stepsLayout.getChildren().addAll(steps, stepsNum, stepsText);</span>
+		
+		
+		// bottom - step facts
+<span class="fc" id="L445">		HBox stepFacts = new HBox(75);</span>
+<span class="fc" id="L446">		stepFacts.setId(&quot;stepFacts&quot;);</span>
+			// - calories burned
+<span class="fc" id="L448">			VBox stepsCalsLayout = new VBox(1);</span>
+<span class="fc" id="L449">			Label calBurnedImg = new Label();</span>
+<span class="fc" id="L450">			calBurnedImg.setId(&quot;calBurnedImg&quot;);</span>
+<span class="fc" id="L451">			calBurnedImg.getStyleClass().add(&quot;smallCircle&quot;);</span>
+<span class="fc" id="L452">			calBurnedNum = new Label(active.calsBurned+&quot;&quot;);</span>
+<span class="fc" id="L453">			Label calBurnedText = new Label(&quot;calories burned&quot;);</span>
+<span class="fc" id="L454">			calBurnedText.getStyleClass().add(&quot;step-facts-text&quot;);</span>
+<span class="fc" id="L455">			calBurnedNum.getStyleClass().add(&quot;step-facts-num&quot;);</span>
+<span class="fc" id="L456">			calBurnedNum.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L457">			calBurnedText.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L458">			stepsCalsLayout.getChildren().addAll(calBurnedImg,calBurnedNum, calBurnedText);</span>
+			
+			// - distance
+<span class="fc" id="L461">			VBox distanceLayout = new VBox(1);</span>
+<span class="fc" id="L462">			Label stepsDistImg = new Label();</span>
+<span class="fc" id="L463">			stepsDistImg.setId(&quot;stepsDistImg&quot;);</span>
+<span class="fc" id="L464">			stepsDistImg.getStyleClass().add(&quot;smallCircle&quot;);</span>
+<span class="fc" id="L465">			stepsDistNum = new Label(stepsTable.milesWalked+&quot;&quot;);</span>
+<span class="fc" id="L466">			stepsDistNum.getStyleClass().add(&quot;step-facts-num&quot;);</span>
+<span class="fc" id="L467">			stepsDistNum.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L468">			stepsDistNum.setId(&quot;stepsDistNum&quot;);</span>
+<span class="fc" id="L469">			Label stepsDistText = new Label(&quot;miles&quot;);</span>
+<span class="fc" id="L470">			stepsDistText.getStyleClass().add(&quot;step-facts-text&quot;);</span>
+<span class="fc" id="L471">			stepsDistText.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L472">			distanceLayout.getChildren().addAll(stepsDistImg, stepsDistNum, stepsDistText);</span>
+			
+			// - floors
+<span class="fc" id="L475">			VBox floorsLayout = new VBox(1);</span>
+<span class="fc" id="L476">			Label stepsFloorsImg = new Label();</span>
+<span class="fc" id="L477">			stepsFloorsImg.setId(&quot;stepsFloorsImg&quot;);</span>
+<span class="fc" id="L478">			stepsFloorsImg.getStyleClass().add(&quot;smallCircle&quot;);</span>
+<span class="fc" id="L479">			stepsFloorsNum = new Label(stepsTable.floors+&quot;&quot;);</span>
+<span class="fc" id="L480">			stepsFloorsNum.getStyleClass().add(&quot;step-facts-num&quot;);</span>
+<span class="fc" id="L481">			stepsFloorsNum.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L482">			stepsFloorsNum.setId(&quot;stepsFloorsNum&quot;);</span>
+<span class="fc" id="L483">			Label stepsFloorsText = new Label(&quot;floors&quot;);</span>
+<span class="fc" id="L484">			stepsFloorsText.getStyleClass().add(&quot;step-facts-text&quot;);</span>
+<span class="fc" id="L485">			stepsFloorsText.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L486">			floorsLayout.getChildren().addAll(stepsFloorsImg, stepsFloorsNum, stepsFloorsText);</span>
+			
+			// - active minutes 
+<span class="fc" id="L489">			VBox activeMinsLayout = new VBox(1);</span>
+<span class="fc" id="L490">			Label activeMinsImg = new Label();</span>
+<span class="fc" id="L491">			activeMinsImg.setId(&quot;stepsMinImg&quot;);</span>
+<span class="fc" id="L492">			activeMinsImg.getStyleClass().add(&quot;smallCircle&quot;);</span>
+<span class="fc" id="L493">			activeMinsNum = new Label(active.minutes +&quot;&quot;);</span>
+<span class="fc" id="L494">			activeMinsNum.setId(&quot;activeMinsNum&quot;);</span>
+<span class="fc" id="L495">			activeMinsNum.getStyleClass().add(&quot;step-facts-num&quot;);</span>
+<span class="fc" id="L496">			activeMinsNum.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L497">			Label activeMinsText = new Label(&quot;active minutes&quot;);</span>
+<span class="fc" id="L498">			activeMinsText.getStyleClass().add(&quot;step-facts-text&quot;);</span>
+<span class="fc" id="L499">			activeMinsText.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L500">			activeMinsLayout.getChildren().addAll(activeMinsImg, activeMinsNum, activeMinsText);</span>
+			
+			
+<span class="fc" id="L503">		stepFacts.getChildren().addAll(stepsCalsLayout,distanceLayout, floorsLayout, activeMinsLayout);</span>
+		
+<span class="fc" id="L505">		stepsLayout.setAlignment(Pos.TOP_CENTER);</span>
+<span class="fc" id="L506">		stepFacts.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L507">		homeLayout.setTop(date);</span>
+<span class="fc" id="L508">		homeLayout.setCenter(stepsLayout);</span>
+<span class="fc" id="L509">		homeLayout.setBottom(stepFacts);</span>
+<span class="fc" id="L510">		homeLayout.setAlignment(date,Pos.CENTER);</span>
+
+
+		//Meals Layout ------------------------------------------------------------------------
+<span class="fc" id="L514">		mealsLayout = new BorderPane();</span>
+		
+		// top - date
+<span class="fc" id="L517">		meals.get();</span>
+<span class="fc" id="L518">		BorderPane mealsTop = new BorderPane();</span>
+<span class="fc" id="L519">		Label caloriesLbl = new Label(&quot;Today's Calories&quot;);</span>
+<span class="fc" id="L520">		caloriesLbl.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L521">		caloriesLbl.setId(&quot;caloriesLbl&quot;);</span>
+<span class="fc" id="L522">		mealsAddButton = new Button();</span>
+<span class="fc" id="L523">		mealsAddButton.getStyleClass().add(&quot;add-button&quot;);</span>
+<span class="fc" id="L524">		mealsAddButton.setAlignment(Pos.CENTER_RIGHT);</span>
+<span class="fc" id="L525">		mealsTop.setTop(caloriesLbl);</span>
+<span class="fc" id="L526">		mealsTop.setCenter(mealsAddButton);</span>
+		
+		// middle - total calories
+		
+		
+<span class="fc" id="L531">		VBox caloriesLayout = new VBox(1);</span>
+<span class="fc" id="L532">		caloriesLayout.setId(&quot;caloriesLayout&quot;);</span>
+<span class="fc" id="L533">		Label caloriesImg = new Label();</span>
+<span class="fc" id="L534">		caloriesImg.setId(&quot;caloriesLblImg&quot;);</span>
+<span class="fc" id="L535">		caloriesImg.getStyleClass().add(&quot;largeCircle&quot;);</span>
+<span class="fc" id="L536">		caloriesNum = new Label(meals.totalCals+&quot;&quot;);</span>
+<span class="fc" id="L537">		caloriesNum.getStyleClass().addAll(&quot;facts-num&quot;, &quot;numTop&quot;);</span>
+<span class="fc" id="L538">		caloriesNum.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L539">		Label caloriesText = new Label(&quot;total&quot;);</span>
+<span class="fc" id="L540">		caloriesText.getStyleClass().add(&quot;facts-text&quot;);</span>
+<span class="fc" id="L541">		caloriesText.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L542">		caloriesLayout.getChildren().addAll(caloriesImg, caloriesNum, caloriesText);</span>
+		
+		
+		// bottom - meal facts
+<span class="fc" id="L546">		HBox mealFacts = new HBox(75);</span>
+<span class="fc" id="L547">		mealFacts.setId(&quot;mealFacts&quot;);</span>
+			// - breakfast
+<span class="fc" id="L549">			VBox breakfast = new VBox(1);</span>
+<span class="fc" id="L550">			Label breakfastImg = new Label();</span>
+<span class="fc" id="L551">			breakfastImg.setId(&quot;breakfastImg&quot;);</span>
+<span class="fc" id="L552">			breakfastImg.getStyleClass().add(&quot;smallCircle&quot;);</span>
+<span class="fc" id="L553">			breakfastCalNum = new Label(meals.breakfastCals+&quot;&quot;);</span>
+<span class="fc" id="L554">			breakfastCalNum.getStyleClass().add(&quot;facts-num&quot;);</span>
+<span class="fc" id="L555">			breakfastCalNum.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L556">			Label breakfastCalText = new Label(&quot;breakfast&quot;);</span>
+<span class="fc" id="L557">			breakfastCalText.getStyleClass().add(&quot;facts-text&quot;);</span>
+<span class="fc" id="L558">			breakfastCalText.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L559">			breakfast.getChildren().addAll(breakfastImg,breakfastCalNum, breakfastCalText);</span>
+			
+			// - lunch
+<span class="fc" id="L562">			VBox lunch = new VBox(1);</span>
+<span class="fc" id="L563">			Label lunchImg = new Label();</span>
+<span class="fc" id="L564">			lunchImg.setId(&quot;lunchImg&quot;);</span>
+<span class="fc" id="L565">			lunchImg.getStyleClass().add(&quot;smallCircle&quot;);</span>
+<span class="fc" id="L566">			lunchCalNum = new Label(meals.lunchCals+&quot;&quot;);</span>
+<span class="fc" id="L567">			lunchCalNum.getStyleClass().add(&quot;facts-num&quot;);</span>
+<span class="fc" id="L568">			lunchCalNum.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L569">			Label lunchCalText = new Label(&quot;lunch&quot;);</span>
+<span class="fc" id="L570">			lunchCalText.getStyleClass().add(&quot;facts-text&quot;);</span>
+<span class="fc" id="L571">			lunchCalText.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L572">			lunch.getChildren().addAll(lunchImg, lunchCalNum, lunchCalText);</span>
+			
+			// - dinner
+<span class="fc" id="L575">			VBox dinner = new VBox(1);</span>
+<span class="fc" id="L576">			Label dinnerImg = new Label();</span>
+<span class="fc" id="L577">			dinnerImg.setId(&quot;dinnerImg&quot;);</span>
+<span class="fc" id="L578">			dinnerImg.getStyleClass().add(&quot;smallCircle&quot;);</span>
+<span class="fc" id="L579">			dinnerCalNum = new Label(meals.dinnerCals+&quot;&quot;);</span>
+<span class="fc" id="L580">			dinnerCalNum.getStyleClass().add(&quot;facts-num&quot;);</span>
+<span class="fc" id="L581">			dinnerCalNum.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L582">			Label dinnerCalText = new Label(&quot;dinner&quot;);</span>
+<span class="fc" id="L583">			dinnerCalText.getStyleClass().add(&quot;facts-text&quot;);</span>
+<span class="fc" id="L584">			dinnerCalText.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L585">			dinner.getChildren().addAll(dinnerImg, dinnerCalNum, dinnerCalText);</span>
+			
+			// - snacks  
+<span class="fc" id="L588">			VBox snacks = new VBox(1);</span>
+<span class="fc" id="L589">			Label snacksImg = new Label();</span>
+<span class="fc" id="L590">			snacksImg.setId(&quot;snacksImg&quot;);</span>
+<span class="fc" id="L591">			snacksImg.getStyleClass().add(&quot;smallCircle&quot;);</span>
+<span class="fc" id="L592">			snacksCalNum = new Label(meals.snackCals+&quot;&quot;);</span>
+<span class="fc" id="L593">			snacksCalNum.getStyleClass().add(&quot;facts-num&quot;);</span>
+<span class="fc" id="L594">			snacksCalNum.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L595">			Label snacksCalText = new Label(&quot;snacks&quot;);</span>
+<span class="fc" id="L596">			snacksCalText.getStyleClass().add(&quot;facts-text&quot;);</span>
+<span class="fc" id="L597">			snacksCalText.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L598">			snacks.getChildren().addAll(snacksImg, snacksCalNum, snacksCalText);</span>
+			
+			
+<span class="fc" id="L601">		mealFacts.getChildren().addAll(breakfast,lunch, dinner, snacks);</span>
+		
+<span class="fc" id="L603">		caloriesLayout.setAlignment(Pos.TOP_CENTER);</span>
+<span class="fc" id="L604">		mealFacts.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L605">		mealsLayout.setTop(mealsTop);</span>
+<span class="fc" id="L606">		mealsLayout.setCenter(caloriesLayout);</span>
+<span class="fc" id="L607">		mealsLayout.setBottom(mealFacts);</span>
+<span class="fc" id="L608">		mealsLayout.setAlignment(caloriesLbl,Pos.CENTER);</span>
+<span class="fc" id="L609">		mealsLayout.setAlignment(mealsAddButton, Pos.CENTER_RIGHT);</span>
+
+
+		//Weight Layout -------------------------------------------------------------------------------------
+<span class="fc" id="L613">		weightLayout = new BorderPane();</span>
+		
+<span class="fc" id="L615">		weight.get();</span>
+<span class="fc" id="L616">		BorderPane weightTop = new BorderPane();</span>
+<span class="fc" id="L617">		Label weightLbl = new Label(&quot;Weight&quot;);</span>
+<span class="fc" id="L618">		weightLbl.setId(&quot;weightLbl&quot;);</span>
+<span class="fc" id="L619">		weightLbl.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L620">		weightTop.setCenter(weightLbl);</span>
+		
+		
+		//middle - graphs and facts
+<span class="fc" id="L624">		BorderPane weightInfo = new BorderPane();</span>
+<span class="fc" id="L625">		weightInfo.setId(&quot;weightInfoLayout&quot;);</span>
+		
+			
+<span class="fc" id="L628">			BorderPane currentWeightLayout = new BorderPane();</span>
+<span class="fc" id="L629">			currentWeightLayout.setId(&quot;currentWeightLayout&quot;);</span>
+<span class="fc" id="L630">			Label currentWeightLbl = new Label(weight.weight+&quot; lbs&quot;);</span>
+<span class="fc" id="L631">			currentWeightLbl.setId(&quot;currentWeightLbl&quot;);</span>
+<span class="fc" id="L632">			currentWeightLbl.setTextAlignment(TextAlignment.CENTER);</span>
+<span class="fc" id="L633">			weightAddButton = new Button();</span>
+<span class="fc" id="L634">			weightAddButton.getStyleClass().add(&quot;add-button&quot;);</span>
+<span class="fc" id="L635">			currentWeightLayout.setAlignment(currentWeightLbl, Pos.TOP_CENTER);</span>
+<span class="fc" id="L636">			currentWeightLayout.setAlignment(weightAddButton, Pos.TOP_RIGHT);</span>
+<span class="fc" id="L637">			currentWeightLayout.setCenter(currentWeightLbl);</span>
+<span class="fc" id="L638">			currentWeightLayout.setRight(weightAddButton);</span>
+
+			//graph
+<span class="fc" id="L641">			xAxis = new CategoryAxis();</span>
+			
+<span class="fc" id="L643">		     xAxis.setLabel(DateMaker.weekRange()); </span>
+		        
+		      //Defining the y axis   
+<span class="fc" id="L646">		      yAxis = new NumberAxis   (0, 350, 75); </span>
+<span class="fc" id="L647">		      yAxis.setLabel(&quot;Lbs&quot;); </span>
+		        
+		      //Creating the line chart 
+<span class="fc" id="L650">		      LineChart&lt;String,Number&gt; weightChart = new LineChart&lt;String, Number&gt;(xAxis, yAxis);  </span>
+<span class="fc" id="L651">		      weightChart.setLegendVisible(false);</span>
+		      //Prepare XYChart.Series objects by setting data 
+<span class="fc" id="L653">		      seriesWeight = new XYChart.Series(); </span>
+		      
+<span class="fc" id="L655">		      weight.getWeek();</span>
+<span class="fc" id="L656">		      seriesWeight.getData().add(new XYChart.Data(&quot;SUN&quot;, weight.weeklyData.get(&quot;SUNDAY&quot;))); </span>
+<span class="fc" id="L657">		      seriesWeight.getData().add(new XYChart.Data(&quot;MON&quot;, weight.weeklyData.get(&quot;MONDAY&quot;))); </span>
+<span class="fc" id="L658">		      seriesWeight.getData().add(new XYChart.Data(&quot;TUE&quot;, weight.weeklyData.get(&quot;TUESDAY&quot;))); </span>
+<span class="fc" id="L659">		      seriesWeight.getData().add(new XYChart.Data(&quot;WED&quot;, weight.weeklyData.get(&quot;WEDNESDAY&quot;))); </span>
+<span class="fc" id="L660">		      seriesWeight.getData().add(new XYChart.Data(&quot;THU&quot;, weight.weeklyData.get(&quot;THURSDAY&quot;))); </span>
+<span class="fc" id="L661">		      seriesWeight.getData().add(new XYChart.Data(&quot;FRI&quot;, weight.weeklyData.get(&quot;FRIDAY&quot;))); </span>
+<span class="fc" id="L662">		      seriesWeight.getData().add(new XYChart.Data(&quot;SAT&quot;, weight.weeklyData.get(&quot;SATURDAY&quot;)));</span>
+		           
+		      //Setting the data to Line chart    
+<span class="fc" id="L665">		      weightChart.getData().add(seriesWeight);        </span>
+<span class="fc" id="L666">		      weightChart.setId(&quot;stepsChart&quot;);</span>
+<span class="fc" id="L667">		      weightChart.getStyleClass().add(&quot;activity-chart&quot;);</span>
+<span class="fc" id="L668">		      weightChart.setAnimated(false);</span>
+		      
+		     // bottom - facts
+<span class="fc" id="L671">		      HBox weightFacts = new HBox(0);</span>
+<span class="fc" id="L672">		      Label bmiText = new Label(&quot;BMI: &quot;);</span>
+<span class="fc" id="L673">		      bmiText.getStyleClass().add(&quot;weight-facts-text&quot;);</span>
+<span class="fc" id="L674">		      Label bmiNum = new Label(weight.bmi+&quot;&quot;);</span>
+<span class="fc" id="L675">		      bmiNum.setId(&quot;bmiNum&quot;);</span>
+<span class="fc" id="L676">		      bmiNum.getStyleClass().add(&quot;weight-facts-num&quot;);</span>
+		     
+		      
+<span class="fc" id="L679">		      Label bwpText = new Label(&quot;BWP: &quot;);</span>
+<span class="fc" id="L680">		      bwpText.getStyleClass().add(&quot;weight-facts-text&quot;);</span>
+<span class="fc" id="L681">		      Label bwpNum = new Label(weight.bwp+&quot;&quot;);</span>
+<span class="fc" id="L682">		      bwpNum.getStyleClass().add(&quot;weight-facts-num&quot;);</span>
+<span class="fc" id="L683">		      weightFacts.getChildren().addAll(bmiText, bmiNum, bwpText, bwpNum);</span>
+<span class="fc" id="L684">		      weightFacts.setAlignment(Pos.CENTER);</span>
+		      
+			//weightInfo.getChildren().addAll(currentWeightLayout, weightChart, weightFacts);
+<span class="fc" id="L687">			weightInfo.setTop(currentWeightLayout);</span>
+<span class="fc" id="L688">			weightInfo.setCenter(weightChart);</span>
+<span class="fc" id="L689">			weightInfo.setBottom(weightFacts);</span>
+			
+		
+<span class="fc" id="L692">		currentWeightLbl.setAlignment(Pos.TOP_CENTER);</span>
+		//weightInfo.setAlignment(Pos.CENTER);
+<span class="fc" id="L694">		weightLayout.setTop(weightTop);</span>
+<span class="fc" id="L695">		weightLayout.setCenter(weightInfo);</span>
+<span class="fc" id="L696">		weightLayout.setAlignment(weightLbl, Pos.CENTER);</span>
+		
+		
+		// Account ----------------------------------------------------------------------------------
+<span class="fc" id="L700">		accountLayout = new BorderPane();</span>
+		
+		//top ---------------------------------------
+<span class="fc" id="L703">		BorderPane accountTop = new BorderPane();</span>
+<span class="fc" id="L704">		Label accountLbl = new Label(&quot;Account&quot;);</span>
+<span class="fc" id="L705">		accountLbl.setId(&quot;accountLbl&quot;);</span>
+<span class="fc" id="L706">		accountLbl.setAlignment(Pos.CENTER);</span>
+<span class="fc" id="L707">		accountTop.setCenter(accountLbl);</span>
+		
+		
+		// middle -------------------------------------
+<span class="fc" id="L711">		BorderPane accountMiddle = new BorderPane();</span>
+<span class="fc" id="L712">		users.get();</span>
+<span class="fc" id="L713">		accountInfo.get();</span>
+		
+<span class="fc" id="L715">		VBox userInfo = new VBox(8);</span>
+<span class="fc" id="L716">		userInfo.setId(&quot;userinfo&quot;);</span>
+<span class="fc" id="L717">		Label name = new Label(&quot;Name: &quot; +accountInfo.name);</span>
+<span class="fc" id="L718">		name.getStyleClass().add(&quot;facts-text&quot;);</span>
+<span class="fc" id="L719">		Label usernameText = new Label(&quot;Username: &quot; +users.username);</span>
+<span class="fc" id="L720">		usernameText.getStyleClass().add(&quot;facts-text&quot;);</span>
+<span class="fc" id="L721">		Label height = new Label(&quot;Height: &quot;+accountInfo.feet+&quot; FT &quot; + accountInfo.inches + &quot; IN&quot;);</span>
+<span class="fc" id="L722">		height.getStyleClass().add(&quot;facts-text&quot;);</span>
+<span class="fc" id="L723">		Button logout = new Button(&quot;logout&quot;);</span>
+<span class="fc" id="L724">		logout.setOnAction(e -&gt; {</span>
+<span class="fc" id="L725">			window.close();</span>
+<span class="fc" id="L726">		});</span>
+<span class="fc" id="L727">		userInfo.getChildren().addAll(name, usernameText, height, logout);</span>
+		
+<span class="fc" id="L729">		accountMiddle.setTop(userInfo);</span>
+		
+<span class="fc" id="L731">		accountLayout.setTop(accountTop);</span>
+<span class="fc" id="L732">		accountLayout.setCenter(accountMiddle);</span>
+		
+		
+	
+<span class="fc" id="L736">		mainLayout.setLeft(controlsLayout);</span>
+<span class="fc" id="L737">		mainLayout.setCenter(homeLayout);</span>
+
+<span class="fc" id="L739">		mainScene = new Scene(mainLayout, 1200, 600);</span>
+<span class="fc" id="L740">		loginScene = new Scene(loginLayout, 1200, 600);</span>
+		
+
+<span class="fc" id="L743">		window.setScene(mainScene);</span>
+<span class="fc" id="L744">		window.setTitle(&quot;Activiosa&quot;);</span>
+<span class="fc" id="L745">		window.setFullScreen(true);</span>
+<span class="fc" id="L746">		window.show();</span>
+		
+
+<span class="fc" id="L749">		associateStyles();</span>
+<span class="fc" id="L750">		actions();</span>
+		
+
+        
+<span class="fc" id="L754">	}</span>
+
+		public void associateStyles() throws MalformedURLException {
+			//link stylesheet
+<span class="fc" id="L758">			mainScene.getStylesheets().add(new File(&quot;src/fitnessApp/main.css&quot;).toURI().toURL().toString());</span>
+<span class="fc" id="L759">			loginScene.getStylesheets().add(new File(&quot;src/fitnessApp/main.css&quot;).toURI().toURL().toString());</span>
+			
+			//layouts
+		
+<span class="fc" id="L763">			homeLayout.getStyleClass().add(&quot;centralView&quot;);	</span>
+<span class="fc" id="L764">			mealsLayout.getStyleClass().add(&quot;centralView&quot;);</span>
+<span class="fc" id="L765">			weightLayout.getStyleClass().add(&quot;centralView&quot;);</span>
+<span class="fc" id="L766">			activityLayout.getStyleClass().add(&quot;centralView&quot;);</span>
+<span class="fc" id="L767">			accountLayout.getStyleClass().add(&quot;centralView&quot;);</span>
+<span class="fc" id="L768">		}</span>
+
+		public void actions() {
+			
+
+<span class="fc" id="L773">			mealsButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L774">				meals.get();</span>
+<span class="nc" id="L775">				mainLayout.setCenter(mealsLayout);</span>
+<span class="nc" id="L776">			});</span>
+			
+<span class="fc" id="L778">			weightButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L779">				weight.get();</span>
+<span class="nc" id="L780">				mainLayout.setCenter(weightLayout);</span>
+<span class="nc" id="L781">			});</span>
+			
+<span class="fc" id="L783">			activityButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L784">				stepsTable.get();</span>
+<span class="nc" id="L785">				mainLayout.setCenter(activityLayout);</span>
+<span class="nc" id="L786">				stepsButton.requestFocus();</span>
+<span class="nc" id="L787">			});</span>
+<span class="pc" id="L788">			homeButton.setOnAction(e -&gt; mainLayout.setCenter(homeLayout));</span>
+			
+<span class="fc" id="L790">			activityAddButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L791">		        activityModal.sizeToScene();</span>
+<span class="nc" id="L792">		        activityModal.show();</span>
+<span class="nc" id="L793">			});</span>
+			
+<span class="fc" id="L795">			weightAddButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L796">				 weightModal.sizeToScene();</span>
+<span class="nc" id="L797">			     weightModal.show();</span>
+<span class="nc" id="L798">			     weightButton.requestFocus();</span>
+<span class="nc" id="L799">			});</span>
+			
+<span class="fc" id="L801">			mealsAddButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L802">				meals.get();</span>
+<span class="nc" id="L803">				mealsModal.sizeToScene();</span>
+<span class="nc" id="L804">			     mealsModal.show();</span>
+<span class="nc" id="L805">			});</span>
+			
+<span class="pc bpc" id="L807" title="2 of 4 branches missed.">			if(stepsButton.isFocused() || bikingButton.isFocused() || </span>
+<span class="pc bpc" id="L808" title="2 of 4 branches missed.">					runningButton.isFocused() || swimmingButton.isFocused() </span>
+<span class="pc bpc" id="L809" title="1 of 2 branches missed.">					|| activityAddButton.isFocused())  {</span>
+<span class="nc" id="L810">				activityButton.getStyleClass().add(&quot;category-active&quot;);</span>
+				
+<span class="nc" id="L812">			}</span>
+			else {
+<span class="fc" id="L814">				activityButton.getStyleClass().add(&quot;category-passive&quot;);</span>
+			}
+			
+<span class="fc" id="L817">			profileButton.setOnAction(e -&gt; {</span>
+<span class="fc" id="L818">				mainLayout.setCenter(accountLayout);</span>
+				
+<span class="fc" id="L820">			});</span>
+			
+			
+			
+<span class="fc" id="L824">		}</span>
+		
+		public static Integer stepsPerThousand(Integer i) {
+		
+<span class="pc bpc" id="L828" title="1 of 2 branches missed.">	    	if(i == null) {</span>
+<span class="fc" id="L829">	    		return null;</span>
+	    	}
+	    	else {
+<span class="nc" id="L832">	    		return i / 1000;</span>
+	    	}
+	    
+	    }
+	}
+
+
+class activityDialog extends Stage {
+<span class="fc" id="L840">	activity act = new activity();</span>
+    @SuppressWarnings(&quot;unchecked&quot;)
+	public activityDialog(Stage owner) {
+    	
+<span class="fc" id="L844">        super();</span>
+<span class="fc" id="L845">        initOwner(owner);</span>
+<span class="fc" id="L846">        setTitle(&quot;Add Activity&quot;);</span>
+<span class="fc" id="L847">        initModality(Modality.APPLICATION_MODAL);</span>
+<span class="fc" id="L848">        Group root = new Group();</span>
+<span class="fc" id="L849">        Scene scene = new Scene(root, 400 , 400);</span>
+<span class="fc" id="L850">        setScene(scene);</span>
+        
+<span class="fc" id="L852">        ObservableList&lt;String&gt; activities = FXCollections.observableArrayList(//</span>
+<span class="fc" id="L853">                &quot;Steps&quot;, &quot;Running&quot;, &quot;Biking&quot;, &quot;Swimming&quot;);</span>
+        
+<span class="fc" id="L855">        GridPane gridpane = new GridPane();</span>
+<span class="fc" id="L856">        gridpane.setId(&quot;activity-popup&quot;);</span>
+<span class="fc" id="L857">        gridpane.setVgap(15);</span>
+<span class="fc" id="L858">        gridpane.setHgap(10);</span>
+<span class="fc" id="L859">        ComboBox activityList = new ComboBox(activities);</span>
+        
+<span class="fc" id="L861">        activityList.setPromptText(&quot;Activity Type&quot;);</span>
+        
+<span class="fc" id="L863">        activityList.getStyleClass().add(&quot;modal-combo&quot;);</span>
+        
+<span class="fc" id="L865">        Label activityLbl = new Label(&quot;Select Type&quot;);</span>
+<span class="fc" id="L866">        activityLbl.setLabelFor(activityList);</span>
+<span class="fc" id="L867">        activityLbl.getStyleClass().add(&quot;modal-label&quot;);</span>
+        
+<span class="fc" id="L869">        TextField distance = new TextField();</span>
+<span class="fc" id="L870">        distance.setPromptText(&quot;miles&quot;);</span>
+<span class="fc" id="L871">        distance.getStyleClass().add(&quot;modal-textfield&quot;);</span>
+<span class="fc" id="L872">        Label distanceLbl = new Label(&quot;Distance:&quot;);</span>
+<span class="fc" id="L873">        distanceLbl.getStyleClass().add(&quot;modal-label&quot;);        </span>
+<span class="fc" id="L874">        TextField duration = new TextField();</span>
+<span class="fc" id="L875">        duration.setPromptText(&quot;hh:mm&quot;);</span>
+<span class="fc" id="L876">        duration.getStyleClass().add(&quot;modal-textfield&quot;);</span>
+<span class="fc" id="L877">        Label durationLbl = new Label(&quot;Duration:&quot;);</span>
+<span class="fc" id="L878">        durationLbl.getStyleClass().add(&quot;modal-label&quot;);</span>
+        
+<span class="fc" id="L880">        TextField calsburned = new TextField();</span>
+<span class="fc" id="L881">        calsburned.setPromptText(&quot;calories&quot;);</span>
+<span class="fc" id="L882">        calsburned.getStyleClass().add(&quot;modal-textfield&quot;);</span>
+<span class="fc" id="L883">        Label calsBurnedLbl = new Label(&quot;Calories Burned:&quot;);</span>
+<span class="fc" id="L884">        calsBurnedLbl.getStyleClass().add(&quot;modal-label&quot;);</span>
+        
+<span class="fc" id="L886">        DatePicker date = new DatePicker();   </span>
+<span class="fc" id="L887">        date.getStyleClass().add(&quot;modal-datepicker&quot;);</span>
+<span class="fc" id="L888">        date.setEditable(false);</span>
+<span class="fc" id="L889">        date.setValue(DateMaker.Today().toLocalDate());</span>
+        
+        
+<span class="fc" id="L892">        Label dateLbl = new Label(&quot;Date:&quot;);</span>
+<span class="fc" id="L893">        dateLbl.getStyleClass().add(&quot;modal-label&quot;);</span>
+        
+<span class="fc" id="L895">        Button saveActivity = new Button(&quot;save&quot;);</span>
+<span class="fc" id="L896">        saveActivity.getStyleClass().add(&quot;save-button&quot;);</span>
+        
+<span class="fc" id="L898">        gridpane.add(activityLbl, 1, 0);</span>
+<span class="fc" id="L899">        gridpane.add(activityList, 2, 0);</span>
+<span class="fc" id="L900">        gridpane.add(distanceLbl, 1, 1);</span>
+<span class="fc" id="L901">        gridpane.add(distance, 2, 1);</span>
+<span class="fc" id="L902">        gridpane.add(durationLbl, 1, 2);</span>
+<span class="fc" id="L903">        gridpane.add(duration, 2, 2);</span>
+<span class="fc" id="L904">        gridpane.add(calsBurnedLbl, 1, 3);</span>
+<span class="fc" id="L905">        gridpane.add(calsburned, 2, 3);</span>
+<span class="fc" id="L906">        gridpane.add(dateLbl, 1, 4);</span>
+<span class="fc" id="L907">        gridpane.add(date, 2, 4);</span>
+<span class="fc" id="L908">        gridpane.add(saveActivity, 2, 5);</span>
+        
+<span class="fc" id="L910">        root.getChildren().addAll(gridpane);</span>
+
+<span class="fc" id="L912">        saveActivity.setOnAction(e -&gt; {</span>
+        	
+<span class="nc bnc" id="L914" title="All 2 branches missed.">        	if(activityList.getValue() == &quot;Steps&quot;) {</span>
+<span class="nc" id="L915">        		 stepsTable.insert(DateMaker.ToSQLDate(date.getValue()), Integer.parseInt(distance.getText()), 0, Double.parseDouble(calsburned.getText()));</span>
+        		 
+<span class="nc" id="L917">        		 stepsTable.getWeek();</span>
+<span class="nc" id="L918">        		 GUI.seriesSteps.getData().add(new XYChart.Data(&quot;SUN&quot;, GUI.stepsPerThousand(stepsTable.weeklySteps.get(&quot;SUNDAY&quot;)))); </span>
+<span class="nc" id="L919">       	      	 GUI.seriesSteps.getData().add(new XYChart.Data(&quot;MON&quot;, GUI.stepsPerThousand(stepsTable.weeklySteps.get(&quot;MONDAY&quot;)))); </span>
+<span class="nc" id="L920">       	      	 GUI.seriesSteps.getData().add(new XYChart.Data(&quot;TUE&quot;, GUI.stepsPerThousand(stepsTable.weeklySteps.get(&quot;TUESDAY&quot;)))); </span>
+<span class="nc" id="L921">       	      	 GUI.seriesSteps.getData().add(new XYChart.Data(&quot;WED&quot;, GUI.stepsPerThousand(stepsTable.weeklySteps.get(&quot;WEDNESDAY&quot;)))); </span>
+<span class="nc" id="L922">       	      	 GUI.seriesSteps.getData().add(new XYChart.Data(&quot;THU&quot;, GUI.stepsPerThousand(stepsTable.weeklySteps.get(&quot;THURSDAY&quot;)))); </span>
+<span class="nc" id="L923">       	      	 GUI.seriesSteps.getData().add(new XYChart.Data(&quot;FRI&quot;, GUI.stepsPerThousand(stepsTable.weeklySteps.get(&quot;FRIDAY&quot;)))); </span>
+<span class="nc" id="L924">       	      	 GUI.seriesSteps.getData().add(new XYChart.Data(&quot;SAT&quot;, GUI.stepsPerThousand(stepsTable.weeklySteps.get(&quot;SATURDAY&quot;))));</span>
+<span class="nc" id="L925">       	         GUI.stepsChart.getData().add(GUI.seriesSteps);  </span>
+        		 
+        		
+<span class="nc" id="L928">        		 GUI.activityLayout.setCenter(GUI.activityStepsLayout);</span>
+<span class="nc" id="L929">        		 stepsTable.milesWalked += Double.parseDouble(distance.getText()) / 2000;</span>
+<span class="nc" id="L930">        		 stepsTable.update();</span>
+<span class="nc" id="L931">        		 active.floors = Integer.parseInt(distance.getText()) / 5000;</span>
+<span class="nc" id="L932">        		 active.update();</span>
+<span class="nc" id="L933">        		 GUI.stepsFloorsNum.setText(active.floors+&quot;&quot;);</span>
+        		 
+<span class="nc" id="L935">        		 close();</span>
+<span class="nc" id="L936">        	}</span>
+        	else {
+<span class="nc bnc" id="L938" title="All 10 branches missed.">        		if(date.getValue()!=null &amp;&amp; activityList.getValue()!=null &amp;&amp; duration.getText()!=null &amp;&amp; distance.getText()!=null&amp;&amp;calsburned.getText()!=null) {</span>
+<span class="nc" id="L939">                	activity.insert(DateMaker.ToSQLDate(date.getValue()), activityList.getValue().toString(), duration.getText(), Double.parseDouble(distance.getText()), Double.parseDouble(calsburned.getText()));</span>
+                	
+<span class="nc bnc" id="L941" title="All 2 branches missed.">                	if(activityList.getValue() == &quot;Running&quot;) {</span>
+                		
+<span class="nc" id="L943">           			 activity.getWeek(&quot;Running&quot;);</span>
+<span class="nc" id="L944">           			 GUI.seriesRunning.getData().add(new XYChart.Data(&quot;SUN&quot;, activity.weeklyData.get(&quot;SUNDAY&quot;))); </span>
+<span class="nc" id="L945">              	     GUI.seriesRunning.getData().add(new XYChart.Data(&quot;MON&quot;, activity.weeklyData.get(&quot;MONDAY&quot;))); </span>
+<span class="nc" id="L946">              	     GUI.seriesRunning.getData().add(new XYChart.Data(&quot;TUE&quot;, activity.weeklyData.get(&quot;TUESDAY&quot;))); </span>
+<span class="nc" id="L947">              	     GUI.seriesRunning.getData().add(new XYChart.Data(&quot;WED&quot;, activity.weeklyData.get(&quot;WEDNESDAY&quot;))); </span>
+<span class="nc" id="L948">              	     GUI.seriesRunning.getData().add(new XYChart.Data(&quot;THU&quot;, activity.weeklyData.get(&quot;THURSDAY&quot;))); </span>
+<span class="nc" id="L949">              	     GUI.seriesRunning.getData().add(new XYChart.Data(&quot;FRI&quot;, activity.weeklyData.get(&quot;FRIDAY&quot;))); </span>
+<span class="nc" id="L950">              	     GUI.seriesRunning.getData().add(new XYChart.Data(&quot;SAT&quot;, activity.weeklyData.get(&quot;SATURDAY&quot;)));</span>
+<span class="nc" id="L951">   	       	       	 GUI.runningChart.getData().add(GUI.seriesRunning);</span>
+<span class="nc" id="L952">   	        		 GUI.activityLayout.setCenter(GUI.activityRunningLayout);</span>
+   	        		 
+<span class="nc" id="L954">   	        		stepsTable.milesWalked += Double.parseDouble(distance.getText());</span>
+<span class="nc" id="L955">   	        		stepsTable.update();</span>
+<span class="nc" id="L956">   	        		 this.close();</span>
+<span class="nc" id="L957">           		 }</span>
+<span class="nc bnc" id="L958" title="All 2 branches missed.">           		 else if(activityList.getValue() == &quot;Biking&quot;) {</span>
+<span class="nc" id="L959">           			 activity.getWeek(&quot;Biking&quot;);</span>
+<span class="nc" id="L960">           			 GUI.seriesBiking.getData().add(new XYChart.Data(&quot;SUN&quot;, activity.weeklyData.get(&quot;SUNDAY&quot;))); </span>
+<span class="nc" id="L961">              	      	 GUI.seriesBiking.getData().add(new XYChart.Data(&quot;MON&quot;, activity.weeklyData.get(&quot;MONDAY&quot;))); </span>
+<span class="nc" id="L962">              	         GUI.seriesBiking.getData().add(new XYChart.Data(&quot;TUE&quot;, activity.weeklyData.get(&quot;TUESDAY&quot;))); </span>
+<span class="nc" id="L963">              	         GUI.seriesBiking.getData().add(new XYChart.Data(&quot;WED&quot;, activity.weeklyData.get(&quot;WEDNESDAY&quot;))); </span>
+<span class="nc" id="L964">              	         GUI.seriesBiking.getData().add(new XYChart.Data(&quot;THU&quot;, activity.weeklyData.get(&quot;THURSDAY&quot;))); </span>
+<span class="nc" id="L965">              	         GUI.seriesBiking.getData().add(new XYChart.Data(&quot;FRI&quot;, activity.weeklyData.get(&quot;FRIDAY&quot;))); </span>
+<span class="nc" id="L966">              	         GUI.seriesBiking.getData().add(new XYChart.Data(&quot;SAT&quot;, activity.weeklyData.get(&quot;SATURDAY&quot;)));</span>
+<span class="nc" id="L967">              	         GUI.bikingChart.getData().add(GUI.seriesBiking);</span>
+   	       	         
+<span class="nc" id="L969">   	        		 GUI.activityLayout.setCenter(GUI.activityBikingLayout);</span>
+<span class="nc" id="L970">   	        		 close();</span>
+<span class="nc" id="L971">           		 }</span>
+           		 
+<span class="nc bnc" id="L973" title="All 2 branches missed.">           		 else if(activityList.getValue() == &quot;Swimming&quot;) {</span>
+<span class="nc" id="L974">           			 activity.getWeek(&quot;Swimming&quot;);</span>
+<span class="nc" id="L975">           			 GUI.seriesSwimming.getData().add(new XYChart.Data(&quot;SUN&quot;, activity.weeklyData.get(&quot;SUNDAY&quot;))); </span>
+<span class="nc" id="L976">              	      	 GUI.seriesSwimming.getData().add(new XYChart.Data(&quot;MON&quot;, activity.weeklyData.get(&quot;MONDAY&quot;))); </span>
+<span class="nc" id="L977">              	         GUI.seriesSwimming.getData().add(new XYChart.Data(&quot;TUE&quot;, activity.weeklyData.get(&quot;TUESDAY&quot;))); </span>
+<span class="nc" id="L978">              	         GUI.seriesSwimming.getData().add(new XYChart.Data(&quot;WED&quot;, activity.weeklyData.get(&quot;WEDNESDAY&quot;))); </span>
+<span class="nc" id="L979">              	         GUI.seriesSwimming.getData().add(new XYChart.Data(&quot;THU&quot;, activity.weeklyData.get(&quot;THURSDAY&quot;))); </span>
+<span class="nc" id="L980">              	         GUI.seriesSwimming.getData().add(new XYChart.Data(&quot;FRI&quot;, activity.weeklyData.get(&quot;FRIDAY&quot;))); </span>
+<span class="nc" id="L981">              	         GUI.seriesSwimming.getData().add(new XYChart.Data(&quot;SAT&quot;, activity.weeklyData.get(&quot;SATURDAY&quot;)));</span>
+<span class="nc" id="L982">              	         GUI.swimmingChart.getData().add(GUI.seriesSwimming);</span>
+   	       	         
+<span class="nc" id="L984">   	        		 GUI.activityLayout.setCenter(GUI.activitySwimmingLayout);</span>
+<span class="nc" id="L985">   	        		 close();</span>
+   	        		 
+           		 }
+        		}
+        		 
+        	}
+        	
+<span class="nc" id="L992">        	close();</span>
+<span class="nc" id="L993">        	active.calsBurned += Integer.parseInt(calsburned.getText());</span>
+        	try {
+<span class="nc" id="L995">				active.minutes += DateMaker.numOfMinutes(duration.getText());</span>
+<span class="nc" id="L996">			} catch (ParseException e1) {</span>
+				// TODO Auto-generated catch block
+<span class="nc" id="L998">				e1.printStackTrace();</span>
+			}
+<span class="nc" id="L1000">        	active.update();</span>
+<span class="nc" id="L1001">        	GUI.calBurnedNum.setText(active.calsBurned+&quot;&quot;);</span>
+<span class="nc" id="L1002">        	GUI.activeMinsNum.setText(active.minutes+&quot;&quot;);</span>
+        	
+<span class="nc" id="L1004">        });</span>
+<span class="fc" id="L1005">        activityList.setOnAction(e -&gt; {</span>
+<span class="nc bnc" id="L1006" title="All 2 branches missed.">        	if(activityList.getValue() == &quot;Steps&quot;) {</span>
+<span class="nc" id="L1007">        		gridpane.getChildren().remove(duration);</span>
+<span class="nc" id="L1008">        		gridpane.getChildren().remove(durationLbl);</span>
+<span class="nc" id="L1009">        		distance.setPromptText(&quot;Steps&quot;);</span>
+<span class="nc" id="L1010">        		distanceLbl.setText(&quot;Steps:&quot;);</span>
+        		
+<span class="nc" id="L1012">        	}</span>
+        	else {
+<span class="nc" id="L1014">        		 gridpane.add(durationLbl, 1, 2);</span>
+<span class="nc" id="L1015">        	     gridpane.add(duration, 2, 2);</span>
+<span class="nc" id="L1016">        		 distance.setPromptText(&quot;Miles&quot;);</span>
+<span class="nc" id="L1017">        		 distanceLbl.setText(&quot;Distance:&quot;);</span>
+        	}
+        	
+<span class="nc" id="L1020">        });</span>
+        
+        try {
+<span class="fc" id="L1023">			scene.getStylesheets().add(new File(&quot;src/fitnessApp/main.css&quot;).toURI().toURL().toString());</span>
+<span class="pc" id="L1024">		} catch (MalformedURLException e1) {</span>
+		
+		}
+<span class="fc" id="L1027">    }</span>
+}
+
+class weightDialog extends Stage {
+	
+	@SuppressWarnings(&quot;unchecked&quot;)
+	public weightDialog(Stage owner) {
+    	
+<span class="fc" id="L1035">        super();</span>
+<span class="fc" id="L1036">        initOwner(owner);</span>
+<span class="fc" id="L1037">        setTitle(&quot;Add Weight&quot;);</span>
+<span class="fc" id="L1038">        initModality(Modality.APPLICATION_MODAL);</span>
+<span class="fc" id="L1039">        Group root = new Group();</span>
+<span class="fc" id="L1040">        Scene scene = new Scene(root);</span>
+<span class="fc" id="L1041">        setScene(scene);</span>
+        
+<span class="fc" id="L1043">        GridPane gridpane = new GridPane();</span>
+<span class="fc" id="L1044">        gridpane.setVgap(15);</span>
+<span class="fc" id="L1045">        gridpane.setHgap(10);</span>
+<span class="fc" id="L1046">        gridpane.setId(&quot;weightModal&quot;);</span>
+        
+<span class="fc" id="L1048">        Label weightLbl = new Label(&quot;Weight:&quot;);</span>
+<span class="fc" id="L1049">        weightLbl.getStyleClass().add(&quot;modal-label&quot;);</span>
+        
+<span class="fc" id="L1051">        TextField weightNum = new TextField();</span>
+<span class="fc" id="L1052">        weightNum.setPromptText(&quot;Lbs&quot;);</span>
+<span class="fc" id="L1053">        weightNum.getStyleClass().add(&quot;modal-textfield&quot;);</span>
+        
+<span class="fc" id="L1055">        Label dateLbl = new Label(&quot;Date:&quot;);</span>
+<span class="fc" id="L1056">        dateLbl.getStyleClass().add(&quot;modal-label&quot;);</span>
+        
+<span class="fc" id="L1058">        DatePicker date = new DatePicker();   </span>
+<span class="fc" id="L1059">        date.getStyleClass().add(&quot;modal-datepicker&quot;);</span>
+<span class="fc" id="L1060">        date.setEditable(false);</span>
+<span class="fc" id="L1061">        date.setValue(DateMaker.Today().toLocalDate());</span>
+        
+        
+        
+        
+<span class="fc" id="L1066">        Button save = new Button(&quot;save&quot;);</span>
+<span class="fc" id="L1067">        save.getStyleClass().add(&quot;save-button&quot;);</span>
+        
+<span class="fc" id="L1069">        gridpane.add(weightLbl, 0, 0);</span>
+<span class="fc" id="L1070">        gridpane.add(weightNum, 1, 0);</span>
+<span class="fc" id="L1071">        gridpane.add(dateLbl, 0, 1);</span>
+<span class="fc" id="L1072">        gridpane.add(date, 1, 1);</span>
+<span class="fc" id="L1073">        gridpane.add(save, 1, 2);</span>
+        
+<span class="fc" id="L1075">        root.getChildren().addAll(gridpane);</span>
+        
+<span class="fc" id="L1077">        save.setOnAction(e -&gt; {</span>
+<span class="nc" id="L1078">        	weight.insertWeight(DateMaker.ToSQLDate(date.getValue()), Double.parseDouble(weightNum.getText()));</span>
+        	
+<span class="nc" id="L1080">        	  weight.getWeek();</span>
+<span class="nc" id="L1081">		      GUI.seriesWeight.getData().add(new XYChart.Data(&quot;SUN&quot;, weight.weeklyData.get(&quot;SUNDAY&quot;))); </span>
+<span class="nc" id="L1082">		      GUI.seriesWeight.getData().add(new XYChart.Data(&quot;MON&quot;, weight.weeklyData.get(&quot;MONDAY&quot;))); </span>
+<span class="nc" id="L1083">		      GUI.seriesWeight.getData().add(new XYChart.Data(&quot;TUE&quot;, weight.weeklyData.get(&quot;TUESDAY&quot;))); </span>
+<span class="nc" id="L1084">		      GUI.seriesWeight.getData().add(new XYChart.Data(&quot;WED&quot;, weight.weeklyData.get(&quot;WEDNESDAY&quot;))); </span>
+<span class="nc" id="L1085">		      GUI.seriesWeight.getData().add(new XYChart.Data(&quot;THU&quot;, weight.weeklyData.get(&quot;THURSDAY&quot;))); </span>
+<span class="nc" id="L1086">		      GUI.seriesWeight.getData().add(new XYChart.Data(&quot;FRI&quot;, weight.weeklyData.get(&quot;FRIDAY&quot;))); </span>
+<span class="nc" id="L1087">		      GUI.seriesWeight.getData().add(new XYChart.Data(&quot;SAT&quot;, weight.weeklyData.get(&quot;SATURDAY&quot;)));</span>
+<span class="nc" id="L1088">		      GUI.weightChart.getData().add(GUI.seriesWeight);</span>
+        
+<span class="nc" id="L1090">		      weight.get();</span>
+<span class="nc" id="L1091">		      accountInfo.get();</span>
+<span class="nc" id="L1092">		      GUI.mainLayout.setCenter(GUI.weightLayout);</span>
+<span class="nc" id="L1093">		      close();</span>
+<span class="nc" id="L1094">        });</span>
+        
+        try {
+<span class="fc" id="L1097">			scene.getStylesheets().add(new File(&quot;src/fitnessApp/main.css&quot;).toURI().toURL().toString());</span>
+<span class="pc" id="L1098">		} catch (MalformedURLException e1) {</span>
+			
+		}
+		
+<span class="fc" id="L1102">	}</span>
+}
+
+class mealsDialog extends Stage {
+	public mealsDialog(Stage owner) {
+<span class="fc" id="L1107">		super();</span>
+<span class="fc" id="L1108">        initOwner(owner);</span>
+<span class="fc" id="L1109">        setTitle(&quot;Add Meals&quot;);</span>
+<span class="fc" id="L1110">        initModality(Modality.APPLICATION_MODAL);</span>
+<span class="fc" id="L1111">        Group root = new Group();</span>
+<span class="fc" id="L1112">        Scene scene = new Scene(root);</span>
+<span class="fc" id="L1113">        setScene(scene);</span>
+        
+<span class="fc" id="L1115">        GridPane gridpane = new GridPane();</span>
+<span class="fc" id="L1116">        gridpane.setVgap(15);</span>
+<span class="fc" id="L1117">        gridpane.setHgap(10);</span>
+<span class="fc" id="L1118">        gridpane.setId(&quot;mealsModal&quot;);</span>
+        
+<span class="fc" id="L1120">        Label breakfastLbl = new Label(&quot;Breakfast:&quot;);</span>
+<span class="fc" id="L1121">        breakfastLbl.getStyleClass().add(&quot;modal-label&quot;);</span>
+        
+<span class="fc" id="L1123">        TextField breakfastNum = new TextField();</span>
+<span class="fc" id="L1124">        breakfastNum.getStyleClass().add(&quot;modal-textfield&quot;);</span>
+<span class="fc" id="L1125">        breakfastNum.setText(meals.breakfastCals+&quot;&quot;);</span>
+        
+<span class="fc" id="L1127">        Label lunchLbl = new Label(&quot;Lunch:&quot;);</span>
+<span class="fc" id="L1128">        lunchLbl.getStyleClass().add(&quot;modal-label&quot;);</span>
+        
+<span class="fc" id="L1130">        TextField lunchNum = new TextField();</span>
+<span class="fc" id="L1131">        lunchNum.getStyleClass().add(&quot;modal-textfield&quot;);</span>
+<span class="fc" id="L1132">        lunchNum.setText(meals.lunchCals+&quot;&quot;);</span>
+        
+<span class="fc" id="L1134">        Label dinnerLbl = new Label(&quot;Dinner:&quot;);</span>
+<span class="fc" id="L1135">        dinnerLbl.getStyleClass().add(&quot;modal-label&quot;);</span>
+        
+<span class="fc" id="L1137">        TextField dinnerNum = new TextField();</span>
+<span class="fc" id="L1138">        dinnerNum.getStyleClass().add(&quot;modal-textfield&quot;);</span>
+<span class="fc" id="L1139">        dinnerNum.setText(meals.dinnerCals+&quot;&quot;);</span>
+        
+<span class="fc" id="L1141">        Label snacksLbl = new Label(&quot;Snacks:&quot;);</span>
+<span class="fc" id="L1142">        snacksLbl.getStyleClass().add(&quot;modal-label&quot;);</span>
+        
+<span class="fc" id="L1144">        TextField snacksNum = new TextField();</span>
+<span class="fc" id="L1145">        snacksNum.getStyleClass().add(&quot;modal-textfield&quot;);</span>
+<span class="fc" id="L1146">        snacksNum.setText(meals.snackCals+&quot;&quot;);</span>
+        
+<span class="fc" id="L1148">        Button save = new Button(&quot;save&quot;);</span>
+<span class="fc" id="L1149">        save.getStyleClass().add(&quot;save-button&quot;);</span>
+        
+<span class="fc" id="L1151">        gridpane.add(breakfastLbl, 0, 0);</span>
+<span class="fc" id="L1152">        gridpane.add(breakfastNum, 1, 0);</span>
+<span class="fc" id="L1153">        gridpane.add(lunchLbl, 0, 1);</span>
+<span class="fc" id="L1154">        gridpane.add(lunchNum, 1, 1);</span>
+<span class="fc" id="L1155">        gridpane.add(dinnerLbl, 0, 2);</span>
+<span class="fc" id="L1156">        gridpane.add(dinnerNum, 1, 2);</span>
+<span class="fc" id="L1157">        gridpane.add(snacksLbl, 0, 3);</span>
+<span class="fc" id="L1158">        gridpane.add(snacksNum, 1, 3);</span>
+<span class="fc" id="L1159">        gridpane.add(save, 1, 4);</span>
+        
+<span class="fc" id="L1161">        root.getChildren().addAll(gridpane);</span>
+        
+<span class="fc" id="L1163">        save.setOnAction(e -&gt; {</span>
+<span class="nc" id="L1164">        	int breakfast = 0;</span>
+<span class="nc" id="L1165">        	int lunch = 0;</span>
+<span class="nc" id="L1166">        	int dinner = 0;</span>
+<span class="nc" id="L1167">        	int snacks = 0;</span>
+        	
+<span class="nc bnc" id="L1169" title="All 2 branches missed.">        	if(!breakfastNum.getText().isEmpty()) {</span>
+<span class="nc" id="L1170">        		breakfast = Integer.parseInt(breakfastNum.getText());</span>
+        	}
+        	
+<span class="nc bnc" id="L1173" title="All 2 branches missed.">        	if(!lunchNum.getText().isEmpty()) {</span>
+<span class="nc" id="L1174">        		lunch = Integer.parseInt(lunchNum.getText());</span>
+        	}
+        	
+<span class="nc bnc" id="L1177" title="All 2 branches missed.">        	if(!dinnerNum.getText().isEmpty()) {</span>
+<span class="nc" id="L1178">        		dinner = Integer.parseInt(dinnerNum.getText());</span>
+        	}
+        	
+<span class="nc bnc" id="L1181" title="All 2 branches missed.">        	if(!snacksNum.getText().isEmpty()) {</span>
+<span class="nc" id="L1182">        		snacks = Integer.parseInt(snacksNum.getText());</span>
+        	}
+        	
+        	
+<span class="nc bnc" id="L1186" title="All 2 branches missed.">        	if(meals.exists) {</span>
+<span class="nc" id="L1187">        		meals.breakfastCals = breakfast;</span>
+<span class="nc" id="L1188">        		meals.lunchCals = lunch;</span>
+<span class="nc" id="L1189">        		meals.dinnerCals = dinner;</span>
+<span class="nc" id="L1190">        		meals.snackCals = snacks;</span>
+<span class="nc" id="L1191">        		meals.update();</span>
+<span class="nc" id="L1192">        		meals.get();</span>
+        		
+<span class="nc" id="L1194">        	}</span>
+        	else {
+<span class="nc" id="L1196">        		meals.insert(breakfast, lunch, dinner, snacks);</span>
+<span class="nc" id="L1197">        		meals.get();</span>
+        	}
+        	
+<span class="nc" id="L1200">        	GUI.caloriesNum.setText(meals.totalCals+&quot;&quot;);</span>
+<span class="nc" id="L1201">        	GUI.breakfastCalNum.setText(meals.breakfastCals+&quot;&quot;);</span>
+<span class="nc" id="L1202">        	GUI.lunchCalNum.setText(meals.lunchCals+&quot;&quot;);</span>
+<span class="nc" id="L1203">        	GUI.dinnerCalNum.setText(meals.dinnerCals+&quot;&quot;);</span>
+<span class="nc" id="L1204">        	GUI.snacksCalNum.setText(meals.snackCals+&quot;&quot;);</span>
+        	//meals.get();
+<span class="nc" id="L1206">        	GUI.mainLayout.setCenter(GUI.mealsLayout);</span>
+<span class="nc" id="L1207">        	close();</span>
+        	
+<span class="nc" id="L1209">        });</span>
+        
+        try {
+<span class="fc" id="L1212">			scene.getStylesheets().add(new File(&quot;src/fitnessApp/main.css&quot;).toURI().toURL().toString());</span>
+<span class="pc" id="L1213">		} catch (MalformedURLException e1) {</span>
+			
+		}
+<span class="fc" id="L1216">	}</span>
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>Main (Dec 5, 2018 6:17:52 PM)</div></body></html>

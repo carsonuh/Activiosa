@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>dbConnection.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Main (Dec 5, 2018 6:17:52 PM)</a> &gt; <a href="../../index.html" class="el_group">fitnessApp</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">fitnessApp</a> &gt; <span class="el_source">dbConnection.java</span></div><h1>dbConnection.java</h1><pre class="source lang-java linenums">package fitnessApp;
+
+import java.awt.List;
+import java.lang.reflect.Array;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException; 
+import java.sql.Statement;  
+
+
+public class dbConnection {
+	 	
+
+	 // JDBC driver name and database URL 
+	   static final String JDBC_DRIVER = &quot;org.h2.Driver&quot;;   
+	   static final String DB_URL = &quot;jdbc:h2:~/fitnessDB&quot;;  
+	   
+	   //  Database credentials 
+	   static final String USER = &quot;root&quot;; 
+	   static final String PASS = &quot;&quot;; 
+	   
+	   
+	   protected static Connection conn; 
+	   protected static Statement stmt;
+			   
+			   
+	   
+<span class="fc" id="L32">	public dbConnection() {</span>
+<span class="fc" id="L33">	}</span>
+	
+	
+	public Connection getConn() {
+<span class="fc" id="L37">		return conn;</span>
+	}
+	public void setConn(Connection conn) {
+<span class="fc" id="L40">		this.conn = conn;</span>
+<span class="fc" id="L41">	}</span>
+	
+	public Statement getStmt() {
+<span class="fc" id="L44">		return stmt;</span>
+	}
+	
+	public void setStmt(Statement stmt) {
+<span class="fc" id="L48">		this.stmt = stmt;</span>
+<span class="fc" id="L49">	}</span>
+	  // Connect to database
+	   public void connect() { 
+	         try {
+<span class="fc" id="L53">				Class.forName(JDBC_DRIVER);</span>
+<span class="fc" id="L54">				conn = DriverManager.getConnection(DB_URL,USER,PASS);</span>
+<span class="fc" id="L55">				setConn(conn);</span>
+<span class="pc" id="L56">			} catch (ClassNotFoundException | SQLException e) {</span>
+<span class="nc" id="L57">				System.out.println(&quot;Could not connect to database&quot;);</span>
+			}
+	         //System.out.println(&quot;Connected to database...&quot;);
+<span class="fc" id="L60">	   } </span>
+	   
+	   // Close and shutdown database connection
+	   public void shutdown() {
+	         try {
+<span class="fc" id="L65">				stmt.close();</span>
+<span class="fc" id="L66">				conn.close(); </span>
+			
+<span class="pc" id="L68">			} catch (SQLException e) {</span>
+				
+			} 
+	         finally { 
+		        
+		         try{ 
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">		            if(stmt!=null) stmt.close(); </span>
+<span class="pc" id="L75">		         } catch(SQLException se2) { </span>
+		         } // nothing we can do 
+		         try { 
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">		            if(conn!=null) conn.close(); </span>
+<span class="pc" id="L79">		         } catch(SQLException se){ </span>
+<span class="nc" id="L80">		            se.printStackTrace(); </span>
+		         } //end finally try 
+	         
+	         }
+	     	//System.out.println(&quot;Connection closed&quot;);
+<span class="fc" id="L85">	   	}</span>
+	   
+	   
+	   
+	
+		
+	   
+	   
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>Main (Dec 5, 2018 6:17:52 PM)</div></body></html>

@@ -1,9 +1,11 @@
 package fitnessApp;
 
 import java.awt.Dialog;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.MalformedURLException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -35,6 +37,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
@@ -50,56 +53,141 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+/*****
+ * This class creates the GUI that interacts with the database and allows to user to visualize their data
+ * @author Carson Uecker-Herman
+ * @version 12/5/2018
+ *
+ */
 public class GUI extends Application {
-
-	protected activity act = new activity();
+	
+	/** Main stage for GUI */
 	Stage window;
-	private Scene scene;
 	
-	Circle lgCircle = new Circle(100);
-	Circle smCircle = new Circle(75);
-	
+	/** Global Scenes */
+	private Scene mainScene, loginScene;
 
-	//Layouts
-	protected static VBox activityTopBar, bmiLayout, dataLayout, controlsLayout, 
-	activityStepsLayout, activityRunningLayout, activityBikingLayout, activitySwimmingLayout;
-	protected static Series<String, Number> seriesSteps, seriesRunning, seriesSwimming, seriesBiking, seriesWeight;
-	protected static LineChart<String,Number> stepsChart, runningChart, bikingChart, swimmingChart;
-	protected static HBox activityMenuLayout;
-	protected static BorderPane mainLayout,activityLayout, homeLayout, mealsLayout, weightLayout;
+	/** Global VBox layouts */
+	protected static VBox activityTopBar, bmiLayout, dataLayout, controlsLayout, activityStepsLayout, activityRunningLayout, activityBikingLayout, activitySwimmingLayout;
 	
-	//Buttons
-	private Button activityButton;
-	private Button weightButton;
-	private Button dataButton;
-	private Button mealsButton;
-	private Button bmiButton;
-	private Button bmiSubmit;
-	private Button profileButton;
-	private Button runningButton;
-	private Button stepsButton;
-	private Button swimmingButton;
-	private Button bikingButton;
-	private Button homeButton;
-	private Button activityAddButton;
-	//Labels
-	private Label bmiTitle;
-	private Label weightTitle;
-	private Label activityTitle;
-	private Label mealsTitle;
-	private Label dataTitle;
-	private Label homeTitle;
-	static Stage activityModal;
-	LocalDateTime currentTime;
+	/** Series for Line Charts */
+	protected static Series<String, Number> seriesSteps, seriesRunning, seriesSwimming, seriesBiking, seriesWeight;
+	
+	/** Global Line Charts */
+	protected static LineChart<String,Number> stepsChart, runningChart, bikingChart, swimmingChart, weightChart;
+	
+	/** Global HBox Layouts */
+	protected static HBox activityMenuLayout;
+	
+	/** Global BorderPane Layouts */
+	protected static BorderPane mainLayout,activityLayout, homeLayout, mealsLayout, weightLayout, accountLayout;
+	
+	/** Global Buttons */
+	private Button activityButton, weightButton, mealsButton, profileButton, runningButton, stepsButton, swimmingButton, bikingButton, homeButton, activityAddButton, weightAddButton, mealsAddButton;
+	
+	/** Global Labels */
+	protected static Label caloriesNum, breakfastCalNum, lunchCalNum, dinnerCalNum, snacksCalNum, stepsNum, calBurnedNum, activeMinsNum, stepsDistNum, stepsFloorsNum ;
+	
+	/** Modal Windows */
+	static Stage activityModal, weightModal, mealsModal;
+	
+	/** Current Layout Value */
 	private static String currentLayout;
 
-
+	/****
+	 * Makes the GUI visible. All of the layouts are created in this method
+	 * @param primaryStage the default stage that is used 
+	 */
 	public void start(Stage primaryStage) throws Exception {
 		window  = primaryStage;
+		window.getIcons().add(new Image(GUI.class.getResourceAsStream("../images/icon.png")));
 		activityModal = new activityDialog(primaryStage);	
+		weightModal = new weightDialog(primaryStage);
+		mealsModal = new mealsDialog(primaryStage);
 		
-
+		
+		// login --------------------------------------
+		BorderPane loginLayout = new BorderPane();
+		
+		VBox loginPage = new VBox(10);
+		Label logo = new Label();
+		logo.setId("logo");
+		TextField username = new TextField();
+		username.getStylesheets().add("login-textfield");
+		username.setPromptText("Username");
+		PasswordField password = new PasswordField();
+		password.getStylesheets().add("login-textfield");
+		password.setPromptText("Password");
+		Button login = new Button("Login");
+		login.setId("login");
+		login.getStylesheets().add("login-button");
+		Button signup = new Button("signup");
+		signup.getStylesheets().add("login-button");
+		
+		loginPage.getChildren().addAll(username, password, login, signup);
+		
+		//sign up ---------------------------------------
+		GridPane signupLayout = new GridPane();
+		
+		TextField fullName = new TextField();
+		fullName.setPromptText("Full Name");
+		fullName.getStylesheets().add("login-textfield");
+		
+		TextField usernameNew = new TextField();
+		usernameNew.setPromptText("Username");
+		usernameNew.getStylesheets().add("login-textfield");
+		
+		PasswordField passwordNew = new PasswordField();
+		passwordNew.setPromptText("Password");
+		passwordNew.getStylesheets().add("login-textfield");
+		PasswordField passwordNewConfirm = new PasswordField();
+		passwordNewConfirm.setPromptText("Confirm Password");
+		passwordNewConfirm.getStylesheets().add("login-textfield");
+		
+		TextField heightInches = new TextField();
+		heightInches.setPromptText("Height IN");
+		heightInches.getStylesheets().add("login-textfield");
+		
+		TextField heightFeet = new TextField();
+		heightFeet.setPromptText("Height FT");
+		heightFeet.getStylesheets().add("login-textfield");
+		
+		TextField startWeight = new TextField();
+		startWeight.setPromptText("Weight");
+		startWeight.getStylesheets().add("login-textfield");
+		
+		Button signUpNew = new Button("Sign Up");
+		signUpNew.getStylesheets().add("login-button");
+		
+		loginLayout.setCenter(loginPage);
+		
+		login.setOnAction(e -> {
+			users.checkIfExists(username.getText());
+			
+			try {
+				if(users.exists) {
+					users.getPassword(username.getText());
+					if(users.passwordEncrypt(password.getText()) == users.password) {
+					users.loginSuccessGet(username.getText());
+					data.get();
+					data.update();
+					window.setScene(mainScene);
+					
+					}
+				
+				}
+				else {
+					
+				}
+			} catch (NoSuchAlgorithmException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+		});
+		
+		
+		// Main layout -------------------------------------------------------------------
 		mainLayout = new BorderPane();
 
 		// left: controls and buttons
@@ -128,6 +216,7 @@ public class GUI extends Application {
 		
 		 //Activity Menu
 		 activityMenuLayout = new HBox(20);
+		 activityMenuLayout.setId("activitiesMenu");
 		 runningButton = new Button("running");
 		 runningButton.setId("runningButton");
 		 runningButton.getStyleClass().add("activity-menu-buttons");
@@ -143,36 +232,49 @@ public class GUI extends Application {
 		 activityAddButton = new Button();
 		 activityAddButton.getStyleClass().add("add-button");
 		 activityAddButton.setAlignment(Pos.TOP_RIGHT);
-		 activityMenuLayout.getChildren().addAll(stepsButton, runningButton, bikingButton, swimmingButton, activityAddButton);
+		 activityMenuLayout.getChildren().addAll(stepsButton, runningButton, bikingButton, swimmingButton);
 		 
+		 HBox activityAddLayout = new HBox(0);
+		 activityAddLayout.setId("activityAdd");
+		 activityAddLayout.getChildren().add(activityAddButton);
+		 
+		 BorderPane activityTopLayout = new BorderPane();
+		 Label activitiesLbl = new Label("Activities");
+		 activitiesLbl.setId("activitiesLbl");
+		 
+		 activityTopLayout.setTop(activitiesLbl);
+		 activitiesLbl.setAlignment(Pos.CENTER);
+		 activityTopLayout.setAlignment(activitiesLbl, Pos.CENTER);
+		 activityTopLayout.setCenter(activityMenuLayout);
+		 activityTopLayout.setRight(activityAddLayout);
+		 activityTopLayout.setId("activityTopLayout");
 		 
 		 // steps --------------------------------------------------------------
 		 activityStepsLayout = new VBox(5);
 		 activityStepsLayout.setId("activityStepsLayout");
 		 stepsButton.requestFocus();
 		 CategoryAxis xAxis = new CategoryAxis();
-	     xAxis.setLabel(DateMaker.weekRange()); 
 	        
 	      //Defining the y axis   
-	      NumberAxis yAxis = new NumberAxis(0, 25000, 5000); 
-	      yAxis.setLabel("Steps"); 
+	      NumberAxis yAxis = new NumberAxis(0, 25, 5); 
+	      yAxis.setLabel("Steps (Thousands)"); 
 	        
 	      //Creating the line chart 
 	      stepsChart = new LineChart<String, Number>(xAxis, yAxis);  
-	      stepsChart.setLegendVisible(false);
+	      
 	      
 	      //Prepare XYChart.Series objects by setting data 
 	      seriesSteps = new XYChart.Series(); 
-	      
+	      seriesSteps.setName(DateMaker.weekRange());
 	      
 	      stepsTable.getWeek();
-	      seriesSteps.getData().add(new XYChart.Data("SUN", stepsTable.weeklySteps.get("SUNDAY"))); 
-	      seriesSteps.getData().add(new XYChart.Data("MON", stepsTable.weeklySteps.get("MONDAY"))); 
-	      seriesSteps.getData().add(new XYChart.Data("TUE", stepsTable.weeklySteps.get("TUESDAY"))); 
-	      seriesSteps.getData().add(new XYChart.Data("WED", stepsTable.weeklySteps.get("WEDNESDAY"))); 
-	      seriesSteps.getData().add(new XYChart.Data("THU", stepsTable.weeklySteps.get("THURSDAY"))); 
-	      seriesSteps.getData().add(new XYChart.Data("FRI", stepsTable.weeklySteps.get("FRIDAY"))); 
-	      seriesSteps.getData().add(new XYChart.Data("SAT", stepsTable.weeklySteps.get("SATURDAY")));
+	      seriesSteps.getData().add(new XYChart.Data("SUN", stepsPerThousand(stepsTable.weeklySteps.get("SUNDAY")))); 
+	      seriesSteps.getData().add(new XYChart.Data("MON", stepsPerThousand(stepsTable.weeklySteps.get("MONDAY")))); 
+	      seriesSteps.getData().add(new XYChart.Data("TUE", stepsPerThousand(stepsTable.weeklySteps.get("TUESDAY")))); 
+	      seriesSteps.getData().add(new XYChart.Data("WED", stepsPerThousand(stepsTable.weeklySteps.get("WEDNESDAY")))); 
+	      seriesSteps.getData().add(new XYChart.Data("THU", stepsPerThousand(stepsTable.weeklySteps.get("THURSDAY")))); 
+	      seriesSteps.getData().add(new XYChart.Data("FRI", stepsPerThousand(stepsTable.weeklySteps.get("FRIDAY")))); 
+	      seriesSteps.getData().add(new XYChart.Data("SAT", stepsPerThousand(stepsTable.weeklySteps.get("SATURDAY"))));
 	      
 	      //Setting the data to Line chart  
 	      
@@ -311,7 +413,7 @@ public class GUI extends Application {
 			 });
 		 
 		 
-		 activityLayout.setTop(activityMenuLayout);
+		 activityLayout.setTop(activityTopLayout);
 		 activityLayout.setCenter(activityStepsLayout);
 		 
 		
@@ -330,7 +432,7 @@ public class GUI extends Application {
 		Label steps = new Label();
 		steps.setId("stepsLblImg");
 		steps.getStyleClass().add("largeCircle");
-		Label stepsNum = new Label(stepsTable.steps+"");
+		stepsNum = new Label(stepsTable.steps+"");
 		stepsNum.getStyleClass().addAll("step-facts-num", "numTop");
 		stepsNum.setAlignment(Pos.CENTER);
 		Label stepsText = new Label("steps");
@@ -347,7 +449,7 @@ public class GUI extends Application {
 			Label calBurnedImg = new Label();
 			calBurnedImg.setId("calBurnedImg");
 			calBurnedImg.getStyleClass().add("smallCircle");
-			Label calBurnedNum = new Label(active.calsBurned+"");
+			calBurnedNum = new Label(active.calsBurned+"");
 			Label calBurnedText = new Label("calories burned");
 			calBurnedText.getStyleClass().add("step-facts-text");
 			calBurnedNum.getStyleClass().add("step-facts-num");
@@ -360,7 +462,7 @@ public class GUI extends Application {
 			Label stepsDistImg = new Label();
 			stepsDistImg.setId("stepsDistImg");
 			stepsDistImg.getStyleClass().add("smallCircle");
-			Label stepsDistNum = new Label(stepsTable.milesWalked+"");
+			stepsDistNum = new Label(stepsTable.milesWalked+"");
 			stepsDistNum.getStyleClass().add("step-facts-num");
 			stepsDistNum.setAlignment(Pos.CENTER);
 			stepsDistNum.setId("stepsDistNum");
@@ -374,7 +476,7 @@ public class GUI extends Application {
 			Label stepsFloorsImg = new Label();
 			stepsFloorsImg.setId("stepsFloorsImg");
 			stepsFloorsImg.getStyleClass().add("smallCircle");
-			Label stepsFloorsNum = new Label(stepsTable.floors+"");
+			stepsFloorsNum = new Label(stepsTable.floors+"");
 			stepsFloorsNum.getStyleClass().add("step-facts-num");
 			stepsFloorsNum.setAlignment(Pos.CENTER);
 			stepsFloorsNum.setId("stepsFloorsNum");
@@ -388,7 +490,7 @@ public class GUI extends Application {
 			Label activeMinsImg = new Label();
 			activeMinsImg.setId("stepsMinImg");
 			activeMinsImg.getStyleClass().add("smallCircle");
-			Label activeMinsNum = new Label(active.minutes +"");
+			activeMinsNum = new Label(active.minutes +"");
 			activeMinsNum.setId("activeMinsNum");
 			activeMinsNum.getStyleClass().add("step-facts-num");
 			activeMinsNum.setAlignment(Pos.CENTER);
@@ -412,17 +514,26 @@ public class GUI extends Application {
 		mealsLayout = new BorderPane();
 		
 		// top - date
+		meals.get();
+		BorderPane mealsTop = new BorderPane();
 		Label caloriesLbl = new Label("Today's Calories");
 		caloriesLbl.setAlignment(Pos.CENTER);
 		caloriesLbl.setId("caloriesLbl");
+		mealsAddButton = new Button();
+		mealsAddButton.getStyleClass().add("add-button");
+		mealsAddButton.setAlignment(Pos.CENTER_RIGHT);
+		mealsTop.setTop(caloriesLbl);
+		mealsTop.setCenter(mealsAddButton);
 		
 		// middle - total calories
+		
+		
 		VBox caloriesLayout = new VBox(1);
 		caloriesLayout.setId("caloriesLayout");
 		Label caloriesImg = new Label();
 		caloriesImg.setId("caloriesLblImg");
 		caloriesImg.getStyleClass().add("largeCircle");
-		Label caloriesNum = new Label("0");
+		caloriesNum = new Label(meals.totalCals+"");
 		caloriesNum.getStyleClass().addAll("facts-num", "numTop");
 		caloriesNum.setAlignment(Pos.CENTER);
 		Label caloriesText = new Label("total");
@@ -439,7 +550,7 @@ public class GUI extends Application {
 			Label breakfastImg = new Label();
 			breakfastImg.setId("breakfastImg");
 			breakfastImg.getStyleClass().add("smallCircle");
-			Label breakfastCalNum = new Label("0");
+			breakfastCalNum = new Label(meals.breakfastCals+"");
 			breakfastCalNum.getStyleClass().add("facts-num");
 			breakfastCalNum.setAlignment(Pos.CENTER);
 			Label breakfastCalText = new Label("breakfast");
@@ -452,7 +563,7 @@ public class GUI extends Application {
 			Label lunchImg = new Label();
 			lunchImg.setId("lunchImg");
 			lunchImg.getStyleClass().add("smallCircle");
-			Label lunchCalNum = new Label("0");
+			lunchCalNum = new Label(meals.lunchCals+"");
 			lunchCalNum.getStyleClass().add("facts-num");
 			lunchCalNum.setAlignment(Pos.CENTER);
 			Label lunchCalText = new Label("lunch");
@@ -465,7 +576,7 @@ public class GUI extends Application {
 			Label dinnerImg = new Label();
 			dinnerImg.setId("dinnerImg");
 			dinnerImg.getStyleClass().add("smallCircle");
-			Label dinnerCalNum = new Label("0");
+			dinnerCalNum = new Label(meals.dinnerCals+"");
 			dinnerCalNum.getStyleClass().add("facts-num");
 			dinnerCalNum.setAlignment(Pos.CENTER);
 			Label dinnerCalText = new Label("dinner");
@@ -478,7 +589,7 @@ public class GUI extends Application {
 			Label snacksImg = new Label();
 			snacksImg.setId("snacksImg");
 			snacksImg.getStyleClass().add("smallCircle");
-			Label snacksCalNum = new Label("0");
+			snacksCalNum = new Label(meals.snackCals+"");
 			snacksCalNum.getStyleClass().add("facts-num");
 			snacksCalNum.setAlignment(Pos.CENTER);
 			Label snacksCalText = new Label("snacks");
@@ -491,27 +602,44 @@ public class GUI extends Application {
 		
 		caloriesLayout.setAlignment(Pos.TOP_CENTER);
 		mealFacts.setAlignment(Pos.CENTER);
-		mealsLayout.setTop(caloriesLbl);
+		mealsLayout.setTop(mealsTop);
 		mealsLayout.setCenter(caloriesLayout);
 		mealsLayout.setBottom(mealFacts);
 		mealsLayout.setAlignment(caloriesLbl,Pos.CENTER);
+		mealsLayout.setAlignment(mealsAddButton, Pos.CENTER_RIGHT);
 
 
 		//Weight Layout -------------------------------------------------------------------------------------
 		weightLayout = new BorderPane();
+		
+		weight.get();
+		BorderPane weightTop = new BorderPane();
 		Label weightLbl = new Label("Weight");
 		weightLbl.setId("weightLbl");
+		weightLbl.setAlignment(Pos.CENTER);
+		weightTop.setCenter(weightLbl);
+		
 		
 		//middle - graphs and facts
-		VBox weightInfo = new VBox(10);
+		BorderPane weightInfo = new BorderPane();
+		weightInfo.setId("weightInfoLayout");
 		
-			Label currentWeightLbl = new Label(accountInfo.currentWeight+" lbs");
+			
+			BorderPane currentWeightLayout = new BorderPane();
+			currentWeightLayout.setId("currentWeightLayout");
+			Label currentWeightLbl = new Label(weight.weight+" lbs");
 			currentWeightLbl.setId("currentWeightLbl");
 			currentWeightLbl.setTextAlignment(TextAlignment.CENTER);
-		
+			weightAddButton = new Button();
+			weightAddButton.getStyleClass().add("add-button");
+			currentWeightLayout.setAlignment(currentWeightLbl, Pos.TOP_CENTER);
+			currentWeightLayout.setAlignment(weightAddButton, Pos.TOP_RIGHT);
+			currentWeightLayout.setCenter(currentWeightLbl);
+			currentWeightLayout.setRight(weightAddButton);
 
 			//graph
 			xAxis = new CategoryAxis();
+			
 		     xAxis.setLabel(DateMaker.weekRange()); 
 		        
 		      //Defining the y axis   
@@ -554,24 +682,69 @@ public class GUI extends Application {
 		      bwpNum.getStyleClass().add("weight-facts-num");
 		      weightFacts.getChildren().addAll(bmiText, bmiNum, bwpText, bwpNum);
 		      weightFacts.setAlignment(Pos.CENTER);
-			weightInfo.getChildren().addAll(currentWeightLbl, weightChart, weightFacts);
+		      
+			//weightInfo.getChildren().addAll(currentWeightLayout, weightChart, weightFacts);
+			weightInfo.setTop(currentWeightLayout);
+			weightInfo.setCenter(weightChart);
+			weightInfo.setBottom(weightFacts);
+			
 		
 		currentWeightLbl.setAlignment(Pos.TOP_CENTER);
-		weightInfo.setAlignment(Pos.CENTER);
-		weightLayout.setTop(weightLbl);
+		//weightInfo.setAlignment(Pos.CENTER);
+		weightLayout.setTop(weightTop);
 		weightLayout.setCenter(weightInfo);
 		weightLayout.setAlignment(weightLbl, Pos.CENTER);
+		
+		
+		// Account ----------------------------------------------------------------------------------
+		accountLayout = new BorderPane();
+		
+		//top ---------------------------------------
+		BorderPane accountTop = new BorderPane();
+		Label accountLbl = new Label("Account");
+		accountLbl.setId("accountLbl");
+		accountLbl.setAlignment(Pos.CENTER);
+		accountTop.setCenter(accountLbl);
+		
+		
+		// middle -------------------------------------
+		BorderPane accountMiddle = new BorderPane();
+		users.get();
+		accountInfo.get();
+		
+		VBox userInfo = new VBox(8);
+		userInfo.setId("userinfo");
+		Label name = new Label("Name: " +accountInfo.name);
+		name.getStyleClass().add("facts-text");
+		Label usernameText = new Label("Username: " +users.username);
+		usernameText.getStyleClass().add("facts-text");
+		Label height = new Label("Height: "+accountInfo.feet+" FT " + accountInfo.inches + " IN");
+		height.getStyleClass().add("facts-text");
+		Button logout = new Button("logout");
+		logout.setOnAction(e -> {
+			window.close();
+		});
+		userInfo.getChildren().addAll(name, usernameText, height, logout);
+		
+		accountMiddle.setTop(userInfo);
+		
+		accountLayout.setTop(accountTop);
+		accountLayout.setCenter(accountMiddle);
+		
 		
 	
 		mainLayout.setLeft(controlsLayout);
 		mainLayout.setCenter(homeLayout);
 
-		scene = new Scene(mainLayout, 1200, 600);
+		mainScene = new Scene(mainLayout, 1200, 600);
+		loginScene = new Scene(loginLayout, 1200, 600);
+		
 
-
-		window.setScene(scene);
-		window.setTitle("Fitness App");
+		window.setScene(mainScene);
+		window.setTitle("Activiosa");
+		window.setFullScreen(true);
 		window.show();
+		
 
 		associateStyles();
 		actions();
@@ -582,8 +755,8 @@ public class GUI extends Application {
 
 		public void associateStyles() throws MalformedURLException {
 			//link stylesheet
-			scene.getStylesheets().add(new File("src/fitnessApp/main.css").toURI().toURL().toString());
-			
+			mainScene.getStylesheets().add(new File("src/fitnessApp/main.css").toURI().toURL().toString());
+			loginScene.getStylesheets().add(new File("src/fitnessApp/main.css").toURI().toURL().toString());
 			
 			//layouts
 		
@@ -591,27 +764,83 @@ public class GUI extends Application {
 			mealsLayout.getStyleClass().add("centralView");
 			weightLayout.getStyleClass().add("centralView");
 			activityLayout.getStyleClass().add("centralView");
+			accountLayout.getStyleClass().add("centralView");
 		}
 
 		public void actions() {
 			
 
-			mealsButton.setOnAction(e -> mainLayout.setCenter(mealsLayout));
-			weightButton.setOnAction(e -> mainLayout.setCenter(weightLayout));
+			mealsButton.setOnAction(e -> {
+				meals.get();
+				mainLayout.setCenter(mealsLayout);
+			});
+			
+			weightButton.setOnAction(e -> {
+				weight.get();
+				mainLayout.setCenter(weightLayout);
+			});
+			
 			activityButton.setOnAction(e -> {
 				stepsTable.get();
 				mainLayout.setCenter(activityLayout);
+				stepsButton.requestFocus();
 			});
 			homeButton.setOnAction(e -> mainLayout.setCenter(homeLayout));
+			
 			activityAddButton.setOnAction(e -> {
 		        activityModal.sizeToScene();
 		        activityModal.show();
 			});
 			
+			weightAddButton.setOnAction(e -> {
+				 weightModal.sizeToScene();
+			     weightModal.show();
+			     weightButton.requestFocus();
+			});
+			
+			mealsAddButton.setOnAction(e -> {
+				meals.get();
+				mealsModal.sizeToScene();
+			     mealsModal.show();
+			});
+			
+			if(stepsButton.isFocused() || bikingButton.isFocused() || 
+					runningButton.isFocused() || swimmingButton.isFocused() 
+					|| activityAddButton.isFocused())  {
+				activityButton.getStyleClass().add("category-active");
+				
+			}
+			else {
+				activityButton.getStyleClass().add("category-passive");
+			}
+			
+			profileButton.setOnAction(e -> {
+				mainLayout.setCenter(accountLayout);
+				
+			});
+			
+			
+			
 		}
+		
+		public static Integer stepsPerThousand(Integer i) {
+		
+	    	if(i == null) {
+	    		return null;
+	    	}
+	    	else {
+	    		return i / 1000;
+	    	}
+	    
+	    }
 	}
 
 
+/*****
+ * This class creates the activity Dialog
+ * @author Carson Uecker-Herman
+ *
+ */
 class activityDialog extends Stage {
 	activity act = new activity();
     @SuppressWarnings("unchecked")
@@ -691,19 +920,23 @@ class activityDialog extends Stage {
         		 stepsTable.insert(DateMaker.ToSQLDate(date.getValue()), Integer.parseInt(distance.getText()), 0, Double.parseDouble(calsburned.getText()));
         		 
         		 stepsTable.getWeek();
-        		 GUI.seriesSteps.getData().add(new XYChart.Data("SUN", stepsTable.weeklySteps.get("SUNDAY"))); 
-       	      	 GUI.seriesSteps.getData().add(new XYChart.Data("MON", stepsTable.weeklySteps.get("MONDAY"))); 
-       	         GUI.seriesSteps.getData().add(new XYChart.Data("TUE", stepsTable.weeklySteps.get("TUESDAY"))); 
-       	         GUI.seriesSteps.getData().add(new XYChart.Data("WED", stepsTable.weeklySteps.get("WEDNESDAY"))); 
-       	         GUI.seriesSteps.getData().add(new XYChart.Data("THU", stepsTable.weeklySteps.get("THURSDAY"))); 
-       	         GUI.seriesSteps.getData().add(new XYChart.Data("FRI", stepsTable.weeklySteps.get("FRIDAY"))); 
-       	         GUI.seriesSteps.getData().add(new XYChart.Data("SAT", stepsTable.weeklySteps.get("SATURDAY")));
+        		 GUI.seriesSteps.getData().add(new XYChart.Data("SUN", GUI.stepsPerThousand(stepsTable.weeklySteps.get("SUNDAY")))); 
+       	      	 GUI.seriesSteps.getData().add(new XYChart.Data("MON", GUI.stepsPerThousand(stepsTable.weeklySteps.get("MONDAY")))); 
+       	      	 GUI.seriesSteps.getData().add(new XYChart.Data("TUE", GUI.stepsPerThousand(stepsTable.weeklySteps.get("TUESDAY")))); 
+       	      	 GUI.seriesSteps.getData().add(new XYChart.Data("WED", GUI.stepsPerThousand(stepsTable.weeklySteps.get("WEDNESDAY")))); 
+       	      	 GUI.seriesSteps.getData().add(new XYChart.Data("THU", GUI.stepsPerThousand(stepsTable.weeklySteps.get("THURSDAY")))); 
+       	      	 GUI.seriesSteps.getData().add(new XYChart.Data("FRI", GUI.stepsPerThousand(stepsTable.weeklySteps.get("FRIDAY")))); 
+       	      	 GUI.seriesSteps.getData().add(new XYChart.Data("SAT", GUI.stepsPerThousand(stepsTable.weeklySteps.get("SATURDAY"))));
        	         GUI.stepsChart.getData().add(GUI.seriesSteps);  
         		 
         		
         		 GUI.activityLayout.setCenter(GUI.activityStepsLayout);
         		 stepsTable.milesWalked += Double.parseDouble(distance.getText()) / 2000;
         		 stepsTable.update();
+        		 active.floors = Integer.parseInt(distance.getText()) / 5000;
+        		 active.update();
+        		 GUI.stepsFloorsNum.setText(active.floors+"");
+        		 
         		 close();
         	}
         	else {
@@ -770,18 +1003,23 @@ class activityDialog extends Stage {
 				e1.printStackTrace();
 			}
         	active.update();
+        	GUI.calBurnedNum.setText(active.calsBurned+"");
+        	GUI.activeMinsNum.setText(active.minutes+"");
+        	
         });
         activityList.setOnAction(e -> {
         	if(activityList.getValue() == "Steps") {
         		gridpane.getChildren().remove(duration);
         		gridpane.getChildren().remove(durationLbl);
         		distance.setPromptText("Steps");
+        		distanceLbl.setText("Steps:");
         		
         	}
         	else {
         		 gridpane.add(durationLbl, 1, 2);
         	     gridpane.add(duration, 2, 2);
         		 distance.setPromptText("Miles");
+        		 distanceLbl.setText("Distance:");
         	}
         	
         });
@@ -792,7 +1030,205 @@ class activityDialog extends Stage {
 		
 		}
     }
-    
+}
+
+/***
+ * This class creates the Weight Dialog
+ * @author Carson Uecker-Herman
+ *
+ */
+class weightDialog extends Stage {
+	
+	@SuppressWarnings("unchecked")
+	public weightDialog(Stage owner) {
+    	
+        super();
+        initOwner(owner);
+        setTitle("Add Weight");
+        initModality(Modality.APPLICATION_MODAL);
+        Group root = new Group();
+        Scene scene = new Scene(root);
+        setScene(scene);
+        
+        GridPane gridpane = new GridPane();
+        gridpane.setVgap(15);
+        gridpane.setHgap(10);
+        gridpane.setId("weightModal");
+        
+        Label weightLbl = new Label("Weight:");
+        weightLbl.getStyleClass().add("modal-label");
+        
+        TextField weightNum = new TextField();
+        weightNum.setPromptText("Lbs");
+        weightNum.getStyleClass().add("modal-textfield");
+        
+        Label dateLbl = new Label("Date:");
+        dateLbl.getStyleClass().add("modal-label");
+        
+        DatePicker date = new DatePicker();   
+        date.getStyleClass().add("modal-datepicker");
+        date.setEditable(false);
+        date.setValue(DateMaker.Today().toLocalDate());
+        
+        
+        
+        
+        Button save = new Button("save");
+        save.getStyleClass().add("save-button");
+        
+        gridpane.add(weightLbl, 0, 0);
+        gridpane.add(weightNum, 1, 0);
+        gridpane.add(dateLbl, 0, 1);
+        gridpane.add(date, 1, 1);
+        gridpane.add(save, 1, 2);
+        
+        root.getChildren().addAll(gridpane);
+        
+        save.setOnAction(e -> {
+        	weight.insertWeight(DateMaker.ToSQLDate(date.getValue()), Double.parseDouble(weightNum.getText()));
+        	
+        	  weight.getWeek();
+		      GUI.seriesWeight.getData().add(new XYChart.Data("SUN", weight.weeklyData.get("SUNDAY"))); 
+		      GUI.seriesWeight.getData().add(new XYChart.Data("MON", weight.weeklyData.get("MONDAY"))); 
+		      GUI.seriesWeight.getData().add(new XYChart.Data("TUE", weight.weeklyData.get("TUESDAY"))); 
+		      GUI.seriesWeight.getData().add(new XYChart.Data("WED", weight.weeklyData.get("WEDNESDAY"))); 
+		      GUI.seriesWeight.getData().add(new XYChart.Data("THU", weight.weeklyData.get("THURSDAY"))); 
+		      GUI.seriesWeight.getData().add(new XYChart.Data("FRI", weight.weeklyData.get("FRIDAY"))); 
+		      GUI.seriesWeight.getData().add(new XYChart.Data("SAT", weight.weeklyData.get("SATURDAY")));
+		      GUI.weightChart.getData().add(GUI.seriesWeight);
+        
+		      weight.get();
+		      accountInfo.get();
+		      GUI.mainLayout.setCenter(GUI.weightLayout);
+		      close();
+        });
+        
+        try {
+			scene.getStylesheets().add(new File("src/fitnessApp/main.css").toURI().toURL().toString());
+		} catch (MalformedURLException e1) {
+			
+		}
+		
+	}
+}
+
+/***
+ * This class creates the meals dialog 
+ * @author Carson Uecker-Herman
+ *
+ */
+class mealsDialog extends Stage {
+	public mealsDialog(Stage owner) {
+		super();
+        initOwner(owner);
+        setTitle("Add Meals");
+        initModality(Modality.APPLICATION_MODAL);
+        Group root = new Group();
+        Scene scene = new Scene(root);
+        setScene(scene);
+        
+        GridPane gridpane = new GridPane();
+        gridpane.setVgap(15);
+        gridpane.setHgap(10);
+        gridpane.setId("mealsModal");
+        
+        Label breakfastLbl = new Label("Breakfast:");
+        breakfastLbl.getStyleClass().add("modal-label");
+        
+        TextField breakfastNum = new TextField();
+        breakfastNum.getStyleClass().add("modal-textfield");
+        breakfastNum.setText(meals.breakfastCals+"");
+        
+        Label lunchLbl = new Label("Lunch:");
+        lunchLbl.getStyleClass().add("modal-label");
+        
+        TextField lunchNum = new TextField();
+        lunchNum.getStyleClass().add("modal-textfield");
+        lunchNum.setText(meals.lunchCals+"");
+        
+        Label dinnerLbl = new Label("Dinner:");
+        dinnerLbl.getStyleClass().add("modal-label");
+        
+        TextField dinnerNum = new TextField();
+        dinnerNum.getStyleClass().add("modal-textfield");
+        dinnerNum.setText(meals.dinnerCals+"");
+        
+        Label snacksLbl = new Label("Snacks:");
+        snacksLbl.getStyleClass().add("modal-label");
+        
+        TextField snacksNum = new TextField();
+        snacksNum.getStyleClass().add("modal-textfield");
+        snacksNum.setText(meals.snackCals+"");
+        
+        Button save = new Button("save");
+        save.getStyleClass().add("save-button");
+        
+        gridpane.add(breakfastLbl, 0, 0);
+        gridpane.add(breakfastNum, 1, 0);
+        gridpane.add(lunchLbl, 0, 1);
+        gridpane.add(lunchNum, 1, 1);
+        gridpane.add(dinnerLbl, 0, 2);
+        gridpane.add(dinnerNum, 1, 2);
+        gridpane.add(snacksLbl, 0, 3);
+        gridpane.add(snacksNum, 1, 3);
+        gridpane.add(save, 1, 4);
+        
+        root.getChildren().addAll(gridpane);
+        
+        save.setOnAction(e -> {
+        	int breakfast = 0;
+        	int lunch = 0;
+        	int dinner = 0;
+        	int snacks = 0;
+        	
+        	if(!breakfastNum.getText().isEmpty()) {
+        		breakfast = Integer.parseInt(breakfastNum.getText());
+        	}
+        	
+        	if(!lunchNum.getText().isEmpty()) {
+        		lunch = Integer.parseInt(lunchNum.getText());
+        	}
+        	
+        	if(!dinnerNum.getText().isEmpty()) {
+        		dinner = Integer.parseInt(dinnerNum.getText());
+        	}
+        	
+        	if(!snacksNum.getText().isEmpty()) {
+        		snacks = Integer.parseInt(snacksNum.getText());
+        	}
+        	
+        	
+        	if(meals.exists) {
+        		meals.breakfastCals = breakfast;
+        		meals.lunchCals = lunch;
+        		meals.dinnerCals = dinner;
+        		meals.snackCals = snacks;
+        		meals.update();
+        		meals.get();
+        		
+        	}
+        	else {
+        		meals.insert(breakfast, lunch, dinner, snacks);
+        		meals.get();
+        	}
+        	
+        	GUI.caloriesNum.setText(meals.totalCals+"");
+        	GUI.breakfastCalNum.setText(meals.breakfastCals+"");
+        	GUI.lunchCalNum.setText(meals.lunchCals+"");
+        	GUI.dinnerCalNum.setText(meals.dinnerCals+"");
+        	GUI.snacksCalNum.setText(meals.snackCals+"");
+        	//meals.get();
+        	GUI.mainLayout.setCenter(GUI.mealsLayout);
+        	close();
+        	
+        });
+        
+        try {
+			scene.getStylesheets().add(new File("src/fitnessApp/main.css").toURI().toURL().toString());
+		} catch (MalformedURLException e1) {
+			
+		}
+	}
 }
 
 

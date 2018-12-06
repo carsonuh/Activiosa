@@ -79,5 +79,9 @@ AND WorkDate <  dateadd(day, 8-datepart(dw, getdate()), CONVERT(date,getdate()))
 SELECT distance, date FROM EXERCISE WHERE user_id=1 AND type='Running' 
 AND date BETWEEN '2018-12-02' AND '2018-12-08'
 
-DELETE FROM STEPS;
+DELETE FROM MEALS;
 DELETE FROM EXERCISE WHERE type='Running';
+
+UPDATE ACCOUNTINFO SET name='Carson Uecker-Herman', height_feet=5, height_inches=8 WHERE user_id=1;
+SELECT * FROM ACCOUNTINFO;
+

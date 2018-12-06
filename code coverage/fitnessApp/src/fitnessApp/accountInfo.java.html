@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>accountInfo.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Main (Dec 5, 2018 6:17:52 PM)</a> &gt; <a href="../../index.html" class="el_group">fitnessApp</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">fitnessApp</a> &gt; <span class="el_source">accountInfo.java</span></div><h1>accountInfo.java</h1><pre class="source lang-java linenums">package fitnessApp;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+<span class="fc" id="L8">public class accountInfo extends dbConnection {</span>
+
+<span class="fc" id="L10">	 static dbConnection db = new dbConnection();</span>
+	
+	   protected static String name;
+	   protected static int feet;
+	   protected static int inches;
+<span class="fc" id="L15">	   protected static double currentWeight;</span>
+	   
+	   
+	//INSERT ACCOUNT INFO
+		public static void insert(String name, int feet, int inches, double currentWeight) {
+			
+<span class="nc" id="L21">			String sql = &quot;INSERT INTO ACCOUNTINFO(user_id, name, height_feet, height_inches, current_weight)&quot; +</span>
+<span class="nc" id="L22">			&quot;VALUES('&quot;+users.userID+&quot;', '&quot;+name+&quot;', '&quot;+feet+&quot;', '&quot;+inches+&quot;', '&quot;+currentWeight+&quot;')&quot;;</span>
+			try {
+<span class="nc" id="L24">				db.connect();</span>
+<span class="nc" id="L25">				conn = db.getConn();</span>
+<span class="nc" id="L26">				db.setStmt(conn.createStatement());</span>
+<span class="nc" id="L27">				stmt = db.getStmt();</span>
+<span class="nc" id="L28">				stmt.executeUpdate(sql);</span>
+<span class="nc" id="L29">			} catch (SQLException e) {</span>
+				// TODO Auto-generated catch block
+<span class="nc" id="L31">				System.out.println(&quot;Didn't insert....\n&quot; + sql);</span>
+				//e.printStackTrace();
+			}
+<span class="nc" id="L34">			db.shutdown();</span>
+<span class="nc" id="L35">		}</span>
+		
+		
+	//TODO: UPDATE ACCOUNT INFO
+		public  static void update() {
+<span class="nc" id="L40">			String sql = &quot;UPDATE ACCOUNTINFO set name='&quot;+name+&quot;', height_feet=&quot;+feet+&quot;, height_inches=&quot;+inches+&quot;, current_weight=&quot;+currentWeight+&quot;&quot;</span>
+<span class="nc" id="L41">						 + &quot;WHERE user_id=&quot;+users.userID;</span>
+			try {
+<span class="nc" id="L43">				db.connect();</span>
+<span class="nc" id="L44">				conn = db.getConn();</span>
+<span class="nc" id="L45">				db.setStmt(conn.createStatement());</span>
+<span class="nc" id="L46">				stmt = db.getStmt();</span>
+<span class="nc" id="L47">				stmt.executeUpdate(sql);</span>
+<span class="nc" id="L48">			} catch (SQLException e) {</span>
+				// TODO Auto-generated catch block
+<span class="nc" id="L50">				System.out.println(&quot;Didn't update....&quot;);</span>
+				//e.printStackTrace();
+			}
+<span class="nc" id="L53">			db.shutdown();</span>
+<span class="nc" id="L54">		}</span>
+
+	public static void get() {
+<span class="fc" id="L57">		String sql = &quot;SELECT name, height_feet, height_inches, current_weight FROM ACCOUNTINFO &quot; +</span>
+<span class="fc" id="L58">					&quot;WHERE user_id=&quot;+users.userID ;</span>
+		try {
+<span class="fc" id="L60">			db.connect();</span>
+<span class="fc" id="L61">			conn = db.getConn();</span>
+<span class="fc" id="L62">			db.setStmt(conn.createStatement());</span>
+<span class="fc" id="L63">			stmt = db.getStmt();</span>
+<span class="fc" id="L64">			ResultSet rs = stmt.executeQuery(sql);</span>
+			
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">			while(rs.next()) {</span>
+<span class="nc" id="L67">			name = rs.getString(&quot;name&quot;);</span>
+<span class="nc" id="L68">			feet = rs.getInt(&quot;height_feet&quot;);</span>
+<span class="nc" id="L69">			inches = rs.getInt(&quot;height_inches&quot;);</span>
+<span class="nc" id="L70">			currentWeight = rs.getDouble(&quot;current_weight&quot;);</span>
+			}
+<span class="fc" id="L72">			rs.close();</span>
+<span class="pc" id="L73">		} catch (SQLException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L75">			e.printStackTrace();</span>
+		}
+<span class="fc" id="L77">		db.shutdown();</span>
+<span class="fc" id="L78">	}</span>
+	
+		
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>Main (Dec 5, 2018 6:17:52 PM)</div></body></html>

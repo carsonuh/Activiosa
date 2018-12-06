@@ -4,51 +4,40 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+/*************************************************************************************************************
+ * This class extends the dbConnection class to connect to the AccountInfo Table in 
+ * the database
+ * 
+ * @author Carson Uecker-Herman
+ * @version 12/5/18
+ *
+ *************************************************************************************************************/
 public class accountInfo extends dbConnection {
 
-	dbConnection db = new dbConnection();
-	
+	   /** Database driver class that connections to the embedded database */
+	   static dbConnection db = new dbConnection();
+	   
+	   /** Name of user */
 	   protected static String name;
+	   
+	   /** Height in feet of user */
 	   protected static int feet;
+	   
+	   /** Height in inches of user */
 	   protected static int inches;
+	   
+	   /** Current weight of user */
 	   protected static double currentWeight;
 	   
-	   users user = new users();
-	   
-	   public void setName(String name) {
-		   this.name = name;
-	   }
-	   
-	   public String getName() {
-		   return name;
-	   }
-	   
-	   public void setFeet(int feet) {
-		   this.feet = feet;
-	   }
-	   
-	   public int getFeet() {
-		   return feet;
-	   }
-	   
-	   public void setInches(int inches) {
-		   this.inches = inches;
-	   }
-	   
-	   public int getInches() {
-		   return inches;
-	   }
-	   
-	   public void setCurrentWeight(double currentWeight) {
-		   this.currentWeight = currentWeight;
-	   }
-			   
-	   public double getCurrentWeight() {
-		   return currentWeight;
-	   }
-	//INSERT ACCOUNT INFO
-		public void insert(String name, int feet, int inches, double currentWeight) {
+		   
+	   /**********************************************************************************************************
+		* Inserts data into the accountInfo table in the database
+		* @param name name of user
+		* @param feet feet of user
+		* @param inches inches of user
+		* @param currentWeight current weight of user
+		**********************************************************************************************************/
+		public static void insert(String name, int feet, int inches, double currentWeight) {
 			
 			String sql = "INSERT INTO ACCOUNTINFO(user_id, name, height_feet, height_inches, current_weight)" +
 			"VALUES('"+users.userID+"', '"+name+"', '"+feet+"', '"+inches+"', '"+currentWeight+"')";
@@ -66,10 +55,11 @@ public class accountInfo extends dbConnection {
 			db.shutdown();
 		}
 		
-		
-	//TODO: UPDATE ACCOUNT INFO
-		public void update() {
-			String sql = "UPDATE ACCOUNTINFO set name='"+name+"', height_feet='"+feet+"', height_inches='"+inches+"', current_weight='"+currentWeight+"'"
+		/********************************************************************************************************
+		 * Updates the AccountInfo in the database with the values of the local variables if they have changed
+		 ********************************************************************************************************/
+		public  static void update() {
+			String sql = "UPDATE ACCOUNTINFO set name='"+name+"', height_feet="+feet+", height_inches="+inches+", current_weight="+currentWeight+""
 						 + "WHERE user_id="+users.userID;
 			try {
 				db.connect();
@@ -85,9 +75,12 @@ public class accountInfo extends dbConnection {
 			db.shutdown();
 		}
 
-	public void get() {
+	/***********************************************************************************************************
+	 * Retrieves the fields in AccountInfo table to local variables that can be used when called in the GUI
+	 ***********************************************************************************************************/
+	public static void get() {
 		String sql = "SELECT name, height_feet, height_inches, current_weight FROM ACCOUNTINFO " +
-					"WHERE id="+users.userID ;
+					"WHERE user_id="+users.userID ;
 		try {
 			db.connect();
 			conn = db.getConn();
@@ -96,10 +89,10 @@ public class accountInfo extends dbConnection {
 			ResultSet rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {
-			setName(rs.getString("name"));
-			setFeet(rs.getInt("height_feet"));
-			setInches(rs.getInt("height_inches"));
-			setCurrentWeight(rs.getDouble("current_weight"));
+			name = rs.getString("name");
+			feet = rs.getInt("height_feet");
+			inches = rs.getInt("height_inches");
+			currentWeight = rs.getDouble("current_weight");
 			}
 			rs.close();
 		} catch (SQLException e) {
@@ -108,5 +101,6 @@ public class accountInfo extends dbConnection {
 		}
 		db.shutdown();
 	}
+	
 		
 }

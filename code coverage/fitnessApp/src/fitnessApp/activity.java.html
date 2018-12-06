@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>activity.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Main (Dec 5, 2018 6:17:52 PM)</a> &gt; <a href="../../index.html" class="el_group">fitnessApp</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">fitnessApp</a> &gt; <span class="el_source">activity.java</span></div><h1>activity.java</h1><pre class="source lang-java linenums">package fitnessApp;
+
+import java.sql.SQLException;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
+import java.sql.Date;
+import java.sql.ResultSet;
+
+public class activity extends dbConnection {
+<span class="fc" id="L12">	static dbConnection db = new dbConnection();</span>
+	
+	protected static Date date;
+	protected static String type;
+	protected static Time duration;
+	protected static double distance;
+	protected static double calsBurned;
+<span class="fc" id="L19">	protected static Map&lt;String, Double&gt; weeklyData = new HashMap&lt;String, Double&gt;();</span>
+	
+	public static void setup() {
+<span class="fc" id="L22">		weeklyData.put(&quot;SUNDAY&quot;, null);</span>
+<span class="fc" id="L23">		weeklyData.put(&quot;MONDAY&quot;, null);</span>
+<span class="fc" id="L24">		weeklyData.put(&quot;TUESDAY&quot;, null);</span>
+<span class="fc" id="L25">		weeklyData.put(&quot;WEDNESDAY&quot;, null);</span>
+<span class="fc" id="L26">		weeklyData.put(&quot;THURSDAY&quot;, null);</span>
+<span class="fc" id="L27">		weeklyData.put(&quot;FRIDAY&quot;, null);</span>
+<span class="fc" id="L28">		weeklyData.put(&quot;SATURDAY&quot;, null);</span>
+<span class="fc" id="L29">	}</span>
+	
+<span class="fc" id="L31">	activity(){}</span>
+	
+	
+	//TODO insert
+	public static void insert(String date, String type, String duration, double distance, double calsBurned) {
+<span class="nc" id="L36">		String sql = &quot;INSERT INTO EXERCISE(user_id, date, type, duration, distance, cals_burned)&quot; +</span>
+<span class="nc" id="L37">				&quot; VALUES(&quot;+users.userID+&quot;, PARSEDATETIME('&quot;+date+&quot;','yyyy-MM-dd'), '&quot;+type+&quot;' , PARSEDATETIME('&quot;+duration+&quot;','HH:mm:ss')&quot;+&quot;, &quot;+distance+&quot;, &quot;+calsBurned+&quot;)&quot;;</span>
+		try {
+<span class="nc" id="L39">			db.connect();</span>
+<span class="nc" id="L40">			conn = db.getConn();</span>
+<span class="nc" id="L41">			db.setStmt(conn.createStatement());</span>
+<span class="nc" id="L42">			stmt = db.getStmt();</span>
+<span class="nc" id="L43">			stmt.executeUpdate(sql);</span>
+<span class="nc" id="L44">		} catch (SQLException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L46">			System.out.println(&quot;Didn't insert....\n&quot; + sql);</span>
+			
+			//e.printStackTrace();
+		}
+<span class="nc" id="L50">		db.shutdown();</span>
+<span class="nc" id="L51">	}</span>
+	
+	//TODO update
+	
+	//TODO get
+	public static void getWeek(String activity) {
+<span class="fc" id="L57">		String sql = &quot;SELECT distance, date FROM EXERCISE WHERE user_id=&quot;+users.userID </span>
+<span class="fc" id="L58">				+ &quot; AND type='&quot;+activity+&quot;'&quot;</span>
+<span class="fc" id="L59">				+ &quot; AND date BETWEEN '&quot;+DateMaker.weekStart()+&quot;' AND '&quot; + DateMaker.weekEnd()+&quot;'&quot;;</span>
+	
+		try {
+<span class="fc" id="L62">			db.connect();</span>
+<span class="fc" id="L63">			conn = db.getConn();</span>
+<span class="fc" id="L64">			db.setStmt(conn.createStatement());</span>
+<span class="fc" id="L65">			stmt = db.getStmt();</span>
+<span class="fc" id="L66">			ResultSet rs = stmt.executeQuery(sql);</span>
+<span class="fc" id="L67">			setup();</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">			while(rs.next()) {</span>
+<span class="nc" id="L69">			weeklyData.put(DateMaker.dayOfWeek(rs.getString(&quot;date&quot;)), rs.getDouble(&quot;distance&quot;));</span>
+			}
+<span class="fc" id="L71">			rs.close();</span>
+<span class="pc" id="L72">		} catch (SQLException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L74">			System.out.println(&quot;Could not insert....\n&quot; + sql);</span>
+			
+<span class="nc" id="L76">			e.printStackTrace();</span>
+		}
+<span class="fc" id="L78">		db.shutdown();</span>
+<span class="fc" id="L79">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span>Main (Dec 5, 2018 6:17:52 PM)</div></body></html>
