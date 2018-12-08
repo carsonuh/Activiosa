@@ -61,7 +61,7 @@ public class stepsTable extends dbConnection {
 	 ************************************************************************************************/
 	public static void insert(String date, int steps, int floors, double miles) {
 		String sql = "INSERT INTO STEPS(user_id, date, steps, floors, miles)" + 
-		"VALUES ('"+users.userID+"', PARSEDATETIME('"+date+"','yyyy-MM-dd')" +", " +steps+", "+floors+","+miles+")";
+		" VALUES ('"+users.userID+"', PARSEDATETIME('"+date+"','yyyy-MM-dd')" +", " +steps+", "+floors+","+miles+")";
 		try {
 			db.connect();
 			conn = db.getConn();
@@ -80,7 +80,7 @@ public class stepsTable extends dbConnection {
 	 ************************************************************************************************/
 	public static void update() {
 		String sql = "UPDATE steps SET steps="+steps+", floors="+floors+", miles="+milesWalked +
-				"WHERE user_id="+users.userID+"' AND date='"+DateMaker.ToSQLDate(DateMaker.Today())+"'";
+				" WHERE user_id="+users.userID+" AND date='"+DateMaker.ToSQLDate(DateMaker.Today())+"'";
 		try {
 			db.connect();
 			conn = db.getConn();

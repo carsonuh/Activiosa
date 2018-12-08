@@ -16,7 +16,7 @@ public class data {
 		active.get();
 		meals.get();
 		accountInfo.get();
-		weight.get();
+		
 	}
 	
 	/**

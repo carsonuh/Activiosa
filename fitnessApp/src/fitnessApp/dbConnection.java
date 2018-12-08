@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.h2.tools.Server;
+
 /*************************************************************************************************************
  * This class extends the dbConnection class to connect to the AccountInfo Table
  * in the database
@@ -25,7 +27,7 @@ public class dbConnection {
 	static final String JDBC_DRIVER = "org.h2.Driver";
 
 	/** URL to database */
-	static final String DB_URL = "jdbc:h2:~/fitnessDB";
+	static final String DB_URL = "jdbc:h2:~/fitnessDB;DB_CLOSE_ON_EXIT=TRUE;AUTO_SERVER=TRUE;";
 
 	/** username for the database login */
 	static final String USER = "root";
@@ -81,6 +83,10 @@ public class dbConnection {
 		this.stmt = stmt;
 	}
 
+	
+	
+
+	
 	/******************************************************************************************
 	 * Connects to the database using the Driver Class, URL, username, and password
 	 * @exception ClassNotFoundException JDBC Driver not found

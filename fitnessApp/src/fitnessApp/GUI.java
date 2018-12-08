@@ -6,8 +6,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.net.MalformedURLException;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -61,8 +63,11 @@ import javafx.stage.Stage;
  */
 public class GUI extends Application {
 	
+	weight w = new weight();
 	/** Main stage for GUI */
 	Stage window;
+	
+	static DecimalFormat df = new DecimalFormat("#0.00");
 	
 	/** Global Scenes */
 	private Scene mainScene, loginScene;
@@ -86,13 +91,16 @@ public class GUI extends Application {
 	private Button activityButton, weightButton, mealsButton, profileButton, runningButton, stepsButton, swimmingButton, bikingButton, homeButton, activityAddButton, weightAddButton, mealsAddButton;
 	
 	/** Global Labels */
-	protected static Label caloriesNum, breakfastCalNum, lunchCalNum, dinnerCalNum, snacksCalNum, stepsNum, calBurnedNum, activeMinsNum, stepsDistNum, stepsFloorsNum ;
+	protected static Label caloriesNum, breakfastCalNum, lunchCalNum, dinnerCalNum, snacksCalNum, stepsNum, calBurnedNum, activeMinsNum, stepsDistNum, stepsFloorsNum, bmiNum, bwpNum ;
 	
 	/** Modal Windows */
 	static Stage activityModal, weightModal, mealsModal;
 	
 	/** Current Layout Value */
 	private static String currentLayout;
+	
+	public Label currentWeightLbl;
+	GUI() {}
 
 	/****
 	 * Makes the GUI visible. All of the layouts are created in this method
@@ -303,7 +311,7 @@ public class GUI extends Application {
 		 activityRunningLayout = new VBox(5);
 		 activityRunningLayout.setId("activityRunningLayout");
 		 CategoryAxis xAxisRunning = new CategoryAxis();
-		 xAxisRunning.setLabel(DateMaker.weekRange()); 
+		  
 	        
 	      //Defining the y axis   
 	      NumberAxis yAxisRunning = new NumberAxis(0, 10, 2); 
@@ -311,9 +319,9 @@ public class GUI extends Application {
 	        
 	      //Creating the line chart 
 	      runningChart = new LineChart<String, Number>(xAxisRunning, yAxisRunning);  
-	      runningChart.setLegendVisible(false);
 	      //Prepare XYChart.Series objects by setting data 
 	      seriesRunning = new XYChart.Series(); 
+	      seriesRunning.setName(DateMaker.weekRange());
 	      activity.getWeek("Running");
 	      seriesRunning.getData().add(new XYChart.Data("SUN", activity.weeklyData.get("SUNDAY"))); 
 	      seriesRunning.getData().add(new XYChart.Data("MON", activity.weeklyData.get("MONDAY"))); 
@@ -343,17 +351,16 @@ public class GUI extends Application {
 		 // biking ------------------------------------------------------------
 		 activityBikingLayout = new VBox(5);
 		 xAxis = new CategoryAxis();
-	     xAxis.setLabel(DateMaker.weekRange()); 
 	        
 	      //Defining the y axis   
-	      yAxis = new NumberAxis   (0, 100, 10); 
+	      yAxis = new NumberAxis   (0, 50, 10); 
 	      yAxis.setLabel("Miles"); 
 	        
 	      //Creating the line chart 
 	      bikingChart = new LineChart<String, Number>(xAxis, yAxis);  
-	      bikingChart.setLegendVisible(false);
 	      //Prepare XYChart.Series objects by setting data 
 	      seriesBiking = new XYChart.Series(); 
+	      seriesBiking.setName(DateMaker.weekRange());
 	      
 	      activity.getWeek("Biking");
 	      seriesBiking.getData().add(new XYChart.Data("SUN", activity.weeklyData.get("SUNDAY"))); 
@@ -379,17 +386,16 @@ public class GUI extends Application {
 		 // swimming
 		 activitySwimmingLayout = new VBox(5);
 		 xAxis = new CategoryAxis();
-	     xAxis.setLabel(DateMaker.weekRange()); 
 	        
 	      //Defining the y axis   
-	      yAxis = new NumberAxis   (0, 100, 10); 
+	      yAxis = new NumberAxis   (0, 50, 10); 
 	      yAxis.setLabel("Miles"); 
 	        
 	      //Creating the line chart 
 	      swimmingChart = new LineChart<String, Number>(xAxis, yAxis);  
-	      swimmingChart.setLegendVisible(false);
 	      //Prepare XYChart.Series objects by setting data 
 	      seriesSwimming = new XYChart.Series(); 
+	      seriesSwimming.setName(DateMaker.weekRange());
 	      
 	      activity.getWeek("Swimming");
 	      seriesSwimming.getData().add(new XYChart.Data("SUN", activity.weeklyData.get("SUNDAY"))); 
@@ -462,7 +468,7 @@ public class GUI extends Application {
 			Label stepsDistImg = new Label();
 			stepsDistImg.setId("stepsDistImg");
 			stepsDistImg.getStyleClass().add("smallCircle");
-			stepsDistNum = new Label(stepsTable.milesWalked+"");
+			stepsDistNum = new Label(df.format(stepsTable.milesWalked));
 			stepsDistNum.getStyleClass().add("step-facts-num");
 			stepsDistNum.setAlignment(Pos.CENTER);
 			stepsDistNum.setId("stepsDistNum");
@@ -612,7 +618,7 @@ public class GUI extends Application {
 		//Weight Layout -------------------------------------------------------------------------------------
 		weightLayout = new BorderPane();
 		
-		weight.get();
+		w.get();
 		BorderPane weightTop = new BorderPane();
 		Label weightLbl = new Label("Weight");
 		weightLbl.setId("weightLbl");
@@ -627,7 +633,7 @@ public class GUI extends Application {
 			
 			BorderPane currentWeightLayout = new BorderPane();
 			currentWeightLayout.setId("currentWeightLayout");
-			Label currentWeightLbl = new Label(weight.weight+" lbs");
+			currentWeightLbl = new Label(w.getWeightDB()+" lbs");
 			currentWeightLbl.setId("currentWeightLbl");
 			currentWeightLbl.setTextAlignment(TextAlignment.CENTER);
 			weightAddButton = new Button();
@@ -640,26 +646,25 @@ public class GUI extends Application {
 			//graph
 			xAxis = new CategoryAxis();
 			
-		     xAxis.setLabel(DateMaker.weekRange()); 
 		        
 		      //Defining the y axis   
-		      yAxis = new NumberAxis   (0, 350, 75); 
+		      yAxis = new NumberAxis   (100, 300, 75); 
 		      yAxis.setLabel("Lbs"); 
 		        
 		      //Creating the line chart 
 		      LineChart<String,Number> weightChart = new LineChart<String, Number>(xAxis, yAxis);  
-		      weightChart.setLegendVisible(false);
 		      //Prepare XYChart.Series objects by setting data 
-		      seriesWeight = new XYChart.Series(); 
+		      seriesWeight = new XYChart.Series();
+		      seriesWeight.setName(DateMaker.weekRange());
 		      
-		      weight.getWeek();
-		      seriesWeight.getData().add(new XYChart.Data("SUN", weight.weeklyData.get("SUNDAY"))); 
-		      seriesWeight.getData().add(new XYChart.Data("MON", weight.weeklyData.get("MONDAY"))); 
-		      seriesWeight.getData().add(new XYChart.Data("TUE", weight.weeklyData.get("TUESDAY"))); 
-		      seriesWeight.getData().add(new XYChart.Data("WED", weight.weeklyData.get("WEDNESDAY"))); 
-		      seriesWeight.getData().add(new XYChart.Data("THU", weight.weeklyData.get("THURSDAY"))); 
-		      seriesWeight.getData().add(new XYChart.Data("FRI", weight.weeklyData.get("FRIDAY"))); 
-		      seriesWeight.getData().add(new XYChart.Data("SAT", weight.weeklyData.get("SATURDAY")));
+		      w.getWeek();
+		      seriesWeight.getData().add(new XYChart.Data("SUN", w.weeklyData.get("SUNDAY"))); 
+		      seriesWeight.getData().add(new XYChart.Data("MON", w.weeklyData.get("MONDAY"))); 
+		      seriesWeight.getData().add(new XYChart.Data("TUE", w.weeklyData.get("TUESDAY"))); 
+		      seriesWeight.getData().add(new XYChart.Data("WED", w.weeklyData.get("WEDNESDAY"))); 
+		      seriesWeight.getData().add(new XYChart.Data("THU", w.weeklyData.get("THURSDAY"))); 
+		      seriesWeight.getData().add(new XYChart.Data("FRI", w.weeklyData.get("FRIDAY"))); 
+		      seriesWeight.getData().add(new XYChart.Data("SAT", w.weeklyData.get("SATURDAY")));
 		           
 		      //Setting the data to Line chart    
 		      weightChart.getData().add(seriesWeight);        
@@ -671,14 +676,14 @@ public class GUI extends Application {
 		      HBox weightFacts = new HBox(0);
 		      Label bmiText = new Label("BMI: ");
 		      bmiText.getStyleClass().add("weight-facts-text");
-		      Label bmiNum = new Label(weight.bmi+"");
+		      bmiNum = new Label(df.format(w.getBmi())+"");
 		      bmiNum.setId("bmiNum");
 		      bmiNum.getStyleClass().add("weight-facts-num");
 		     
 		      
 		      Label bwpText = new Label("BWP: ");
 		      bwpText.getStyleClass().add("weight-facts-text");
-		      Label bwpNum = new Label(weight.bwp+"");
+		      bwpNum = new Label(df.format(w.getBwp())+"%");
 		      bwpNum.getStyleClass().add("weight-facts-num");
 		      weightFacts.getChildren().addAll(bmiText, bmiNum, bwpText, bwpNum);
 		      weightFacts.setAlignment(Pos.CENTER);
@@ -769,6 +774,10 @@ public class GUI extends Application {
 
 		public void actions() {
 			
+		controlsLayout.setOnMouseClicked(e-> {
+			data.update();
+			data.get();
+		});
 
 			mealsButton.setOnAction(e -> {
 				meals.get();
@@ -776,16 +785,29 @@ public class GUI extends Application {
 			});
 			
 			weightButton.setOnAction(e -> {
-				weight.get();
+				w.get();
+				w.update();
+				currentWeightLbl.setText(w.getWeight()+" Lbs");
+				bmiNum.setText(df.format(w.getBmi()));
+				bwpNum.setText(df.format(w.getBwp()));
 				mainLayout.setCenter(weightLayout);
 			});
 			
 			activityButton.setOnAction(e -> {
+				stepsTable.update();
 				stepsTable.get();
 				mainLayout.setCenter(activityLayout);
 				stepsButton.requestFocus();
 			});
-			homeButton.setOnAction(e -> mainLayout.setCenter(homeLayout));
+			homeButton.setOnAction(e -> {
+			stepsTable.update();
+			stepsTable.get();
+			stepsNum.setText(stepsTable.steps+"");
+			calBurnedNum.setText(active.calsBurned+"");
+			stepsDistNum.setText(df.format(stepsTable.milesWalked));
+			activeMinsNum.setText(active.minutes+"");
+			mainLayout.setCenter(homeLayout);
+			});
 			
 			activityAddButton.setOnAction(e -> {
 		        activityModal.sizeToScene();
@@ -917,7 +939,7 @@ class activityDialog extends Stage {
         saveActivity.setOnAction(e -> {
         	
         	if(activityList.getValue() == "Steps") {
-        		 stepsTable.insert(DateMaker.ToSQLDate(date.getValue()), Integer.parseInt(distance.getText()), 0, Double.parseDouble(calsburned.getText()));
+        		 stepsTable.insert(DateMaker.ToSQLDate(date.getValue()), Integer.parseInt(distance.getText()), (Integer.parseInt(distance.getText()) / 5000), (Double.parseDouble(distance.getText()) / 2000));
         		 
         		 stepsTable.getWeek();
         		 GUI.seriesSteps.getData().add(new XYChart.Data("SUN", GUI.stepsPerThousand(stepsTable.weeklySteps.get("SUNDAY")))); 
@@ -931,11 +953,10 @@ class activityDialog extends Stage {
         		 
         		
         		 GUI.activityLayout.setCenter(GUI.activityStepsLayout);
-        		 stepsTable.milesWalked += Double.parseDouble(distance.getText()) / 2000;
-        		 stepsTable.update();
-        		 active.floors = Integer.parseInt(distance.getText()) / 5000;
-        		 active.update();
+        		 stepsTable.get();
+        		
         		 GUI.stepsFloorsNum.setText(active.floors+"");
+        		 GUI.stepsNum.setText(stepsTable.steps+"");
         		 
         		 close();
         	}
@@ -995,13 +1016,11 @@ class activityDialog extends Stage {
         	}
         	
         	close();
+        	 active.minutes += 1;
         	active.calsBurned += Integer.parseInt(calsburned.getText());
-        	try {
-				active.minutes += DateMaker.numOfMinutes(duration.getText());
-			} catch (ParseException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+        	
+        	active.insert(DateMaker.ToSQLDate(date.getValue()), active.minutes, active.calsBurned);
+        	
         	active.update();
         	GUI.calBurnedNum.setText(active.calsBurned+"");
         	GUI.activeMinsNum.setText(active.minutes+"");
@@ -1038,8 +1057,9 @@ class activityDialog extends Stage {
  *
  */
 class weightDialog extends Stage {
-	
+	weight w = new weight();
 	@SuppressWarnings("unchecked")
+	GUI gui = new GUI();
 	public weightDialog(Stage owner) {
     	
         super();
@@ -1085,24 +1105,38 @@ class weightDialog extends Stage {
         root.getChildren().addAll(gridpane);
         
         save.setOnAction(e -> {
-        	weight.insertWeight(DateMaker.ToSQLDate(date.getValue()), Double.parseDouble(weightNum.getText()));
         	
-        	  weight.getWeek();
-		      GUI.seriesWeight.getData().add(new XYChart.Data("SUN", weight.weeklyData.get("SUNDAY"))); 
-		      GUI.seriesWeight.getData().add(new XYChart.Data("MON", weight.weeklyData.get("MONDAY"))); 
-		      GUI.seriesWeight.getData().add(new XYChart.Data("TUE", weight.weeklyData.get("TUESDAY"))); 
-		      GUI.seriesWeight.getData().add(new XYChart.Data("WED", weight.weeklyData.get("WEDNESDAY"))); 
-		      GUI.seriesWeight.getData().add(new XYChart.Data("THU", weight.weeklyData.get("THURSDAY"))); 
-		      GUI.seriesWeight.getData().add(new XYChart.Data("FRI", weight.weeklyData.get("FRIDAY"))); 
-		      GUI.seriesWeight.getData().add(new XYChart.Data("SAT", weight.weeklyData.get("SATURDAY")));
+        	
+        	
+					w.insertWeight(DateMaker.ToSQLDate(date.getValue()), Double.parseDouble(weightNum.getText()));
+					
+		
+        	
+        	
+        	
+        	  w.getWeek();
+		      GUI.seriesWeight.getData().add(new XYChart.Data("SUN", w.weeklyData.get("SUNDAY"))); 
+		      GUI.seriesWeight.getData().add(new XYChart.Data("MON", w.weeklyData.get("MONDAY"))); 
+		      GUI.seriesWeight.getData().add(new XYChart.Data("TUE", w.weeklyData.get("TUESDAY"))); 
+		      GUI.seriesWeight.getData().add(new XYChart.Data("WED", w.weeklyData.get("WEDNESDAY"))); 
+		      GUI.seriesWeight.getData().add(new XYChart.Data("THU", w.weeklyData.get("THURSDAY"))); 
+		      GUI.seriesWeight.getData().add(new XYChart.Data("FRI", w.weeklyData.get("FRIDAY"))); 
+		      GUI.seriesWeight.getData().add(new XYChart.Data("SAT", w.weeklyData.get("SATURDAY")));
 		      GUI.weightChart.getData().add(GUI.seriesWeight);
         
-		      weight.get();
-		      accountInfo.get();
 		      GUI.mainLayout.setCenter(GUI.weightLayout);
+		      accountInfo.get();
+		      w.get();
+		      w.update();
+		    
+		      GUI.bmiNum.setText(GUI.df.format(w.getBmi())+"");
+		      GUI.bwpNum.setText(GUI.df.format(w.getBwp()+"%"));
+		      gui.currentWeightLbl.setText(w.getWeight()+"");
+		     
+		      
 		      close();
         });
-        
+        close();
         try {
 			scene.getStylesheets().add(new File("src/fitnessApp/main.css").toURI().toURL().toString());
 		} catch (MalformedURLException e1) {

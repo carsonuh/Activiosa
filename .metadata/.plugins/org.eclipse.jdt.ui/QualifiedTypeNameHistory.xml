@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.security.MessageDigest"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
-<fullyQualifiedTypeName name="fitnessApp.dbConnection"/>
 <fullyQualifiedTypeName name="javafx.application.Application"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.HBox"/>
 <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
@@ -56,4 +55,9 @@
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="javafx.scene.control.PasswordField"/>
 <fullyQualifiedTypeName name="java.awt.Dialog"/>
+<fullyQualifiedTypeName name="fitnessApp.accountInfo"/>
+<fullyQualifiedTypeName name="fitnessApp.dbConnection"/>
+<fullyQualifiedTypeName name="org.h2.tools.Server"/>
+<fullyQualifiedTypeName name="java.text.DecimalFormat"/>
+<fullyQualifiedTypeName name="fitnessApp.GUI"/>
 </qualifiedTypeNameHistroy>

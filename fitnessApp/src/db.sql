@@ -1,3 +1,5 @@
+SET MODE MySQL
+
 CREATE TABLE USERS (
 id int auto_increment primary key not null,
 username varchar(50) not null,
@@ -20,6 +22,7 @@ user_id int not null,
 date date not null,
 weight decimal not null,
 bmi decimal not null,
+bwp decimal not null,
 foreign key(user_id) references USERS(id) ON DELETE CASCADE
 );
 
@@ -79,9 +82,10 @@ AND WorkDate <  dateadd(day, 8-datepart(dw, getdate()), CONVERT(date,getdate()))
 SELECT distance, date FROM EXERCISE WHERE user_id=1 AND type='Running' 
 AND date BETWEEN '2018-12-02' AND '2018-12-08'
 
-DELETE FROM MEALS;
+DELETE FROM ACTIVE;
 DELETE FROM EXERCISE WHERE type='Running';
 
 UPDATE ACCOUNTINFO SET name='Carson Uecker-Herman', height_feet=5, height_inches=8 WHERE user_id=1;
-SELECT * FROM ACCOUNTINFO;
-
+SELECT * FROM WEIGHT;
+ALTER TABLE WEIGHT DROP Constraint d 
+SELECT * FROM WEIGHT WHERE user_id=1 AND date='2018-12-7'

@@ -67,7 +67,7 @@ public class meals extends dbConnection{
 	 ********************************************************************************************************************/
 	public static void update() {
 		String sql = "UPDATE meals SET breakfast="+breakfastCals+", lunch="+lunchCals+", dinner="+dinnerCals +
-				", snacks="+snackCals + "WHERE user_id="+users.userID+" AND date='"+DateMaker.ToSQLDate(DateMaker.Today())+"'";
+				", snacks="+snackCals + " WHERE user_id="+users.userID+" AND date='"+DateMaker.ToSQLDate(DateMaker.Today())+"'";
 		try {
 			db.connect();
 			conn = db.getConn();
@@ -91,7 +91,6 @@ public class meals extends dbConnection{
 			conn = db.getConn();
 			db.setStmt(conn.createStatement());
 			stmt = db.getStmt();
-			stmt.executeUpdate(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			if(rs.next()) {
 				exists = true;
