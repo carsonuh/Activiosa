@@ -1,4 +1,4 @@
-package fitnessApp;
+package calculations;
 /**********************************************************************
  * This class adds together the user's input of calories.
  * 

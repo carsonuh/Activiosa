@@ -1,4 +1,4 @@
-package fitnessApp;
+package calculations;
 
 /**********************************************************************
  * This class calculates the body mass index (BMI).
@@ -33,35 +33,6 @@ public class BmiCalc {
 	double bmi_i;
 	
 	/******************************************************************
-	 * This method is the constructor for the entire BmiCalc class.
-	 * 
-	 * @param w_kg
-	 * 			This is the weight given (in kilograms).
-	 * @param h_m
-	 * 			This is the height given (in meters).
-	 * @param w_lbs
-	 * 			This is the weight given (in pounds).
-	 * @param h_ft
-	 * 			This is the height given (in feet).
-	 * @param h_in
-	 * 			This is the height given (in inches).
-	 * @param bmi_m
-	 * 			The BMI result for metric calculations.
-	 * @param bmi_i
-	 * 			The BMI result for imperial calculations.
-	 *****************************************************************/
-	public BmiCalc(double w_kg, double h_m, double w_lbs, double h_ft, 
-			double h_in, double bmi_m, double bmi_i) {
-		this.w_kg = w_kg;
-		this.h_m = h_m;
-		this.w_lbs = w_lbs;
-		this.h_ft = h_ft;
-		this.h_in = h_in;
-		this.bmi_m = bmi_m;
-		this.bmi_i = bmi_i;
-	}
-	
-	/******************************************************************
 	 * This method is the constructor for the metric variables of the
 	 * BmiCalc class.
 	 * 
@@ -72,13 +43,10 @@ public class BmiCalc {
 	 * @param bmi_m
 	 * 			The BMI result for metric calculations.
 	 *****************************************************************/
-	public BmiCalc(double w_kg, double h_m, double bmi_m, double m) {
-		super();
+	public BmiCalc(double w_kg, double h_m) {
 		this.w_kg = w_kg;
 		this.h_m = h_m;
-		this.bmi_m = bmi_m;
 	}
-
 
 	/******************************************************************
 	 * This method is the constructor for the imperial variables of the
@@ -94,7 +62,6 @@ public class BmiCalc {
 	 * 			The BMI result for imperial calculations.
 	 *****************************************************************/
 	public BmiCalc(double w_lbs, double h_ft, double h_in) {
-		super();
 		this.w_lbs = w_lbs;
 		this.h_ft = h_ft;
 		this.h_in = h_in;
@@ -273,13 +240,13 @@ public class BmiCalc {
 	 * 
 	 * The imperial formula for calculating BMI is:
 	 * 
-	 * BMI = weight(lbs) / (height^2(in^2) * 703)
+	 * BMI = weight(lbs) * 703 / (height^2(in^2))
 	 * 
 	 * @return bmi_i
 	 * 			The BMI result for imperial calculations.
 	 *****************************************************************/
 	public double bmiImperial() {
-		bmi_i = (w_lbs / (Math.pow(feetToInches(h_ft, h_in), 2))) * 703;
+		bmi_i = w_lbs * 703 / (Math.pow(feetToInches(h_ft, h_in), 2));
 		return bmi_i;
 	}
 }

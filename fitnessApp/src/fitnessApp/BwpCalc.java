@@ -1,4 +1,4 @@
-package fitnessApp;
+package calculations;
 
 
 /**********************************************************************
@@ -52,7 +52,7 @@ public class BwpCalc {
 	 * @param i
 	 * 			The initial weight given.
 	 *****************************************************************/
-	public void setInitial(double i) {
+	public void setInitial(int i) {
 		this.i = i;
 	}
 
@@ -71,7 +71,7 @@ public class BwpCalc {
 	 * @param c
 	 * 			The current weight given.
 	 *****************************************************************/
-	public void setCurrent(double c) {
+	public void setCurrent(int c) {
 		this.c = c;
 	}
 
@@ -120,9 +120,5 @@ public class BwpCalc {
 			return p + 100;
 		else
 			return p;
-		
 	}
-
-	
 }
-
